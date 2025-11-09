@@ -12,7 +12,9 @@ Layered-security with Zero-trust GateKeeper following NIST framework and CIA Tri
 ## Description
 mini scratch simple personal project that focus on range of web, mobile, data security, ai. implementation with modern tech-stacks (front-end, back-end, api, database, etc.). Covers broad focus on architecture and engineering process.
 
-## Features
+## Establish Scope
+List of follow up Questions?
+1. What are specific Features?
 - app: lifelog - notes - highblood pressure logs - sugar level logs - password keeper - and many more templates
 - sec: encrypt/decrypt - masking - tokenization options for sensitive data (password keeper)
 - ai: animation button - train on test data - ml - nlp
@@ -22,6 +24,20 @@ mini scratch simple personal project that focus on range of web, mobile, data se
 - template: itenirary/tour/trip planner + leeway + notification
 - template: table sheet (listing, drag&drop items, highlight row or column) it has filter/sort feature a-z/0-9 
 - template: carnet notebook (routine, daily sheets, weekly, monthly sheet, goals, budget planner, expenses tracker,
-
 - Technologies in mind: react (web/mobile), sprint boot (backend), rust (security), ai (python), analytics (vue.js), cloud infra (aws/gcp)
-- 
+
+2. How many users?
+3. What are the anticipated scales in 1 month, 3 or 6 months?
+4. What are the company technology stack?
+
+## Frame high-lvl blueprint
+1. Key components in box diagram
+2. How large the problem space?
+
+## Dig into Details
+1. deep dive into system components (eg. hash fuction, reduce latency..)
+2. Focus on bottlenecks & resource estimation
+
+## Recap / Refinements
+1. Errors Logs
+2. Monitor metrics
