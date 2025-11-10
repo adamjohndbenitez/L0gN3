@@ -57,4 +57,24 @@ Then user interface (UI) — final visuals, style guides, and prototypes (e.g., 
 
 Should happen in parallel or right after system design, so front-end dev knows what to build.
 
+to-dos:
+Define UX goals and explain its quality components. 
+
+Explain the UX process. 
+
+Evaluate interactive designs and create a modern user interface. 
+
+
+Identify applications of UI designs. 
+
+
+Create a Figma account. 
+
+Identify how to use user interviews and observations. 
+
+Explore a customer journey map. 
+
+Identify tools in user research. 
+
+Describe the role of user research tools in the empathize stage.
 
