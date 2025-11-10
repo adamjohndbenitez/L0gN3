@@ -12,6 +12,9 @@ Layered-security with Zero-trust GateKeeper following NIST framework and CIA Tri
 ## Description
 mini scratch simple personal project that focus on range of web, mobile, data security, ai. implementation with modern tech-stacks (front-end, back-end, api, database, etc.). Covers broad focus on architecture and engineering process.
 
+## User Requirements and Business Goals
+A user will be able to login and log into his life log app. This app targets the end users log whether it is for personal notes, action required check list, keeping passwords in a safe place like a securing it in vault, and also targets health care data like high blood pressure hypertension logging, or sugar level glucose monitoring, daily intake of maintenance medicine (notification). As well as logging personal budgets and expenses tracking. It helps the user to work on his sensitive data, help monitor health, and help track finances. These are the main temples of this life log app.
+
 ---
 # System design and Architecture 
 
