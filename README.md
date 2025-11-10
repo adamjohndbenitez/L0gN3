@@ -82,7 +82,8 @@ Design wireframes using Figma.
 
 Define usability testing. 
 
-Describe the different types of usability testing. 
+Describe the different types of usability testing.
+ They are learnability - easy to learn from the first time they do it, efficiency -  users want to change their order? Is it easy to do, and can they do it quickly and efficiently?, memorability -  Is it easy to remember where they were when they return? How quickly can they find where they were?, errors -  What if a user makes a mistake? The design should provide solutions to these mistakes and address ther before they happen., and satisfaction -  Is the website pleasant or satisfying to use? Do users enjoy using it?.
 
 Recognize how to use and  images, colors and shapes. 
 
