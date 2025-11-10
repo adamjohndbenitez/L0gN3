@@ -70,6 +70,36 @@ Identify applications of UI designs.
 
 Create a Figma account. 
 
+Explore how to use the layers panel in Figma. 
+
+Identify how to duplicate, scale, group and align elements. 
+
+Create a responsive grid system. 
+
+Describe the concepts of wireframing. 
+
+Design wireframes using Figma. 
+
+Define usability testing. 
+
+Describe the different types of usability testing. 
+
+Recognize how to use and  images, colors and shapes. 
+
+Explain the role of images, colors and shapes in design. 
+
+Name and explain what design systems and UI kits are. 
+
+Differentiate between design systems and UI kits. 
+
+Explain best practice design for design systems and UI kits. 
+
+Explain what atomic design is. 
+
+Create interactive prototypes using high-fidelity designs. 
+
+Describe how these prototypes are animated and shared.
+
 Identify how to use user interviews and observations. 
 
 Explore a customer journey map. 
@@ -77,4 +107,24 @@ Explore a customer journey map.
 Identify tools in user research. 
 
 Describe the role of user research tools in the empathize stage.
+
+Describe and Explain how the evaluation methodologies can be applied to improve your designs. 
+
+Create a paper prototype wireframe. 
+
+Design a prototype for a new table reservation flow in Figma. 
+
+Write a test script based on your wireframe and prototype.
+
+Explain the importance of good form design. 
+
+Implement best practices to strengthen form design. 
+
+Evaluate a website. 
+
+Use evaluation methods and interface guidelines. 
+
+Evaluate your content and structure based on usability. 
+
+Explain navigation best practices. 
 
