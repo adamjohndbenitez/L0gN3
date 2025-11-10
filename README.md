@@ -50,5 +50,11 @@ List of follow up Questions?
 
 ---
 # UX / UI Design 
+Focus on user experience (UX) flow first — wireframes, mockups, user journeys.
+(How should users interact with it?)
+
+Then user interface (UI) — final visuals, style guides, and prototypes (e.g., Figma).
+
+Should happen in parallel or right after system design, so front-end dev knows what to build.
 
 
