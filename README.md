@@ -12,6 +12,9 @@ Layered-security with Zero-trust GateKeeper following NIST framework and CIA Tri
 ## Description
 mini scratch simple personal project that focus on range of web, mobile, data security, ai. implementation with modern tech-stacks (front-end, back-end, api, database, etc.). Covers broad focus on architecture and engineering process.
 
+---
+# System design and Architecture 
+
 ## Establish Scope
 List of follow up Questions?
 1. What are specific Features?
@@ -41,3 +44,8 @@ List of follow up Questions?
 ## Recap / Refinements
 1. Errors Logs
 2. Monitor metrics
+
+---
+# UX / UI Design 
+
+
