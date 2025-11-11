@@ -36,17 +36,20 @@ List of follow up Questions?
 3. What are the anticipated scales in 1 month, 3 or 6 months?
 4. What are the company technology stack?
 
-## Frame high-lvl blueprint
+## Frame high-lvl blueprint system design
 1. Key components in box diagram
 2. How large the problem space?
 
-## Dig into Details
+## Dive Deep & Dig Deep into Details
 1. deep dive into system components (eg. hash fuction, reduce latency..)
 2. Focus on bottlenecks & resource estimation
 
 ## Recap / Refinements
-1. Errors Logs
-2. Monitor metrics
+1. Bottlenecks 
+2. Potential Improvements
+3. Errors cases (server failure, network logs)
+4. Monitor metrics
+5. Next scale curve
 
 ---
 # UX / UI Design 
