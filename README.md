@@ -30,6 +30,7 @@ List of follow up Questions?
 - template: itenirary/tour/trip planner + leeway + notification
 - template: table sheet (listing, drag&drop items, highlight row or column) it has filter/sort feature a-z/0-9 
 - template: carnet notebook (routine, daily sheets, weekly, monthly sheet, goals, budget planner, expenses tracker,
+- template: a student may want to practice exam and quizzes. a template in mind that can input question and answer, format would be multiple choices (a,b,c,d) or a identification exam.
 - Technologies in mind: react (web/mobile), sprint boot (backend), rust (security), ai (python), analytics (vue.js), cloud infra (aws/gcp)
 
 2. How many users?
