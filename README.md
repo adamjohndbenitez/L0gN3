@@ -10,10 +10,10 @@ Layered-security with Zero-trust GateKeeper following NIST framework and CIA Tri
 <img width="1024" height="1024" alt="ChatGPT Image Oct 24, 2025, 07_11_58 AM" src="https://github.com/user-attachments/assets/5b0069d2-7783-448a-8d88-e223b9b33388" />
 
 ## Description
-mini scratch simple personal project that focus on range of web, mobile, data security, ai. implementation with modern tech-stacks (front-end, back-end, api, database, etc.). Covers broad focus on architecture and engineering process.
+mini scratch simple personal project that focus on range of web, mobile, data security, ai. implementation with modern tech-stacks (front-end, back-end, api, database, etc.). Covers broad focus on architecture and holistic engineering process. This maybe my forever project.
 
 ## User Requirements and Business Goals
-A user will be able to login and log into his life log app. This app targets the end users log whether it is for personal notes, action required check list, keeping passwords in a safe place like a securing it in vault, and also targets health care data like high blood pressure hypertension logging, or sugar level glucose monitoring, daily intake of maintenance medicine (notification). As well as logging personal budgets and expenses tracking. It helps the user to work on his sensitive data, help monitor health, and help track finances. These are the main temples of this life log app.
+A user will be able to login and log into his life log app. This app targets the end users log whether it is for personal notes, action required check list, keeping passwords in a safe place like a securing it in vault, and also targets health care data like high blood pressure hypertension logging, or sugar level glucose monitoring, daily intake of maintenance medicine (notification). As well as logging personal budgets and expenses tracking. It helps the user to secure and protect his sensitive data, help monitor health, and help track finances. These are the (3) main temples of this life log app. And building more templates.
 
 ---
 # System design and Architecture 
