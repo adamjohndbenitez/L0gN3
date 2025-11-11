@@ -43,7 +43,7 @@ A _quiz_ is a short, informal assessment of a specific, recent topic, while a _t
 1. Key components in box diagram
 2. How large the problem space?
 
-## Dive Deep & Dig Deep into Details
+## Delve Deeper into Details
 1. deep dive into system components (eg. hash fuction, reduce latency..)
 2. Focus on bottlenecks & resource estimation
 
