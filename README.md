@@ -32,7 +32,7 @@ List of follow up Questions?
 - template: carnet notebook (routine, daily sheets, weekly, monthly sheet, goals, budget planner, expenses tracker,
 - template: a student may want to practice exam and quizzes. a template in mind that can input question and answer, format would be multiple choices (a,b,c,d) or a identification exam.
 Notes: 
-A *quiz* is a short, informal assessment of a specific, recent topic, while a *test* is a more comprehensive and formal evaluation of a larger unit or chapter. An *exam* is the most formal and significant assessment, typically covering all or a major portion of the course material for a final grade. Essentially, it’s a hierarchy of formality and scope, with quiz < test < exam. 
+A _quiz_ is a short, informal assessment of a specific, recent topic, while a _test_ is a more comprehensive and formal evaluation of a larger unit or chapter. An _exam_ is the most formal and significant assessment, typically covering all or a major portion of the course material for a final grade. Essentially, it’s a hierarchy of formality and scope, with quiz < test < exam. 
 - Technologies in mind: react (web/mobile), sprint boot (backend), rust (security), ai (python), analytics (vue.js), cloud infra (aws/gcp)
 
 2. How many users?
