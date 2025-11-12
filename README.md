@@ -128,7 +128,7 @@ Explain the importance of good form design.
 
 Implement best practices to strengthen form design. 
 
-Evaluate a website. 
+Evaluate a website. Using Heuristic Template - https://docs.google.com/spreadsheets/d/17GiH2JGvLvAzpF6gTgZwYG4hIKfhfYsQxfxCceuLna4/edit?gid=472742844#gid=472742844
 
 Use evaluation methods and interface guidelines. 
 
