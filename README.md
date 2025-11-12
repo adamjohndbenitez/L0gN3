@@ -5,7 +5,7 @@ Log - /lôɡ,läɡ/
 Entry - /ˈentrē/
 
 ## Meaning of Abbreviation
-<u>L</u> ayered-security with ++(0)++ Zero-trust ++G++ ateKeeper following ++N++ IST framework and ++(3)++ CIA Triad principles.
+**L** ayered-security with **(0)** Zero-trust **G** ateKeeper following **N** IST framework and **(3)** CIA Triad principles.
 The project is mainly data security first approach.
 
 <img width="1024" height="1024" alt="ChatGPT Image Oct 24, 2025, 07_11_58 AM" src="https://github.com/user-attachments/assets/5b0069d2-7783-448a-8d88-e223b9b33388" />
