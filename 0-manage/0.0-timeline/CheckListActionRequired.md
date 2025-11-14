@@ -1,3 +1,19 @@
+* [ ] Take Coursera Foundations of Project to know more of project management and apply it here.
+   - [ ] Project mgmnt fundamentals
+   - [ ] Goals, objectives and deliverables
+   - [ ] Risk management
+   - [ ] ~~Team~~ Dynamics
+   - [ ] Proj mgmnt methodologies
+      * [ ] Agile
+      * [ ] Scrum
+      * [ ] Waterfall
+   - [ ] data-driven decision making
+   - [ ] tools
+      * [ ] Kanban
+      * [ ] Asana
+
+
+---
 - [ ] Task item 1
     * [ ] Another task
       - [x] Completed task item
