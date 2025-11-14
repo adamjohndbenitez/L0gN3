@@ -26,4 +26,6 @@ eg. "stealthy footsteps"
 secrecy - the action of keeping something secret or the state of being kept secret.
 "the bidding is conducted in secrecy"
 
+## AI
 Artelligent  -
+
