@@ -3,6 +3,17 @@
 ## Main Application
 - LifeLog: application already existing https://www.lifelog.se/#avreg
 
+research: __word for personal notes, checklists, password keeper, health record of blood pressure and glucose monitoring daily, for budgeting expenses savings__
+The system for managing all these types of information is generally called a personal organizer, a personal information management (PIM) system, or a life management system. 
+Specific terms also apply to certain aspects:
+Personal Organizer: A very common term, typically referring to a physical book or a general-purpose app used to plan activities, keep notes, and track various aspects of life.
+Personal Knowledge Management (PKM) system: A term used in digital contexts for methods and tools used to organize information one learns and experiences, which can include notes and checklists.
+Health Journal / Health Record Keeper: These terms specifically describe a system focused on monitoring health vitals, symptoms, and medical information.
+Budget Planner / Expense Tracker: These terms refer to tools focused on managing income, expenses, savings, and debt.
+Password Keeper / Password Manager: This is the specific word for a tool designed to store usernames, passwords, and other sensitive login credentials securely. 
+Given the comprehensive list of functions, the most encompassing terms are personal organizer or personal information management system.
+
+
 ## Cybersecurity - "stealthagon" does not correspond to a widely-recognized term, name, or product in the provided search results.
 
 - Stealthy: (frm Google) stealth·y  /ˈstelTHē/  adjective  defn: behaving, done, or made in a cautious and surreptitious manner, so as not to be seen or heard.
