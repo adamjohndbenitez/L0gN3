@@ -3,7 +3,7 @@
 ## Main Application
 - LifeLog: application already existing https://www.lifelog.se/#avreg
 
-research: __word for personal notes, checklists, password keeper, health record of blood pressure and glucose monitoring daily, for budgeting expenses savings__
+research: _word for personal notes, checklists, password keeper, health record of blood pressure and glucose monitoring daily, for budgeting expenses savings_
 The system for managing all these types of information is generally called a personal organizer, a personal information management (PIM) system, or a life management system. 
 Specific terms also apply to certain aspects:
 Personal Organizer: A very common term, typically referring to a physical book or a general-purpose app used to plan activities, keep notes, and track various aspects of life.
