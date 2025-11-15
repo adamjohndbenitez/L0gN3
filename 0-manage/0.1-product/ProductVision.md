@@ -1,7 +1,7 @@
 # Product Name Proposals:
 
 ## Main Application
-- LifeLog
+- LifeLog: application already existing https://www.lifelog.se/#avreg
 
 ## Cybersecurity - "stealthagon" does not correspond to a widely-recognized term, name, or product in the provided search results.
 
