@@ -1,10 +1,7 @@
 # Product Name Proposals:
 
-## Main Application - "Lifemanlog" is likely a creative or unconventional username, typo, or a specific niche term, as it does not appear to have a standard, widely recognized meaning in common English usage or as a specific product/service. 
-Search results related to this term are primarily associated with:
-Usernames or Social Media Handles: The term appears in social media comments and posts, likely as part of a username or a direct address to another user, often in contexts like "Get a life man. Log out...".
-Stock Image Descriptions: Search engines also interpret the phrase as "man log," leading to results for stock photos of men sitting in or by log cabins. 
-Without more context or a specific question about what "lifemanlog" refers to, a precise definition or purpose cannot be provided.
+## Main Application - "Lifemanlog" is likely a creative or unconventional username, typo, or a specific niche term, as it does not appear to have a standard, widely recognized meaning in common English usage or as a specific product/service. Search results related to this term are primarily associated with:
+Usernames or Social Media Handles: The term appears in social media comments and posts, likely as part of a username or a direct address to another user, often in contexts like "Get a life man. Log out...". Stock Image Descriptions: Search engines also interpret the phrase as "man log," leading to results for stock photos of men sitting in or by log cabins. Without more context or a specific question about what "lifemanlog" refers to, a precise definition or purpose cannot be provided.
 
 - LifeLog: application already existing https://www.lifelog.se/#avreg
 
