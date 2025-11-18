@@ -1,5 +1,39 @@
 # Additional resources
 
+The following resources are additional reading materials that introduce you to what UX design is, what the UX design process is, user research and personas. It furthermore introduces you to user stories, scenarios and storyboarding. These will add to the knowledge that you've gained in this lesson. 
+
+## UX
+[An explanation of UX design](https://maze.co/collections/ux-ui-design/what-is-ux/)
+
+[The UX design process](https://xd.adobe.com/ideas/guides/ux-design-process-steps/)
+
+## User Research
+[An article on why user research forms a critical part of the design process](https://www.interaction-design.org/literature/topics/user-research)
+
+[Nielsen Norman Group’s list of user research tips](https://www.nngroup.com/articles/ux-research-cheat-sheet/)
+
+## Personas
+[Articles and video guide to creating personas](https://uxpressia.com/blog/how-to-create-persona-guide-examples)
+
+[Articles guide to creating personas](https://www.uxmatters.com/mt/archives/2019/09/crafting-winning-personas.php)
+
+## User stories
+[How to write user stories](https://www.uxbooth.com/articles/user-stories-a-foundation-for-ui-design/)
+
+[The difference between user stories and use cases](https://uxmag.com/articles/user-stories-vs-use-cases-how-they-stack-up)
+
+## Scenarios
+[Why you need scenarios](https://uxplanet.org/everyone-needs-scenarios-51ae92651b64)
+
+[Two part article which offers a firm understanding of the concept of Scenarios (Part 1)](https://www.coursera.org/learn/principles-of-ux-ui-design/supplement/Qzn5L/additional-resources#:~:text=Two%20part%20article%20which%20offers%20a%20firm%20understanding%20of%20the%20concept%20of%20Scenarios%20(Part%201))
+
+[Two part article which offers a firm understanding of the concept of Scenarios (Part 2)](https://www.uxforthemasses.com/scenarios-part-two/)
+
+## Storyboarding
+[Storyboards in website design](https://www.studiobinder.com/blog/storyboard-website-design/)
+
+---
+
 The following resources are additional reading materials that introduce you to designing for accessibility, usability, Dieter Ram’s 10 Good Design principles, Ben Schneiderman’s 8 Golden rules and Jakob Nielsen’s heuristic evaluation method. These will add to the knowledge that you’ve gained in this lesson.
 
 ## Design tips & methods
