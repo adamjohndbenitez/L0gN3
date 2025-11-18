@@ -34,6 +34,20 @@ The following resources are additional reading materials that introduce you to w
 
 ---
 
+The following resources are additional reading materials that introduce you to UI design principles, digital design and how it differs from graphic design and the discipline of UI design. These will add to the knowledge that you’ve gained in this lesson.
+
+## UI
+[UI design principles and tips for creating great UI](UI design principles and tips for creating great UI)
+
+[A comprehensive guide to the discipline of UI design](https://www.interaction-design.org/literature/topics/ui-design)
+
+## User research
+[UI at its worst, an amusing but infuriating example of UI design .. Worth a look!](https://userinyerface.com/)
+
+[A description on what Is UI Design](https://xd.adobe.com/ideas/process/ui-design/)
+
+---
+
 The following resources are additional reading materials that introduce you to designing for accessibility, usability, Dieter Ram’s 10 Good Design principles, Ben Schneiderman’s 8 Golden rules and Jakob Nielsen’s heuristic evaluation method. These will add to the knowledge that you’ve gained in this lesson.
 
 ## Design tips & methods
