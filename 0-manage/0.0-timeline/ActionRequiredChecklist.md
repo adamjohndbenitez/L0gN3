@@ -1,3 +1,9 @@
+- [ ] UXUI: Back read additional reading materials.
+   * [ ] Do some evaulation when ui wireframes/prototypes screens are made.
+
+      
+
+---
 * [ ] Take Coursera Foundations of Project to know more of project management and apply it here.
    - [ ] Project mgmnt fundamentals
    - [ ] Goals, objectives and deliverables
@@ -22,3 +28,5 @@
 - [x] Review team's progress
 - [ ] Prepare presentation slides
 - [ ] Schedule client meeting
+
+
