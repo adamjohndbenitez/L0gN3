@@ -1,0 +1,48 @@
+Prompt:
+When you create a file in github without a file extension,
+Does the file have a default file extension it assign to?
+
+ChatGPT:
+Short answer: **No. GitHub does not automatically assign a default file extension.**
+
+Here’s what actually happens:
+
+### ✅ When you create a file on GitHub with **no extension**:
+
+* GitHub will create it **exactly as you name it**.
+* If you name a file `example`, it becomes a file literally called `example`—no `.txt`, no `.md`, nothing.
+* GitHub does **not infer or add** an extension.
+* The file will be treated as a **plain text file** when viewed in the UI, unless its contents match a known format (e.g., JSON), in which case GitHub might apply syntax highlighting—but **the filename remains extensionless**.
+
+### Examples
+
+| File name you create | Actual stored file name | GitHub adds extension? |
+| -------------------- | ----------------------- | ---------------------- |
+| `readme`             | `readme`                | ❌ No                   |
+| `config`             | `config`                | ❌ No                   |
+| `deploy`             | `deploy`                | ❌ No                   |
+
+### How GitHub decides syntax highlighting
+
+If the file has **no extension**, GitHub attempts to guess the language using:
+
+* the file contents
+* the GitHub Linguist library
+
+…but **this does not change the filename**.
+
+### Summary
+
+* GitHub never assigns a default extension.
+* A file with no extension stays that way.
+* Syntax highlighting may occur, but doesn’t create an extension.
+
+If you want the file treated as a specific type, you must explicitly add the extension yourself (e.g., `.txt`, `.md`, `.sh`, etc.).
+
+---
+
+If you want, I can also explain:
+
+* how Git treats extensionless files
+* how to enforce syntax highlighting with GitHub’s "magic comments"
+* best practices for naming files in repos
