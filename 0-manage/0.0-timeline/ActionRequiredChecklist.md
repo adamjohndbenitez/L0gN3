@@ -1,9 +1,15 @@
+- [ ] Calendar
+  * [ ] Screenshot a calendar
+  * [ ] Start weekly sprint planning
+  * [ ] 
+
 - [ ] UXUI: Back read additional reading materials.
-   * [ ] Do some evaulation when ui wireframes/prototypes screens are made.
+   * [ ] During testing in UXUI - Do some evaulation when ui wireframes/prototypes screens are made.
 
       
 
 ---
+Eg.1:
 * [ ] Take Coursera Foundations of Project to know more of project management and apply it here.
    - [ ] Project mgmnt fundamentals
    - [ ] Goals, objectives and deliverables
@@ -20,6 +26,7 @@
 
 
 ---
+Eg.2:
 - [ ] Task item 1
     * [ ] Another task
       - [x] Completed task item
