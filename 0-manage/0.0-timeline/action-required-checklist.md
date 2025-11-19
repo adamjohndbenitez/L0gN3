@@ -6,8 +6,9 @@
 - [ ] Calendar
   * [ ] Use Calendar app
   * [ ] Put work done
+  * [x] create a folder weekly Sprint
   * [ ] Screenshot at the end of the week (filename format: <week#_of_the_month>-<month>-<monday>-<friday>.png, eg. week1-nov-3-7.png)
-    - [ ] "sprint1-week1-nov-3-7.png" is first sprint
+    - [x] "sprint1-week1-nov-3-7.png" is first sprint
     - [ ] "sprint2-week2-nov-10-14.png" is 2nd
     - [ ] "sprint3-week3-nov-17-21.png" is 3rd
     - [ ] "sprint4-week4-nov-24-28.png" is 4th
@@ -18,7 +19,7 @@
     - [ ] "sprint9-week1-dec29-jan2.png" is the 9th sprint and 1st week between dec29 and jan2
        
 
-  * [ ] create a folder weekly Sprint
+
 
 - [ ] UXUI: Back read additional reading materials.
    * [ ] During testing in UXUI - Do some evaulation when ui wireframes/prototypes screens are made.
