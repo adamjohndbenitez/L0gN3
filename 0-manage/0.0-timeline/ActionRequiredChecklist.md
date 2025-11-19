@@ -1,7 +1,10 @@
+- [ ] Create a file naming convention on every software processes folders
+https://github.com/adamjohndbenitez/L0gN3/tree/main/0-manage
 - [ ] Calendar
-  * [ ] Screenshot a calendar
-  * [ ] Start weekly sprint planning
-  * [ ] 
+  * [ ] Use Calendar app
+  * [ ] Put work done
+  * [ ] Screenshot at the end of the week (filename: month-week#-mon-fri)
+  * [ ] create a folder weekly Sprint
 
 - [ ] UXUI: Back read additional reading materials.
    * [ ] During testing in UXUI - Do some evaulation when ui wireframes/prototypes screens are made.
