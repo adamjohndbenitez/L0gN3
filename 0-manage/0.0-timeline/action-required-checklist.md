@@ -7,9 +7,9 @@
   * [ ] Use Calendar app
   * [ ] Put work done
   * [x] create a folder weekly Sprint
-  * [ ] Screenshot at the end of the week (filename format: <week#_of_the_month>-<month>-<monday>-<friday>.png, eg. week1-nov-3-7.png)
-    - [x] "sprint1-week1-nov-3-7.png" is first sprint
-    - [ ] "sprint2-week2-nov-10-14.png" is 2nd
+  * [ ] Screenshot at the end of the week (filename format: <week#_of_the_month>-<month>-<monday>-<friday>.png, eg. week1-nov-3-7.png)  (need recall)
+    - [x] "sprint1-week1-nov-3-7.png" is first sprint (need recall)
+    - [ ] "sprint2-week2-nov-10-14.png" is 2nd  (need recall)
     - [ ] "sprint3-week3-nov-17-21.png" is 3rd
     - [ ] "sprint4-week4-nov-24-28.png" is 4th
     - [ ] "sprint5-week1-dec-1-5.png" is 5th sprint and 1st week of dec
