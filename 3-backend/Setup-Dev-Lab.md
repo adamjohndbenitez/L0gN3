@@ -308,22 +308,32 @@ project
 |-- .mvn
 |   |-- jvm.config
 |   `-- maven.config
-|-- pom.xml
-`-- src
-    |-- main
-    |   |-- java
+|-- pom.xml                      <--8- The pom.xml file is an important part of the Maven project. It defines project details, such as the group ID and artifact ID lists dependencies, and specifies build configuration. Understanding this structure helps in managing code, organizing files, and collaborating with others. Once the project structure is understood, the next step is to add the required dependencies. Open the pom.xml file and include the necessary Spring libraries. These dependencies provide essential features for building a Spring application.
+`-- src                          <--1- The src directory is divided into main and test.
+    |-- main                     <--2- The main folder contains the application's main source code and resources,
+    |   |-- java                 <--4- Inside src/main/java, all Java source files are placed, including configuration classes, service components, and controllers for web applications.
     |   |   `-- $package
     |   |       `-- App.java
-    |   `-- resources
+    |   `-- resources            <--5- The src/main/resources folder stores configuration files, static assets such as HTML, and CSS and templates for web applications.
     |       `-- $package
-    `-- test
-        `-- java
-            `-- $package
-                `-- AppTest.java
+    `-- test                     <--3- while the test folder holds test-related files.
+        |-- java                 <--6- The src/test/java folder is used for writing test cases, such as unit tests and integration tests, using testing frameworks such as JUnit. 
+        |   `-- $package
+        |        `-- AppTest.java
+         `-- resources           <--7- The src/test/resources folder contains additional resources needed during testing, such as configuration files and mock data.
+             `-- $package
 ```
-The src directory is divided into main and test. The main folder contains the application's main source code and resources, while the test folder holds test-related files. Inside src/main/java, all Java source files are placed, including configuration classes, service components, and controllers for web applications. 
+    
+
+Once the project structure is understood, the next step is to add the required dependencies. Open the pom.xml file and include the necessary Spring libraries. These dependencies provide essential features for building a Spring application.   
+Then, run mvn clean install in your terminal to download the dependencies. 
 
 
-The src/main/resources folder stores configuration files, static assets such as HTML, and CSS and templates for web applications. The src/test/java folder is used for writing test cases, such as unit tests and integration tests, using testing frameworks such as JUnit. 
-The src/test/resources folder contains additional resources needed during testing, such as configuration files and mock data. The pom.xml file is an important part of the Maven project. It defines project details, such as the group ID and artifact ID lists dependencies, and specifies build configuration. Understanding this structure helps in managing code, organizing files, and collaborating with others. Once the project structure is understood, the next step is to add the required dependencies. Open the pom.xml file and include the necessary Spring libraries. These dependencies provide essential features for building a Spring application. 
-Then, run mvn clean install in your terminal to download the dependencies. After setting up dependencies, the next step is to create a basic Spring application. This involves defining a configuration class, a simple bean, and a main application class. Inside the src/main/java/com/example directory, create a class and annotate it with @Configuration. This class defines a bean using the @Bean annotation, which allows Spring to manage and create instances of the bean. Write a 
+# create a basic Spring application
+After setting up dependencies, the next step is to create a basic Spring application. 
+This involves defining a 1. configuration class, 2. a simple bean, and 3. a main application class. 
+Inside the src/main/java/com/example directory, create a class and annotate it with @Configuration. This class defines a bean using the @Bean annotation, which allows Spring to manage and create instances of the bean. 
+      
+
+
+Write a separate Java class that represents a Spring bean. This class contains a method that performs basic operations, such as printing a message to the console. 
