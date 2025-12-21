@@ -1,3 +1,9 @@
+#### Table of Contents
+*   [Introduction](#introduction)
+*   [Require vs Import Usages](#require-vs-import-usages)
+
+
+## Introduction
 Node.js is a runtime environment that can run server-side JavaScript applications, 
 while Express is a server-side JavaScript web framework that runs on top of Node.js 
 in which to write your applications.
@@ -75,7 +81,91 @@ Node and Express in the IDE:
 Express.js is a framework that helps you build Node.js applications. 
 
 
+---
+
+## Require vs Import Usages
+
+explain what a module is, 
+explain what a module specification is, 
+explain the purpose of import and require statements, and 
+differentiate between import and require statements. 
+
+In Node.js, modules are files containing related, encapsulated JavaScript code that serve a specific purpose. 
+
+**Modules** can be a single file or a collection of multiple files and folders. Developers rely heavily on modules because of their reusability as well as their ability to break down complex code into manageable chunks. 
+
+When an external application needs to use the code contained in a module the application needs to call that module. When the external application calls a module, the module is called using an `import()` or a `require()` statement. 
+Which statement is needed depends on the module specification. 
+
+about module specifications:
+A directory with one or more modules bundled together is called a package. Module specifications are the conventions and standards used to create packages in JavaScript code for Node.js applications.
+The most commonly used module specifications for Node.js applications are:
+1. CommonJS and
+2. ES modules.
+
+differences between CommonJS and ES modules. 
+By default, Node.js treats JavaScript code as a CommonJS module. 
+Library authors can easily enable ES modules in a Node.js package by simply changing the package file extension from dot j-s to dot m-j-s. 
+```mermaid
+block-beta
+  columns 3
+  
+  CommonJS space:1 ES 
+  packagename.js right<[" "]>(right) packagename.mjs
+
+```
+
+CommonJS modules use the require() statement to import modules whereas ES modules use the import() function. When a module is needed outside of its own file it must be exported first. The module.exports statement should be used with CommonJS. Modules can be exported to an ES specification using the “export” keyword. 
+
+|  | CommonJS | ES |
+|:--------:|:--------:|:--------:|
+| import a module | required() | import() |
+| export from a module | module.exports | export |
 
 
+Differences between require and import within the application code:
+The require statement can be called anywhere in the file whereas 
+the import statement must be called at the beginning of the file. Since the require statement can be called from anywhere, this means that it can be called within conditional statements and functions, but import cannot. This may sound like an advantage of require but note that the require statement is bound dynamically whereas import is bound statically. This means errors that occur when linking the function definition to the function call will not be identified until run-time. For Import, binding errors are identified at Compile time. Require modules are synchronous in nature and modules imported with import are asynchronous. Synchronous means the modules will be loaded and processed in a linear fashion, one at a time. 
+Asynchronous means the modules can be processed simultaneously. Import runs faster compared to require functions in large-scale applications which involve loading hundreds of modules. 
+
+| CommonJS | ES |
+|:--------:|:--------:|
+| can be called anywhere in the code | can be called at th beginning of the file |
+| can be called within conditionals and functions | cannot be called within conditionals or functions |
+| Dynamic | Static |
+| Binding errors not identified until run-time | Binding errors identified at compile-time
+| Synchronous | Asynchronous |
+
+
+Sample code that shows how to export and import using require and import. Recall that the require statement is used with CommonJS applications. 
+
+This code snippet will show how to export from a file named message dot j-s. We use module dot exports to export the string “Hello programmers” from the message dot j-s module. 
+```javascript
+//export from a file name message.js
+module.exports = 'Hello Programmers';
+```
+Next, to import the message dot j-s module into the main application, we use the require statement. In this code the result of require is assigned to the let m-s-g, then the variable is logged in the console. 
+```javascript
+//import from the message.js file
+let msg = require('./message.js');
+console.log(msg);
+```
+
+
+Now, let’s look at code that exports an ES module from a file named module dot m-j-s. This code names a constant ‘a’ and sets the constant equal to 1. Next, the export statement is used. Note the use of the curly brackets. A is renamed to my value. 
+```javascript
+//import from file named module.mjs
+const a = 1;
+export { a as "myalue" };
+```
+
+Finally, we look at code to import an ES module using import. 
+Simply use the import keyword. We are importing my value from the module.mjs file. 
+```javascript
+//import from  module.mjs
+import { myvalue } from module.mjs;
+```
+
+In this video, you learned that a module is a file containing related JavaScript functions that serves a specific purpose. Module specifications are conventions and standards used to create packages in JavaScript code. import and require statements are used to call a module or a package into an external application. The require statement can be called from anywhere in the app code, is bound dynamically, and is synchronous, and the import statement can only be called at the beginning of a file, is bound statically, and is asynchronous. 
 
 
