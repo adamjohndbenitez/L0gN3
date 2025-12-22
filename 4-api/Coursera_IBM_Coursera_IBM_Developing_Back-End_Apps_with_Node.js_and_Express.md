@@ -1,7 +1,9 @@
 #### Table of Contents
-*   [Introduction](#introduction)
-*   [Require vs Import Usages](#require-vs-import-usages)
-*   [Server-Side Javascript](#server-side-javascript)
+1.   [Introduction](#introduction)
+2.   [Require vs Import Usages](#require-vs-import-usages)
+3.   [Server-Side Javascript](#server-side-javascript)
+4.   [Create Web Server with Node.js](#web-server-with-node-js)
+5.   [Working with Node.js Modules](#working-with-node-js-modules)
 
 
 ## Introduction
@@ -213,3 +215,117 @@ in the final step, instead of invoking an Enterprise Java application, the Node.
 
 
 This code written in JavaScript runs on the server, and not in the client's web browser. In this video, you learned that: Node.js is a server-side programming framework that uses JavaScript as its programming language. With server-side JavaScript, Node.js applications process and route web service requests from the client and Node.js is for developers who want to build scalable, concurrent server applications quickly with a minimal set of tools. 
+
+
+
+--
+
+## Creating Web Server with Node.js. 
+
+Describe the characteristics of Node.js and 
+write a simple web server with Node.js. 
+
+Node.js is a server-side programming framework that uses JavaScript as its programming language. Many developers are already familiar with the JavaScript language. 
+ - It is built with a heavy emphasis on concurrent programming with a lightweight language.
+ - it is a single-threaded application environment that handles input/output (I/O) operations through events. 
+ - write callback functions to handle results when they complete. Instead of blocking on asynchronous I/O operations.
+
+
+Node.js is suited for developers who want to build **scalable** and **concurrent** server applications by using features like callback functions and the Node.JS runtime event loop. These features of the JavaScript language and the Node.js runtime _enable quick development with a minimal set of tools_. 
+
+Every JavaScript file is a module in Node.js. 
+
+A module corresponds to a script file. 
+
+A package can contain one or more nodes. 
+
+The Node.js runtime is packaged with many utility modules that you can use to create and extend your applications. With the HTTP Node.js module, you can develop an application that listens to HTTP requests and returns HTTP response messages. 
+
+To create an instance of a web server, use the HTTP.createServer function. The web server is stored in a variable called "server." The createServer function takes in an optional callback function as a parameter. This callback function handles the incoming request message and provides an appropriate response message. The callback function shown here is anonymous. 
+```javascript
+let server = http.createServer(function(request, response) {
+    let body = "Hello World!";
+    response.writeHead(200, {
+        'Content-Length':body.length,
+        'Content-Type':'text/plain'
+    });
+    response.end(body);
+});
+server.listen(8080);
+```
+After you create an instance of the server object, you can set the server to listen to a specific port; for example, call the HTTP.listen function with a parameter of 8080 as the port to set the server to listen on 8080. 
+
+
+- Node.js is a single-threaded application environment that handles I/O operations through events.
+- Every JavaScript file is a module in Node.js.
+- With the HTTP Node.js module, you can develop an application that listens to HTTP requests and returns HTTP response messages. 
+
+
+
+---
+
+## Working with Node.js Modules. 
+
+- Describe Node.js packages.
+- Import Node.js modules into your script.
+- Export functions and properties from a module, and
+- access exported properties from a module.
+
+A package consists of one or more modules. The package.json file describes details about a Node.js module. If a module does not have a package.json file, Node.js assumes that the main class is named index.js. 
+index.js
+```json
+{
+    "name": "mod_today",
+    "version": "1.0.0",
+    "main": "./lib/today",
+    "license": "Apache-2.0"
+}
+```
+
+To specify a different main script for your module, specify a relative path to the Node.js script from the module directory. This is an example of a package.json file. The name and version fields form a unique identifier for the module; for example, today-1.0.0. The main field lists a path to the main Node.js script; in this example, the today.js script in the lib subdirectory. Package.json defines many other fields. For example, license states the module's usage rights. 
+
+
+You can use the require function to import a Node.js module. The require statement assumes that scripts have a file extension of .js. The require function creates an object that represents the imported Node.js module. In this example, a Node,js script file that is named today.js is in the same directory as your application. When you call require with the name of a subdirectory, Node.js looks for a script file with the same name as the subdirectory. If the script file does not exist, the function assumes that the name is the name of a directory and looks for a script named index.js within that directory. 
+```javascript
+let today = require('./today');
+```
+
+
+To import a Node.js module that consists of a single script, use the require function with a relative path to the script file. In this example, the main application is in the Node.js script file. Hello.js makes a require function call to the today.js script file. 
+```mermaid
+flowchart TD
+    today.js -- require('./today') --> hello.js
+```
+
+This example uses the same hello.js Node.js file. The Node.js module is saved in a directory named mod_today. The actual script file is saved in index.js. When hello.js makes a call to the require function in the mod_today directory, the script file checks whether there is a file named index.js. This is the default name for a script in a Node.js module. 
+```mermaid
+flowchart TD
+    /mod_today/index.js -- require('./mod_today') --> hello.js
+```
+
+Each Node.js module has an implicit exports object. 
+To make a function or a value available to Node.js applications that import your module, add a property to exports. In this example, the dayOfWeek property is added to the exports object. Then, dayOfWeek is assigned an anonymous function that returns the day of the week. For example, if the dayOfWeek function returns 1, this value maps to Monday. 
+index.js
+```javascript
+let date = new Date();
+
+let days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+
+exports.dayOfWeek = function () {
+    returns days[date.getDay() - 1];
+};
+```
+
+When you import a Node.js module, the require function returns a JavaScript object that represents an instance of the module. For example, the today variable is an instance of the today Node.js module that is called "today." 
+```javascript
+let today = require('./mod_today');
+```
+
+To access the properties of the module, retrieve the property from the variable. 
+In the same example, today.dayOfWeek represents the current exported property from the today Node.js module. 
+```javascript
+console.log("Happy %s!", today.dayOfWeek() );
+```
+
+
+In this video, you learned that: Every package has a package.json file that describes details about a Node.js module. To make a function or a value available to Node.js applications that import your module, add a property to the implicit exports object and when you import a Node.js module, the require function returns a JavaScript object that represents an instance of the module. 
