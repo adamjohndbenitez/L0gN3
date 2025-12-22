@@ -1,6 +1,7 @@
 #### Table of Contents
 *   [Introduction](#introduction)
 *   [Require vs Import Usages](#require-vs-import-usages)
+*   [Server-Side Javascript](#server-side-javascript)
 
 
 ## Introduction
@@ -169,3 +170,46 @@ import { myvalue } from module.mjs;
 In this video, you learned that a module is a file containing related JavaScript functions that serves a specific purpose. Module specifications are conventions and standards used to create packages in JavaScript code. import and require statements are used to call a module or a package into an external application. The require statement can be called from anywhere in the app code, is bound dynamically, and is synchronous, and the import statement can only be called at the beginning of a file, is bound statically, and is asynchronous. 
 
 
+--
+
+## Server-Side JavaScript
+
+purpose of the Node.js JavaScript framework and 
+differences between client-side JavaScript and server-side JavaScript. 
+
+JavaScript is one of the main languages used in the World Wide Web. It was originally built to add dynamic behavior to static websites on clients where there were primarily browsers. JavaScript is an interpreted language. You do not need to compile JavaScript applications before running them. Although the language syntax resembles Java, it is not derived from the Java programming language. 
+JavaScript can now be run on different servers and embedded systems and all modern web browsers support JavaScript. 
+
+Developers build responsive, interactive web applications with 
+* hypertext markup language (HTML),
+* cascading style sheets (CSS), and
+* JavaScript.
+
+With a text editor and a web browser, you can quickly write, test, and debug JavaScript applications. 
+
+
+With client-side JavaScript, developers create rich, interactive web applications in the web browser. In step 
+1. the user interface is rendered using HTML and CSS.
+2. When the user selects an option in the web page, it triggers business logic written as a JavaScript application.
+3. The JavaScript application sends a web service request using JavaScript Object Notation (JSON) over hypertext transfer protocol (HTTP).
+4. On the server, a Representational State Transfer (REST) web service intercepts the call. This service traditionally would be written in Java, PHP: Hypertext Preprocessor (PHP), or another backend language.
+5. In the last step, the application server processes the web service request using a server-side application such as Enterprise Java components and returns to the client.
+```mermaid
+sequenceDiagram
+    autonumber
+    Web_Browser ->> Business_Logic: displays webpage
+    Business_Logic ->> JSON_HTTP: triggers business logic written in .js app
+    JSON_HTTP ->> REST_Service: .js app sends api request in json via http
+    REST_Service ->> App_Server_Enterprise_Java : app server, typically java, but could be PHP or other backend language like python or go.
+    App_Server_Enterprise_Java ->> Web_Browser: app server processes the web service request then returns a response to the client.
+```
+
+With server-side JavaScript, Node.js applications process, and route web service requests from the client. Compare the following diagram with the one in the previous slide. Most of the steps are identical. 
+In step 1, the user selects an option in the user interface, which is written in HTML and CSS. 
+In step 2, the option triggers a JavaScript application that implements the business logic on the client-side. 
+In step 3, the JavaScript application makes a web service call over HTTP with a data payload written in JSON. 
+In step 4, a REST web service intercepts the HTTP request and 
+in the final step, instead of invoking an Enterprise Java application, the Node.js server hosts an application written in the JavaScript language. 
+
+
+This code written in JavaScript runs on the server, and not in the client's web browser. In this video, you learned that: Node.js is a server-side programming framework that uses JavaScript as its programming language. With server-side JavaScript, Node.js applications process and route web service requests from the client and Node.js is for developers who want to build scalable, concurrent server applications quickly with a minimal set of tools. 
