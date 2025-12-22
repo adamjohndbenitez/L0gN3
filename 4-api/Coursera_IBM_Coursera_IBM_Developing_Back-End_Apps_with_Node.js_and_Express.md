@@ -2,8 +2,8 @@
 1.   [Introduction](#introduction)
 2.   [Require vs Import Usages](#require-vs-import-usages)
 3.   [Server-Side Javascript](#server-side-javascript)
-4.   [Create Web Server with Node.js](#web-server-with-node-js)
-5.   [Working with Node.js Modules](#working-with-node-js-modules)
+4.   [Create Web Server with Node.js](#web-server-with-nodejs)
+5.   [Working with Node.js Modules](#working-with-nodejs-modules)
 
 
 ## Introduction
