@@ -220,7 +220,7 @@ This code written in JavaScript runs on the server, and not in the client's web 
 
 --
 
-## Creating Web Server with Node.js. 
+## Create Web Server with Node.js
 
 Describe the characteristics of Node.js and 
 write a simple web server with Node.js. 
@@ -264,7 +264,7 @@ After you create an instance of the server object, you can set the server to lis
 
 ---
 
-## Working with Node.js Modules. 
+## Working with Node.js Modules
 
 - Describe Node.js packages.
 - Import Node.js modules into your script.
