@@ -462,7 +462,7 @@ const ItemModel = require("../models/Item");
 
 So Mongoose is a database abstraction that we are using here and it connects to MongoDB, and just makes it a little bit easier to deal with the data that's stored in MongoDB.
 workspace/shopper/server/models/Item.js:1
-```
+```javascript
 const mongoose = require('mongoose');
 ```
 
