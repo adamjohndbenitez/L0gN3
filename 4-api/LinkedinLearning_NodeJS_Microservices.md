@@ -3,12 +3,12 @@
 2. [Prepare Your Development Environment](#prepare-your-development-environment)
      - [Installing Git, Node.js, and Docker](#installing-git-nodejs-and-docker)
      - [Getting the exercise files from GitHub](#getting-the-exercise-files-from-github)
-     - [Setting up Visual Studio Code, ESLint, and Prettier](setting-up-visual-studio-code-eslint-and-prettier)
-     - [Launching MongoDB, Redis, and Jaeger in Docker](launching-mongodb-redis-and-jaeger-in-docker)
-     - [Installing MongoDB Compass](installing-mongodb-compass)
-3. [Planning Your Miscroservice Migration](planning-your-miscroservice-migration)
-     - [Setting up and exploring your sample application](setting-up-and-exploring-your-sample-application)
-     - [Understanding the sample apps code](understanding-the-sample-apps-code)
+     - [Setting up Visual Studio Code, ESLint, and Prettier](#setting-up-visual-studio-code-eslint-and-prettier)
+     - [Launching MongoDB, Redis, and Jaeger in Docker](#launching-mongodb-redis-and-jaeger-in-docker)
+     - [Installing MongoDB Compass](#installing-mongodb-compass)
+3. [Planning Your Miscroservice Migration](#planning-your-miscroservice-migration)
+     - [Setting up and exploring your sample application](#setting-up-and-exploring-your-sample-application)
+     - [Understanding the sample apps code](#understanding-the-sample-apps-code)
 
 ## Introduction
 
