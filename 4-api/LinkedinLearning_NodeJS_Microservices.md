@@ -1,14 +1,16 @@
 #### Table of Contents
-1. [Introduction](#introduction)
-2. [Prepare Your Development Environment](#prepare-your-development-environment)
+0. [Introduction](#introduction)
+1. [Prepare Your Development Environment](#prepare-your-development-environment)
      - [Installing Git, Node.js, and Docker](#installing-git-nodejs-and-docker)
      - [Getting the exercise files from GitHub](#getting-the-exercise-files-from-github)
      - [Setting up Visual Studio Code, ESLint, and Prettier](#setting-up-visual-studio-code-eslint-and-prettier)
      - [Launching MongoDB, Redis, and Jaeger in Docker](#launching-mongodb-redis-and-jaeger-in-docker)
      - [Installing MongoDB Compass](#installing-mongodb-compass)
-3. [Planning Your Miscroservice Migration](#planning-your-miscroservice-migration)
+2. [Planning Your Miscroservice Migration](#planning-your-miscroservice-migration)
      - [Setting up and exploring your sample application](#setting-up-and-exploring-your-sample-application)
      - [Understanding the sample apps code](#understanding-the-sample-apps-code)
+     - [Getting insights with OpenTelemetry and Jaeger](#getting-insights-with-opentelemetry-and-jaeger)
+     - [Mission Summary](#mission-summary)
 
 ## Introduction
 
@@ -180,9 +182,103 @@ We need to install one more thing, and that's MongoDB Compass. MongoDB Compass i
 ## Planning Your Miscroservice Migration
 
 ### Setting up and exploring your sample application
-we will set up our sample application that we will use as a starting point. When we look at the directory structure, you see that there is a __resources__ directory with some _helpers_. I will refer to them throughout the course. And then there is a folder called __workspace__. So in this folder, we will be working. There is also a folder __microservices__, which is empty at this point. And there is this __shopper__ application. So, the first thing I will do is I will `cd` into workspace and shopper. And as for any Node.js application, the very first thing is that I run `npm install`. Because there you see we have this package.json file with all the dependencies. We have a Redis client, MongoDB is loaded, a lot of stuff. And also OpenTelemetry, we will talk about this a little bit later. 
+Here’s a clean, simplified, and GitHub-friendly version of your paragraph, rewritten for clarity and learning notes. I’ve broken it into short sections, used plain language, and kept it easy to scan in Markdown.
 
-One important thing in this file is that, as you see here, we are using NodeMon. NodeMon is a little tool that restarts your application whenever you do a change. So during development, that's very helpful because you don't have to constantly reload your Node.js application. So into now use NodeMon. To start the application, I simply run `npm run dev`. And as you see, it says it's connected to Redis, connected to MongoDB, and the application is also listening on port 3000. With that, we have a working application. And the next thing I will do is I head into my browser, and I open localhost on port 3000 to see what is there. And you see it's a very simple application. There is not much right now, an empty shopping page. You can log in. And then there is some user management, and we will use that to create the user right away. So I create the user `test@test.com`. I give the user some `password`. Also click this button, set as admin. So in a regular application, obviously you would not want the user management to be accessible when you're not logged in. This is just here now for development purposes because somehow you have to create this admin user. So I will do this right now. And when you do this, please remember the user and the password that you created because we will need to log in later then as well. So I click submit and we have a new user. I can log in with this user. So enter test.com and enter the password and then I log in. As you see now, I have now more menu items up there. I can manage items, means I can create new items. I can manage orders, but right now we have no orders. Well, it's a shop and it's a little bit of a pity that it's empty, right? We should populate it now with some sample items. And for that, we will head into MongoDB Compass and I click the refresh button up here. And now you see that the dropper database shows up. And I open it and I head into items. And there you see this green button, Add Data. And there I select Import JSON or CSV file. And then I select from my Node microservices directory, in the resources directory, in the support directory, you find this items JSON file. And we will select this, and you see it's a JSON file full with items that we can load into our database to pre-populate it. So, I click select, and then import. Now we have 15 items imported. And when I now look into my shop, we see that we have a very simple item list. So that's not a pretty shop, but it serves the purpose. So very simple list of items. And if you wonder how I came up with these very funny item names, this was chatGPT. Now, I can also add items to my cart. And you see, when I have items in my cart, that this shows up now here on the menu bar. Then I can click on my cart. There I have now a list of all the items. And then I can finally click on buy now. And now the order is placed, and I can see this order now when I click into manage orders. So when I click into that here now, you see that there is this order now, and I can now change the order status to shipped by clicking on this red set shipped button. And this is pretty much all our sample application can do. In the next video, we will have a closer look at its code.
+#### Sample Application Setup
+We will start by setting up a sample application that we’ll use throughout the course.
+
+#### Project Structure
+When you look at the project directory, you’ll see the following folders:
+- resources
+Contains helper files that will be referenced later in the course.
+- workspace
+This is where we will do most of our development work.
+- microservices
+Currently empty.
+- shopper
+The main Node.js application we will run.
+
+#### Installing Dependencies
+1. Navigate into the application:
+`cd workspace/shopper`
+
+2. Install dependencies:
+`npm install`
+
+The package.json file includes many dependencies, such as:
+* Redis client
+* MongoDB
+* OpenTelemetry
+
+#### Running the Application
+This project uses __NodeMon__, a tool that automatically restarts the application when files change.
+This is very useful during development because you don’t need to manually restart the server.
+
+To start the app:
+`npm run dev`
+
+
+If everything is working, you should see logs indicating:
+* Connected to Redis
+* Connected to MongoDB
+* Server listening on port 3000
+
+#### Viewing the App in the Browser
+Open your browser and go to:
+`http://localhost:3000`
+
+You’ll see a very simple shopping application:
+* An empty shopping page
+* Login functionality
+* User management (for development purposes only)
+
+#### Creating an Admin User
+To use the app properly, we need to create an admin user.
+1. Create a user (example):
+   - Email: test@test.com
+   - Password: your choice
+2. Check Set as admin
+3. Submit the form
+
+> [!NOTE]
+> Useful information that users should know, even when skimming content.
+> In a real application, user management would not be publicly accessible.
+> This exists only to make development easier.
+
+
+#### Logging In 
+After creating the user:
+1. Log in using the same email and password
+
+2. New menu items will appear:
+     - Manage Items
+     - Manage Orders
+
+At this point, the shop is empty — so let’s add some items.
+
+#### Adding Sample Items (MongoDB)
+1. Open MongoDB Compass
+2. Click Refresh
+3. Open the dropper database
+4. Go to the items collection
+5. Click Add Data → Import JSON or CSV
+     Select the file located at:
+     `resources/support/items.json`
+6. Click Import
+You should now see 15 items added to the database.
+
+#### Using the Shop
+* Refresh the shop page
+* You’ll now see a basic list of items (simple but functional)
+* You can:
+     - Add items to your cart
+     - Open the cart from the menu bar
+     - Click Buy Now to place an order
+
+After placing an order:
+* Go to Manage Orders
+* You’ll see the new order
+* Click Set Shipped to update its status
 
 --
 
@@ -467,4 +563,99 @@ const mongoose = require('mongoose');
 ```
 
 These are the basic building blocks of our shop application. Everything in there follows pretty much the same schema. Feel free to browse a little bit more through the code, and I will also explain important pieces of it when we need it as we go through the course.
+
+## Getting insights with OpenTelemetry and Jaeger
+
+#### Observability with OpenTelemetry & Jaeger
+The shop application already includes distributed tracing using OpenTelemetry, and this setup will also be used for all services we create throughout the course.
+
+#### What Is OpenTelemetry?
+OpenTelemetry is an open-source project under the Cloud Native Computing Foundation (CNCF).
+It provides:
+- APIs
+- Libraries
+- Agents
+- Instrumentation
+These tools make observability a built-in feature of cloud-native applications.
+Observability focuses on understanding:
+- Application performance
+- Application health
+- How requests move through the system
+One of OpenTelemetry’s core features is tracing.
+
+#### What Is Jaeger?
+Jaeger is also a CNCF project.
+It is a distributed tracing system that helps troubleshoot latency and performance issues in service-oriented architectures.
+
+In simple terms:
+Jaeger acts like a detective that tracks every step of a request to help you understand what slows your application down.
+
+#### Jaeger UI
+The Jaeger UI is available at:
+`http://localhost:16686`
+Jaeger was installed earlier using Docker. Because tracing is already enabled:
+* The shopper service appears in the service list
+* Traces are already being collected
+Click Find Traces to view recorded requests.
+
+#### Understanding a Trace
+When you inspect a trace (for example, a GET / request):
+ - You can see each step involved in handling the request
+ - Each step shows how long it took
+Examples:
+ - Session middleware: ~2 ms
+ - Redis GET call: ~1 ms
+This gives you a clear view of where time is spent during a request.
+
+#### Known Limitation
+MongoDB calls do not appear in the traces yet.
+This is because the required MongoDB instrumentation plugin has not been installed.
+Even so, the traces already provide valuable insight into how the application behaves.
+
+#### Scaling with Microservices
+As we add more services:
+ - The system architecture view in Jaeger will grow
+ - Service-to-service connections will become visible
+ - Traces will show how requests flow across multiple services
+This becomes especially useful in a microservices architecture.
+
+#### Simple Mental Model (Factory Analogy)
+Think of your application as a factory:
+ - Each machine = a service
+ - The product = a complete request (e.g., loading a webpage)
+How tracing works:
+ - OpenTelemetry places a “camera” in each machine (service)
+ - Each camera records what the machine does (traces)
+ - Jaeger collects all recordings
+ - The Jaeger UI lets you replay and inspect them
+This helps you quickly identify:
+ - Delays
+ - Bottlenecks
+ - Errors
+
+#### What to Do During the Course
+As we continue building more services:
+ - Periodically open Jaeger
+ - Inspect traces
+ - Observe how services interact
+This habit will help you better understand distributed systems and performance issues.
+
+--
+
+## Mission Summary
+Before breaking the monolithic shop application into microservices, it’s important to understand why we’re doing it.
+Microservices are not a silver bullet. While they offer real benefits, they can also add complexity if used incorrectly. This course focuses on using them intentionally and practically.
+
+#### Our Two Core Goals
+1. Improve Scalability
+     - Monolithic applications are difficult to scale.
+     - Microservices allow individual components to scale independently.
+     - Multiple instances of the same service can run at once, enabling load balancing.
+
+2. Improve Maintainability
+     - Services can be developed, deployed, and maintained independently.
+     - Different teams can work on different services.
+     - Multiple versions of a service can exist at the same time through proper versioning and deployment strategies.
+With these goals defined, we’re ready to move from concepts to implementation and begin working with the code in the next chapter.
+
 
