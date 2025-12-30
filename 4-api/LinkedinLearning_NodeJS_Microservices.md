@@ -11,6 +11,7 @@
      - [Understanding the sample apps code](#understanding-the-sample-apps-code)
      - [Getting insights with OpenTelemetry and Jaeger](#getting-insights-with-opentelemetry-and-jaeger)
      - [Mission Summary](#mission-summary)
+3. [Your First Service: The Catalog Service](#your-first-service-the-catalog-service)
 
 ## Introduction
 
@@ -658,4 +659,54 @@ Microservices are not a silver bullet. While they offer real benefits, they can 
      - Multiple versions of a service can exist at the same time through proper versioning and deployment strategies.
 With these goals defined, we’re ready to move from concepts to implementation and begin working with the code in the next chapter.
 
+--
 
+
+What's your goal for this chapter?
+Selecting transcript lines in this section will navigate to timestamp in the video
+Before we get started, let's first understand what we will accomplish in this first chapter. This is our application as it is right now. We have an HTML Front End. These are the rendered views we see in the browser. Then we have a set of routes. These routes, at this point, represent the different URLs a user can access like /shop. I didn't write out all the routes here and just use this box here as a placeholder. Below that, we have the business logic. This logic is today in so-called service classes for catalog, order, user, and cart. We saw them before when we looked through the application. The service classes for catalog, order, and user use MongoDB as its backend to store the data and cart uses Redis. And also for the sake of completeness, I will omit this from now on. The front end also uses Redis as a session store, but we won't touch this functionality. Back to the service classes, they make it rather easy for us to find a good way to split out functionality as there is pretty much a one-to-one mapping between the service class and what will later be a standalone microservice. 
+```mermaid
+block-beta
+    columns 1
+    a["HTML Frontend"]:4
+    b["Routes"]:4
+    c["Business Logic (Service Classes)"]:4
+    block:group1:4
+      columns 4
+      h["Catalog"] 
+      i["Order"]
+      j["User"]
+      k["Cart"]
+    end
+    block:group2:4
+      columns 4
+      space
+      l["MongoDB"]
+      space
+      m["redis"]
+    end
+    h --> l
+    i --> l
+    j --> l
+    a --> m
+    k --> m
+
+```
+
+In real life applications, it can be more complicated to find the boundaries within the business logic. The goal is now to create one service that can replace a piece of business logic from the main application, and that shows the catalog that handles all catalog related operations. It provides access to all the items in the shop and also lets us edit and delete them. 
+
+
+The catalog service itself is also nothing else but an express application. It also comes with a set of routes and some service class that talks to the database. These routes represent a so-called REST API. This is the HTTP interface that other applications can use to talk to our service. As REST APIs are so important and often misunderstood, we will spend a full video to quickly cover the fundamentals while we design the REST API for our first service. But before we do that, let's quickly create the express application that will become our catalog microservice.
+```mermaid
+block-beta
+  block
+    columns 1
+    a["REST API"]
+    b["Routes"]
+    c["Catalog Service Class"]
+    space
+    d["MongoDB"]
+  end
+  c --> d
+
+```
