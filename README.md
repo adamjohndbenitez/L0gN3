@@ -11,7 +11,7 @@ The project is mainly data security first approach.
 <img width="1024" height="1024" alt="ChatGPT Image Oct 24, 2025, 07_11_58 AM" src="https://github.com/user-attachments/assets/5b0069d2-7783-448a-8d88-e223b9b33388" />
 
 ## Description
-mini scratch simple personal project that focus on range of web, mobile, data security, ai. implementation with modern tech-stacks  front-end, back-end, api, database, etc.). Covers broad focus on architecture and holistic engineering process. Forme, myself, This will maybe my forever project.
+mini scratch simple personal project that focus on range of web, mobile, data security, ai. implementation with modern tech-stacks  front-end, back-end, api, database, etc.). Covers broad focus on architecture and holistic engineering process. Forme, myself, This will maybe my forever project. Under this project are also a notes from the learning platforms and this repo might serve to be a playground, where I store all my study notes, and apply experimentations, even certifications. A place where I can stack all what I learn could be any kind of project. A project hobby.
 
 
 ## User Requirements and ~~Business~~ Project Goals
