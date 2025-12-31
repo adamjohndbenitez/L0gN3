@@ -661,6 +661,9 @@ With these goals defined, we’re ready to move from concepts to implementation 
 
 --
 
+## Your First Service: The Catalog Service
+
+
 
 What's your goal for this chapter?
 Selecting transcript lines in this section will navigate to timestamp in the video
@@ -710,3 +713,5 @@ block-beta
   c --> d
 
 ```
+
+
