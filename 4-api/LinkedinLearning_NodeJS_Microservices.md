@@ -12,6 +12,7 @@
      - [Getting insights with OpenTelemetry and Jaeger](#getting-insights-with-opentelemetry-and-jaeger)
      - [Mission Summary](#mission-summary)
 3. [Your First Service: The Catalog Service](#your-first-service-the-catalog-service)
+     - [Goal for this chapter?](#goal-for-this-chapter)
 
 ## Introduction
 
@@ -665,7 +666,7 @@ With these goals defined, we’re ready to move from concepts to implementation 
 
 
 
-What's your goal for this chapter?
+### Goal for this chapter?
 Selecting transcript lines in this section will navigate to timestamp in the video
 Before we get started, let's first understand what we will accomplish in this first chapter. This is our application as it is right now. We have an HTML Front End. These are the rendered views we see in the browser. Then we have a set of routes. These routes, at this point, represent the different URLs a user can access like /shop. I didn't write out all the routes here and just use this box here as a placeholder. Below that, we have the business logic. This logic is today in so-called service classes for catalog, order, user, and cart. We saw them before when we looked through the application. The service classes for catalog, order, and user use MongoDB as its backend to store the data and cart uses Redis. And also for the sake of completeness, I will omit this from now on. The front end also uses Redis as a session store, but we won't touch this functionality. Back to the service classes, they make it rather easy for us to find a good way to split out functionality as there is pretty much a one-to-one mapping between the service class and what will later be a standalone microservice. 
 ```mermaid
@@ -714,4 +715,170 @@ block-beta
 
 ```
 
+---
+
+## Creating the First Microservice
+We will now create our first microservice, which will later become the catalog service.
+Step 1: Create the Service from a Template
+
+ - Open Visual Studio Code
+ - Navigate to the resources directory
+ - Copy the **_service_template** folder
+ - Paste it into: `workspace/microservices/`
+ - Rename the folder to: *catalog-service*
+```
+~/node-microservice
+|_> /workspace
+    |_> /microservices
+    |    |_> /catalog-service
+    |    |    |_> /bin
+    |    |        |_- start.js
+    |    |    |_> /bin
+    |    |        |_- mongooseConnection.js
+    |    |        |_- redisConnection.js
+    |    |        |_- tracing.js
+    |    |    |_> /models
+    |    |        |_- .gitkeep
+    |    |    |_> /node_modules
+    |    |        |_- ..(many dependencies folders omitted)...
+    |    |    |_> /routes
+    |    |        |_- index.js
+    |    |_- .esclintrc.json
+    |    |_- .gitignore
+    |    |_- .prettierrc
+    |    |_- app.js
+    |    |_- config.js
+    |    |_- .package-lock.json
+    |    |_- .package.json
+    |_- .gitkeep
+
+```
+This template provides a ready-made structure so we don’t have to start from scratch.
+
+Step 2: Navigating with the Integrated Terminal
+ - Open the integrated terminal: View -> Terminal
+    - Tip: You can type cd and drag the folder into the terminal to auto-fill the full path
+ - Change into the service directory: `cd workspace/microservices/catalog-service`
+
+Step 3: Installing Dependencies & Running the Service
+Every Node.js service includes a package.json file.
+ - Install dependencies: `npm install`
+ - Start the service: `npm run dev`
+Development Mode
+ - The service uses nodemon
+ - Nodemon automatically restarts the service whenever files change
+
+Step 4: Service Naming via package.json
+ - Initially, the service announces itself as template-service-001
+ - This name comes directly from package.json
+ - Update the name field to: `"name": "catalog-service"`
+ - Save the file
+ - Nodemon restarts the service automatically
+ - The console now shows the correct service name
+
+5. Random Port Assignment (Important Concept)
+You may notice the service is not listening on a fixed port like 3000.
+**Why?**
+ - The service uses a random port by design
+ - This allows multiple instances of the same service to run simultaneously
+**How it works**
+In bin/start.js: `server.listen(0)`
+ - Using port 0 tells Express to automatically assign an available port
+ - Prevents port conflicts
+ - Enables horizontal scaling and load balancing
+
+6. Running Multiple Service Instances
+   1. Open a second terminal
+   2. Change into catalog-service
+   3. Run: `npm run dev`
+Result:
+A second instance starts. Each instance listens on a different port
+This is a critical microservices principle and must be correct from the beginning.
+
+7. Service Structure Overview
+**bin/start.js**
+ - Bootstraps the service
+ - Initializes tracing
+ - Includes optional connections for:
+   - MongoDB (Mongoose)
+   - Redis
+ - Connection logic is already provided and can be enabled when needed
+ - Shared helpers are located in the lib directory
+**app.js**
+ - Creates the Express application
+ - Registers middleware
+ - Defines error handling
+ - Exports the app instance
+ - Uses route modules instead of inline routes
+Unused imports (e.g., `config`) should be removed to satisfy ESLint.
+
+8. Routes
+ - Routes are defined using Express Router
+ - Located in the routes directory
+ - A simple test route already exists:
+```
+GET /
+→ "Hello world"
+```
+ESLint formatting warnings are resolved automatically on save.
+
+9. Testing the Service
+   1. Copy the port number shown in the terminal
+   2. Open your browser
+   3. Navigate to: `http://localhost:<port>`
+   4. You should see: `Hello world`
+This confirms the service is running correctly.
+
+10. Current State & Next Step
+At this point:
+ - The catalog service runs successfully
+ - Multiple instances are supported
+ - The REST API is minimal and only for testing
+**Next:**
+We’ll design and implement a proper REST API for the catalog service.
+
+```mermaid
+---
+title: Animal example
+---
+classDiagram
+    start.js --|> config.js
+    start.js --|> app.js
+    app.js --|> index.js
+    app.js --|> config.js
+    class start.js {
+        const config = require("../config")
+        const tracing = require("../lib/tracing")
+        const http = require("http")
+        const app = require("../app")
+        const server = http.createServer(app)
+        server.on("listening", () => 
+        server.listen(0)
+        +server.listen(0) %% 0 means auto random port, only 1 service to listen to 1 port
+    }
+    class app.js {
+        const express = require("express")
+        const app = express()
+        const morgan = require("morgan")
+        const routes = require("./routes")
+        const config = require("./config")
+        app.use(express.json())
+        app.use(morgan("tiny"))
+        app.use("/", routes)
+        app.use((err, req, res, next))
+        module.exports = app
+
+    }
+    class index.js {
+        const express = require("express")
+        const router = express.Router()
+        router.get("/", (req, res))
+        module.exports = router
+
+    }
+    class config.js {
+        const pkg = require("./package.json")
+        module.exports
+    }
+```
 
