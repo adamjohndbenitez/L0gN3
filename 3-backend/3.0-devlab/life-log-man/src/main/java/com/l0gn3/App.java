@@ -1,5 +1,6 @@
 package com.l0gn3;
 
+import org.springframework.boot.SpringApplication;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -19,5 +20,7 @@ public class App
         ApplicationContext xmlContext = new ClassPathXmlApplicationContext("applicationContext.xml");
         HelloWorld helloWorldXml = (HelloWorld) xmlContext.getBean("helloWorld");
         helloWorldXml.printMessage();  // Output: Message: Hello, World from XML!
+
+        SpringApplication.run(App.class, args);
     }
 }

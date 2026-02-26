@@ -1,0 +1,46 @@
+Understanding Merge Sort’s Breaking Down Step
+You’re right that merge sort works by dividing the array into halves recursively until it reaches the smallest units. Here’s how it works step-by-step:
+
+Divide: The array is split into two halves at the midpoint.
+Conquer: Each half is recursively sorted by applying merge sort again.
+Combine: The two sorted halves are merged together into a single sorted array.
+Even though the code doesn’t explicitly “store” the sorted halves as separate arrays permanently, during the recursion each call handles sorting its half and returns the sorted result. The merging step uses a temporary (scratch) array to combine these sorted halves.
+
+This temporary array is crucial because it holds the merged, sorted elements before copying them back to the original array.
+
+So, the “breaking point” is the recursion base case (usually when the subarray has one element), and as recursion unwinds, the sorted halves are merged step-by-step.
+
+If you’d like, I can explain the recursion flow or the role of the scratch array in more detail. 
+
+
+On Senior Developers and Knowing Sorting Algorithms
+It’s common for senior developers, especially those with extensive experience, to not memorize or write classic sorting algorithms like bubble sort, merge sort, or quicksort from scratch on the spot. What matters more is:
+
+Understanding the concepts: Knowing how these algorithms work, their time and space complexities, and when to use them.
+Using libraries effectively: Leveraging built-in, optimized sorting functions in real projects.
+Problem-solving skills: Applying algorithmic thinking to new or complex problems.
+In interviews, being able to explain or write these algorithms can demonstrate your foundational knowledge, but in day-to-day work, it’s acceptable to rely on existing implementations.
+
+So, not being able to write these algorithms perfectly from memory does not disqualify you as a senior developer, but having a solid grasp of their principles is important.
+
+
+Tips to Quickly Refresh Sorting Algorithms
+Focus on the Core Idea:
+
+Bubble Sort: Repeatedly swap adjacent elements if they are in the wrong order.
+Merge Sort: Divide the array into halves, sort each half recursively, then merge.
+Quick Sort: Pick a pivot, partition the array around the pivot, then sort partitions recursively.
+Understand Time & Space Complexity:
+
+Bubble Sort: O(n²) time, O(1) space
+Merge Sort: O(n log n) time, O(n) space
+Quick Sort: Average O(n log n) time, worst O(n²), O(log n) space
+Write Pseudocode First: Sketch the algorithm steps in simple language before coding.
+
+Use Visual Aids: Draw the array splits and merges or partitions to internalize the process.
+
+Practice Small Code Snippets: Implement each algorithm on small arrays (5-10 elements) to reinforce logic.
+
+Compare with Built-in Sorts: Understand when to use custom sorts vs. built-in efficient sorts.
+
+Leverage Mnemonics or Analogies: For example, think of merge sort like sorting piles of cards by merging sorted piles.

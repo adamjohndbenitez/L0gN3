@@ -4,7 +4,42 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a3ea7068-a348-496b-abe5-3444238158a7" name="Changes" comment="" />
+    <list default="true" id="a3ea7068-a348-496b-abe5-3444238158a7" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../demo-app-spring-framework-coursera-skillup-module1/src/main/java/com/example/App.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../demo-app-spring-framework-coursera-skillup-module1/src/main/java/com/example/AppConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../demo-app-spring-framework-coursera-skillup-module1/src/main/java/com/example/HelloController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../demo-app-spring-framework-coursera-skillup-module1/src/main/java/com/example/HelloWorld.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../demo-app-spring-framework-coursera-skillup-module1/src/test/java/com/example/AppTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../demo-lab-generating-a-spring-boot-project-using-spring-initializr-coursera-skillup-module2/src/main/java/com/example/demo_lab_generating_a_spring_boot_project_using_spring_initializr_coursera_skillup_module2/HelloController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../demo-lab-generating-a-spring-boot-project-using-spring-initializr-coursera-skillup-module2/src/main/resources/instructions/Coursera-Skillup-Module2-Generating-A-Spring-Boot-Project-Using-start.spring.io.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../1-architecture/1.0-design/blue-print.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../1-architecture/1.0-design/object-oriented-design.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../1-architecture/1.0-design/requirement-specification.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../1-architecture/1.1-diagrams/API.puml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../1-architecture/1.1-diagrams/ERD.puml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../1-architecture/1.1-diagrams/UML.puml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../1-architecture/1.1-diagrams/cloud-infrastructure.puml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/l0gn3/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/l0gn3/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/l0gn3/App.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/l0gn3/App.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/l0gn3/AppConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/l0gn3/AppConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/l0gn3/HelloWorld.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/l0gn3/HelloWorld.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/life-log-man-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/life-log-man-1.0-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.l0gn3.AppTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-com.l0gn3.AppTest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/com.l0gn3.AppTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/com.l0gn3.AppTest.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/l0gn3/AppTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/l0gn3/AppTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../3.1-learners-notes/Coursera-Coding-Cheatsheet-Annotations-Maven-Project.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../3.1-learners-notes/Coursera-Setup-Dev-Lab.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../3.1-learners-notes/Coursera-SkillUp-SpringFramework4JavaDev.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../3.1-learners-notes/Coursera-Using-Spring-Initializr-for-Spring-Boot.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../8-cyber/Compliance.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../8-cyber/OWASP.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../8-cyber/secure-coding-checklist.md" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -28,29 +63,36 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.App.executor": "Run",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/Users/aj/Documents/Project-Workspace/L0gN3/3-backend/3.0-devlab/life-log-man",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.App.executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/aj/Documents/Project-Workspace/L0gN3/3-backend/3.0-devlab/life-log-man&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;project.propCompiler&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.l0gn3" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.l0gn3.App" />
       <module name="life-log-man" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.l0gn3.*" />
+          <option name="PATTERN" value="com.example.demo.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
