@@ -1,0 +1,18 @@
+Should foundations contain code?
+
+Yes.
+But not “problem-solving” code.
+
+Foundations code should be:
+
+Small experimental snippets
+
+Proof-of-concept demos
+
+JVM behavior tests
+
+Concurrency experiments
+
+equals/hashCode validation
+
+Memory behavior examples
