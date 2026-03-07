@@ -1,0 +1,6 @@
+To see a measurable difference between O(n) and O(n^2), you need to use a high-resolution timer like System.nanoTime() and use a large enough input size (n) to overcome the JVM's extreme speed.
+
+
+
+
+At this scale, the O(n^2) algorithm performs 2.5 billion operations, which will be clearly visible.
