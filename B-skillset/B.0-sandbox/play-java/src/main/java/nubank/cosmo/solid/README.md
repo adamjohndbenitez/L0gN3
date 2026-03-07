@@ -1,0 +1,2 @@
+SOLID principles. Think of these as five golden rules for creating high-quality software. They are a common topic in code reviews and system design interviews.
+Mastering SOLID leads to code that is easier to maintain, test, and extend. It's also a key topic that comes up frequently in technical interviews and system design discussions.

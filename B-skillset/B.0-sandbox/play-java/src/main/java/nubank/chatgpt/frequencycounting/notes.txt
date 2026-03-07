@@ -1,0 +1,10 @@
+Frequency counting
+Return the most frequent element in an array.
+
+Example skills:
+
+HashMap
+
+Counting
+
+Sorting by frequency
