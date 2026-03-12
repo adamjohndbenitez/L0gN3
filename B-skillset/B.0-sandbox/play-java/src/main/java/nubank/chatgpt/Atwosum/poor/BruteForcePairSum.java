@@ -1,8 +1,13 @@
-package nubank.chatgpt.twosum.poor;
+package nubank.chatgpt.Atwosum.poor;
 
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ *
+ * ByteByteGo > Coding Interview Patterns > 01 Two Pointers > Pair Sum - Sorted
+ *
+ */
 public class BruteForcePairSum {
 
     // The brute force solution to this problem involves checking all possible pairs. This is done using two nested loops: an outer loop that traverses the array for the first element of the pair, and an inner loop that traverses the rest of the array to find the second element.

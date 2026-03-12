@@ -1,4 +1,4 @@
-package nubank.chatgpt.twosum.time;
+package nubank.chatgpt.Atwosum.time;
 
 public class LinearTimeVSQuadraticTime {
     public static void main(String[] args) {

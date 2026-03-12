@@ -1,7 +1,7 @@
-package nubank.chatgpt.twosum;
+package nubank.chatgpt.Atwosum;
 
-import nubank.chatgpt.twosum.good.InwardTraversalPairSum;
-import nubank.chatgpt.twosum.poor.BruteForcePairSum;
+import nubank.chatgpt.Atwosum.good.InwardTraversalPairSum;
+import nubank.chatgpt.Atwosum.poor.BruteForcePairSum;
 
 import java.util.ArrayList;
 import java.util.List;

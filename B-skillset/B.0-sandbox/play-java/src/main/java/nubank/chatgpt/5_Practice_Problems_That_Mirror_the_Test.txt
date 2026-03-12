@@ -1,0 +1,8 @@
+5 Practice Problems That Mirror the Test
+
+If you only practice these 5, you're already well prepared.
+A  Two Sum
+B⃣  Longest Substring Without Repeating Characters
+C⃣  Valid Parentheses
+D️⃣Group Anagrams
+E️⃣Number of Islands

@@ -1,4 +1,4 @@
-package nubank.chatgpt.slidingwindow.frequencycounting;
+package nubank.chatgpt.XYZslidingwindow.frequencycounting;
 
 public class SubstringAnagramsAJ {
 

@@ -1,8 +1,13 @@
-package nubank.chatgpt.twosum.good;
+package nubank.chatgpt.Atwosum.good;
 
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ *
+ * ByteByteGo > Coding Interview Patterns > 01 Two Pointers > Pair Sum - Sorted
+ *
+ */
 public class InwardTraversalPairSum {
     // O(n) (linear time)
     public List<Integer> pairSumUsingInwardTraversal(List<Integer> nums, int target) {
