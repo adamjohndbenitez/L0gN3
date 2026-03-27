@@ -202,6 +202,7 @@ L0gN3 is a unified platform connecting **users, secure systems, and AI intellige
 ## 🧩 Level 2 — Container Diagram
 
 Each major system is separated into independently scalable services.
+```plain
                 +----------------------+
                 |      Frontend        |
                 |   (React / UI App)   |
@@ -228,7 +229,7 @@ Each major system is separated into independently scalable services.
 | PostgreSQL |        | Key Vault /    |           | Vector DB /      |
 | / Storage  |        | Tokenization   |           | ML Models        |
 +------------+        +----------------+           +------------------+
-
+```
 
 
 ### Containers
