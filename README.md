@@ -169,6 +169,156 @@ Built by an engineer passionate about:
 > **L0gN3 is not just a project.  
 It is a system of thinking.**
 
+
+---
+
+# 🏗️ Architecture (C4 Model)
+
+L0gN3 follows a **C4 Model approach** to describe the system at multiple levels of abstraction.
+
+---
+
+## 🌍 Level 1 — System Context
+
+L0gN3 is a unified platform connecting **users, secure systems, and AI intelligence**.
+[ User ]
+    |
+    v
+[ L0gN3 Platform ]
+    |
+    +--> LifeLogMan (Life Data)
+    +--> Stealthagon (Security Layer)
+    +--> Artilligenie (AI Layer)
+
+### Description
+
+- **User** interacts with the system via web/mobile interfaces  
+- **LifeLogMan** captures and manages life data  
+- **Stealthagon** ensures all data is protected  
+- **Artilligenie** provides insights, predictions, and automation  
+
+---
+
+## 🧩 Level 2 — Container Diagram
+
+Each major system is separated into independently scalable services.
+                +----------------------+
+                |      Frontend        |
+                |   (React / UI App)   |
+                +----------+-----------+
+                           |
+                           v
+                +----------------------+
+                |   API Gateway / BFF  |
+                |    (Node.js Layer)   |
+                +----------+-----------+
+                           |
+     ---------------------------------------------------------
+     |                         |                             |
+     v                         v                             v
+
++------------+        +----------------+           +------------------+
+| LifeLogMan |        |  Stealthagon   |           |  Artilligenie    |
+| (Spring)   |        | (Security Svc) |           |   (AI Services)  |
++------------+        +----------------+           +------------------+
+     |                         |                             |
+     v                         v                             v
+
++------------+        +----------------+           +------------------+
+| PostgreSQL |        | Key Vault /    |           | Vector DB /      |
+| / Storage  |        | Tokenization   |           | ML Models        |
++------------+        +----------------+           +------------------+
+
+
+
+### Containers
+
+- **Frontend (React)** → User interaction layer  
+- **BFF / API Gateway (Node.js)** → Aggregates APIs and handles orchestration  
+- **LifeLogMan (Spring Boot)** → Core business logic for life data  
+- **Stealthagon** → Encryption, tokenization, security enforcement  
+- **Artilligenie** → AI/ML processing and insights  
+
+---
+
+## 🔧 Level 3 — Component Diagram (Example: LifeLogMan)
+[ LifeLogMan Service ]
+
+    +----------------------+
+    |  Controller Layer    |
+    |  (REST APIs)         |
+    +----------+-----------+
+               |
+               v
+    +----------------------+
+    |  Service Layer       |
+    |  (Business Logic)    |
+    +----------+-----------+
+               |
+               v
+    +----------------------+
+    |  Security Adapter    |
+    | (Stealthagon API)    |
+    +----------+-----------+
+               |
+               v
+    +----------------------+
+    | Repository Layer     |
+    | (JPA / JDBC)         |
+    +----------+-----------+
+               |
+               v
+    +----------------------+
+    |   Database           |
+    +----------------------+
+
+
+### Key Concepts
+
+- All sensitive data passes through **Stealthagon** before persistence  
+- APIs are designed using **REST + OpenAPI contracts**  
+- Services are **stateless and horizontally scalable**
+
+---
+
+## 🔐 Cross-Cutting Concerns
+
+These apply across all systems:
+
+- **Authentication & Authorization** → OAuth2 / JWT  
+- **Encryption** → Field-level + transport-level  
+- **Observability** → Logs, metrics, tracing  
+- **Error Handling** → Standardized API responses  
+- **Resilience** → Retry, circuit breakers, graceful degradation  
+
+---
+
+## 🔄 Data Flow (Simplified)
+User → Frontend → BFF → LifeLogMan  
+                          ↓  
+                    Stealthagon (Encrypt)  
+                          ↓  
+                      Database  
+
+AI Flow:
+LifeLogMan → Artilligenie → Insights → Frontend
+
+
+---
+
+## 🚀 Architectural Principles
+
+- 🔐 Security-first (Zero Trust Architecture)  
+- 🧩 Modular microservices design  
+- 📈 Horizontally scalable systems  
+- 🔄 Event-driven extensibility (future Kafka integration)  
+- 🧠 AI as a first-class component  
+
+---
+
+> This architecture is designed to evolve from a personal platform into a **production-grade, distributed intelligent system**.
+---
+
 ## Description
 mini scratch simple personal project that focus on range of web, mobile, data security, ai. implementation with modern tech-stacks  front-end, back-end, api, database, etc.). Covers broad focus on architecture and holistic engineering process. Forme, myself, This will maybe my forever project. Under this project are also a notes from the learning platforms and this repo might serve to be a playground, a multi purpose repo, where I store all my study notes, make this an active learning note-taking, and apply hands-on experimentations, even certifications. A place where I can stack all what I learn could be any kind of project. A project hobby.
 
