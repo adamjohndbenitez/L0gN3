@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>AI Clinic Voice Agent</title>
+    <style>
+      body { font-family: Arial, sans-serif; max-width: 760px; margin: 40px auto; }
+      button { padding: 10px 16px; margin-right: 8px; }
+      pre { background: #f4f4f4; padding: 12px; white-space: pre-wrap; }
+    </style>
+  </head>
+  <body>
+    <h1>AI Clinic Voice Agent</h1>
+    <button id="startBtn">Start</button>
+    <button id="stopBtn" disabled>Stop</button>
+
+    <h3>Transcript</h3>
+    <pre id="transcript"></pre>
+
+    <h3>Assistant</h3>
+    <pre id="assistant"></pre>
+
+    <audio id="player" controls></audio>
+
+    <script src="/app.js"></script>
+  </body>
+</html>

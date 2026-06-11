@@ -1,0 +1,3 @@
+Write a prompt (question) to begin this turn.
+
+I'm building a backend system for a payments app. How should I design it to secure the sensitive data and to handle high traffic volume, avoid duplicate transactions when a user double clicks pay button, how will it stay relaibale if one service fails?

@@ -1,0 +1,12 @@
+flowchart TD
+    A[Browser] -->|WebSocket| B[Node / TypeScript Gateway]
+
+    B --> B1[Serves Frontend]
+    B --> B2[Receives Browser Messages]
+    B -->|Forwards audio/text jobs| C[Python Worker]
+    C --> C1[OpenAI Transcription]
+    C --> C2[OpenAI LLM Response]
+    C --> C3[OpenAI TTS]
+
+    C -->|Returns transcript / text / audio| B
+    B -->|Returns transcript / text / audio| A

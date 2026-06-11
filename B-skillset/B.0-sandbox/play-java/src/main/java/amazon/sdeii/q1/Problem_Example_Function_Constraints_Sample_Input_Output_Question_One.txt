@@ -1,0 +1,87 @@
+Code Question 1
+
+Problem:
+To increase efficiency, the Amazon shipping team will group packages being shipped according to weight. They will merge a lighter package with a heavier package, which eliminates the need for separate shipments.
+
+More formally, consider n packages, where packageWeights[i] represents the weight of the ith package.
+
+You can combine the ith and (i+1)th package if:
+
+packageWeights[i] < packageWeights[i + 1]
+
+After merging:
+
+the ith package is discarded
+the (i+1)th package increases by packageWeights[i]
+the number of packages is reduced by 1
+
+You can merge packages any number of times.
+
+Find the maximum possible weight of a package that can be achieved after any sequence of merge operations.
+
+Example
+packageWeights = [2, 9, 10, 3, 7]
+
+One optimal sequence is:
+
+merge index 2 and 3 → [2, 19, 3, 7]
+merge index 1 and 2 → [21, 3, 7]
+merge index 2 and 3 → [21, 10]
+
+No more merges are possible.
+
+Answer:
+
+21
+Function description
+
+Complete the function getHeaviestPackage.
+
+Parameter
+int packageWeights[n]: the weights of the packages
+Returns
+long_int: the weight of the heaviest package after merging all possible packages
+Constraints
+1 <= n <= 2 * 10^5
+1 <= packageWeights[i] <= 10^9
+Input format for custom testing
+first line: integer n
+next n lines: one integer per line for packageWeights[i]
+Sample case 0
+Input
+4
+20
+13
+8
+9
+Output
+50
+Explanation
+
+Start with:
+
+[20, 13, 8, 9]
+merge 8 and 9 → [20, 13, 17]
+merge 13 and 17 → [20, 30]
+merge 20 and 30 → [50]
+Sample case 1
+Input
+4
+30
+15
+5
+9
+Output
+30
+Explanation
+
+Start with:
+
+[30, 15, 5, 9]
+merge 5 and 9 → [30, 15, 14]
+
+No more merges are possible.
+
+Heaviest package is:
+
+30

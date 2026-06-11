@@ -16,7 +16,7 @@ import nubank.cosmo.solid.lsp.violates.rectanglesquareproblem.Square;
 public class LiskovSubstitutionPrinciple {
     public static void main(String[] args) {
 
-        // <<== Rectangle/Square Problem ==>>
+        // <<== Rectangle/Square Problem ## ==>>
         // Violates: If you use a Square where a Rectangle is expected
         nubank.cosmo.solid.lsp.violates.rectanglesquareproblem.Rectangle rectangle = new nubank.cosmo.solid.lsp.violates.rectanglesquareproblem.Square();
         rectangle.setWidth(5);
@@ -50,7 +50,7 @@ public class LiskovSubstitutionPrinciple {
 //        square.setHeight(10);
         System.out.println("Square area: " + square.getArea());
 
-        // <<== Ostrich/Bird Problem ==>>
+        // <<== Ostrich/Bird Problem ## ==>>
         // Violates: if you substitute an Ostrich for a bird.
         Bird bird = new Ostrich();
         bird.fly(); // Here, 0strich is a subclass of Bird , but it can't actually fly. If you substitute an 0strich where a Bird is expected, the program breaks. This violates LSP because the subclass doesn't honor the contract of the parent class.

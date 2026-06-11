@@ -1,0 +1,16 @@
+sequenceDiagram
+    participant U as User/Browser
+    participant N as Node/TypeScript Gateway
+    participant P as Python Worker
+    participant O as OpenAI APIs
+
+    U->>N: Audio input over WebSocket
+    N->>P: Forward process_audio request
+    P->>O: Transcription request
+    O-->>P: Transcript text
+    P->>O: LLM response request
+    O-->>P: Assistant response text
+    P->>O: TTS request
+    O-->>P: Audio output
+    P-->>N: Transcript + assistant text + audio
+    N-->>U: Return transcript + text + audio

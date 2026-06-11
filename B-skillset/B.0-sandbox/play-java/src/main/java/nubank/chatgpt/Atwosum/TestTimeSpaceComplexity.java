@@ -65,7 +65,7 @@ public class TestTimeSpaceComplexity {
         System.out.println("Used memory: " + (afterMemory0 - beforeMemory0) + " bytes  for larger list input size("+n+")  with space complexity of O(n^2) Quadratic Space.");
 
         // Use benchmark (measure performance by time) between the inward traversal and brute force. To see a measurable difference between O(n) and O(n^2), you need to use a high-resolution timer like System.nanoTime() and use a large enough input size (n) to overcome the JVM's extreme speed.
-        System.out.println("<<== [benchmarking] two-pointer algorithm using inward traversal. ==>>");
+        System.out.println("<<== [benchmarking] two-pointer algorithm using inward traversal. ## ==>>");
         long startTime = System.nanoTime();
         InwardTraversalPairSum inwardTraversalPairSum = new InwardTraversalPairSum();
         List<Integer> outputInwardTraversal = inwardTraversalPairSum.pairSumUsingInwardTraversal(list0, target0);
@@ -75,7 +75,7 @@ public class TestTimeSpaceComplexity {
         long durationInMilliseconds = (endTime - startTime) / 1_000_000;
         System.out.println("Elapsed time: " + durationInMilliseconds + " ms   with time complexity of O(n) Linear Time. [MOST NOTICEABLE PERFORMANCE]");
 
-        System.out.println("<<== [benchmarking] two-pointer algorithm using brute force. ==>>");
+        System.out.println("<<== [benchmarking] two-pointer algorithm using brute force. ## ==>>");
         long startTime0 = System.nanoTime();
         BruteForcePairSum bruteForcePairSum0 = new BruteForcePairSum();
         List<Integer> outputBruteForce0 = bruteForcePairSum0.pairSumUsingBruteForce(list0, target0);

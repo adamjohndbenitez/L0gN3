@@ -1,0 +1,27 @@
+version: "3.9"
+
+services:
+  node-app:
+    image: node:22
+    working_dir: /app
+    volumes:
+      - ./:/app
+    command: sh -c "npm install && npm run dev"
+    ports:
+      - "3000:3000"
+    environment:
+      NODE_PORT: 3000
+      PYTHON_WS_URL: ws://python-worker:8765
+    depends_on:
+      - python-worker
+
+  python-worker:
+    image: python:3.11
+    working_dir: /app/python-worker
+    volumes:
+      - ./:/app
+    command: sh -c "pip install -r requirements.txt && python app/main.py"
+    environment:
+      OPENAI_API_KEY: ${OPENAI_API_KEY}
+    ports:
+      - "8765:8765"

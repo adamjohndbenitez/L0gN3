@@ -35,12 +35,12 @@ public class TwoPointerAlgorithm {
         System.out.println("Target: " + target);
 
         // Use to drive and inspect between the inward traversal and brute force.
-        System.out.println("<<== [drive&inspect] two-pointer algorithm using inward traversal. ==>>");
+        System.out.println("<<== [drive&inspect] two-pointer algorithm using inward traversal. ## ==>>");
         InwardTraversalPairSum inwardTraversalPairSum = new InwardTraversalPairSum();
         List<Integer> outputInwardTraversal = inwardTraversalPairSum.pairSumUsingInwardTraversal(list, target);
         System.out.println("Output: " + outputInwardTraversal);
 
-        System.out.println("<<== [drive&inspect] two-pointer algorithm using brute force. ==>>");
+        System.out.println("<<== [drive&inspect] two-pointer algorithm using brute force. ## ==>>");
         BruteForcePairSum bruteForcePairSum = new BruteForcePairSum();
         List<Integer> outputBruteForce = bruteForcePairSum.pairSumUsingBruteForce(list, target);
         System.out.println("Output: " + outputBruteForce);

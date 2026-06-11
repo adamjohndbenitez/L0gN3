@@ -1,0 +1,9 @@
+sequenceDiagram
+    participant Browser
+    participant Node as Node/TypeScript Gateway
+    participant Python as Python Worker
+
+    Browser->>Node: audio_input\n{type: "audio_input", audioBase64: "..."}
+    Node->>Python: process_audio\n{type: "process_audio", requestId: "abc123", audioBase64: "..."}
+    Python->>Node: audio_result\n{type: "audio_result", requestId: "abc123", transcript: "...", assistantText: "...", audioBase64: "..."}
+    Node->>Browser: audio_result\nSame payload returned to client

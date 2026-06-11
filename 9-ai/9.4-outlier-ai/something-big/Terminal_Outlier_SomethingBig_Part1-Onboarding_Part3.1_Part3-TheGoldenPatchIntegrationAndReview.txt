@@ -1,0 +1,451 @@
+Last login: Thu Apr  2 15:52:31 on ttys007
+aj@AJs-MacBook-Pro screening-part3 % ls
+blobs		index.json	manifest.json	oci-layout
+aj@AJs-MacBook-Pro screening-part3 % cd ..
+aj@AJs-MacBook-Pro 9.4-outlier-ai % ls
+screening-part3		screening-part3.tar	server_logs.txt
+aj@AJs-MacBook-Pro 9.4-outlier-ai % docker image load -i screening-part3.tar
+failed to connect to the docker API at unix:///Users/aj/.docker/run/docker.sock; check if the path is correct and if the daemon is running: dial unix /Users/aj/.docker/run/docker.sock: connect: no such file or directory
+aj@AJs-MacBook-Pro 9.4-outlier-ai % docker image load -i screening-part3.tar
+failed to connect to the docker API at unix:///Users/aj/.docker/run/docker.sock; check if the path is correct and if the daemon is running: dial unix /Users/aj/.docker/run/docker.sock: connect: no such file or directory
+aj@AJs-MacBook-Pro 9.4-outlier-ai % docker image ls
+failed to connect to the docker API at unix:///Users/aj/.docker/run/docker.sock; check if the path is correct and if the daemon is running: dial unix /Users/aj/.docker/run/docker.sock: connect: no such file or directory
+aj@AJs-MacBook-Pro 9.4-outlier-ai % docker info
+Client:
+ Version:    29.1.3
+ Context:    desktop-linux
+ Debug Mode: false
+ Plugins:
+  ai: Docker AI Agent - Ask Gordon (Docker Inc.)
+    Version:  v1.17.1
+    Path:     /Users/aj/.docker/cli-plugins/docker-ai
+  buildx: Docker Buildx (Docker Inc.)
+    Version:  v0.30.1-desktop.1
+    Path:     /Users/aj/.docker/cli-plugins/docker-buildx
+  compose: Docker Compose (Docker Inc.)
+    Version:  v2.40.3-desktop.1
+    Path:     /Users/aj/.docker/cli-plugins/docker-compose
+  debug: Get a shell into any image or container (Docker Inc.)
+    Version:  0.0.45
+    Path:     /Users/aj/.docker/cli-plugins/docker-debug
+  desktop: Docker Desktop commands (Docker Inc.)
+    Version:  v0.2.0
+    Path:     /Users/aj/.docker/cli-plugins/docker-desktop
+  extension: Manages Docker extensions (Docker Inc.)
+    Version:  v0.2.31
+    Path:     /Users/aj/.docker/cli-plugins/docker-extension
+  init: Creates Docker-related starter files for your project (Docker Inc.)
+    Version:  v1.4.0
+    Path:     /Users/aj/.docker/cli-plugins/docker-init
+  mcp: Docker MCP Plugin (Docker Inc.)
+    Version:  v0.34.0
+    Path:     /Users/aj/.docker/cli-plugins/docker-mcp
+  model: Docker Model Runner (Docker Inc.)
+    Version:  v1.0.2
+    Path:     /Users/aj/.docker/cli-plugins/docker-model
+  offload: Docker Offload (Docker Inc.)
+    Version:  v0.5.33
+    Path:     /Users/aj/.docker/cli-plugins/docker-offload
+  pass: Docker Pass Secrets Manager Plugin (beta) (Docker Inc.)
+    Version:  v0.0.21
+    Path:     /Users/aj/.docker/cli-plugins/docker-pass
+  sandbox: Docker Sandbox (Docker Inc.)
+    Version:  v0.6.0
+    Path:     /Users/aj/.docker/cli-plugins/docker-sandbox
+  sbom: View the packaged-based Software Bill Of Materials (SBOM) for an image (Anchore Inc.)
+    Version:  0.6.0
+    Path:     /Users/aj/.docker/cli-plugins/docker-sbom
+  scout: Docker Scout (Docker Inc.)
+    Version:  v1.18.3
+    Path:     /Users/aj/.docker/cli-plugins/docker-scout
+
+Server:
+ Containers: 3
+  Running: 0
+  Paused: 0
+  Stopped: 3
+ Images: 3
+ Server Version: 29.1.3
+ Storage Driver: overlayfs
+  driver-type: io.containerd.snapshotter.v1
+ Logging Driver: json-file
+ Cgroup Driver: cgroupfs
+ Cgroup Version: 2
+ Plugins:
+  Volume: local
+  Network: bridge host ipvlan macvlan null overlay
+  Log: awslogs fluentd gcplogs gelf journald json-file local splunk syslog
+ CDI spec directories:
+  /etc/cdi
+  /var/run/cdi
+ Discovered Devices:
+  cdi: docker.com/gpu=webgpu
+ Swarm: inactive
+ Runtimes: io.containerd.runc.v2 runc
+ Default Runtime: runc
+ Init Binary: docker-init
+ containerd version: 1c4457e00facac03ce1d75f7b6777a7a851e5c41
+ runc version: v1.3.4-0-gd6d73eb8
+ init version: de40ad0
+ Security Options:
+  seccomp
+   Profile: builtin
+  cgroupns
+ Kernel Version: 6.12.54-linuxkit
+ Operating System: Docker Desktop
+ OSType: linux
+ Architecture: aarch64
+ CPUs: 14
+ Total Memory: 7.653GiB
+ Name: docker-desktop
+ ID: d59799e5-917e-423d-9961-57df5bdc126a
+ Docker Root Dir: /var/lib/docker
+ Debug Mode: false
+ HTTP Proxy: http.docker.internal:3128
+ HTTPS Proxy: http.docker.internal:3128
+ No Proxy: hubproxy.docker.internal
+ Labels:
+  com.docker.desktop.address=unix:///Users/aj/Library/Containers/com.docker.docker/Data/docker-cli.sock
+ Experimental: false
+ Insecure Registries:
+  hubproxy.docker.internal:5555
+  ::1/128
+  127.0.0.0/8
+ Live Restore Enabled: false
+ Firewall Backend: iptables
+
+aj@AJs-MacBook-Pro 9.4-outlier-ai % docker image load -i screening-part3.tar
+Loaded image: screening-part3:latest
+aj@AJs-MacBook-Pro 9.4-outlier-ai % docker image ls                         
+                                                            i Info →   U  In Use
+IMAGE                           ID             DISK USAGE   CONTENT SIZE   EXTRA
+jaegertracing/all-in-one:1.45   5d5c9d2d8c8c       87.4MB         28.7MB    U   
+mongo:latest                    7f5bbdafebde       1.23GB          315MB    U   
+redis:latest                    3906b477e4b6        226MB         54.9MB    U   
+screening-part3:latest          fbd4682f8e9a        460MB          106MB        
+aj@AJs-MacBook-Pro 9.4-outlier-ai % docker run -it --rm --entrypoint /bin/bash screening-part3:latest 
+root@7f8940e3c55a:/canopen_challenge/repo# ls /
+bin   canopen_challenge  etc   lib    mnt  proc  run   srv  tmp  var
+boot  dev		 home  media  opt  root  sbin  sys  usr
+root@7f8940e3c55a:/canopen_challenge/repo# cd /canopen_challenge/repo
+root@7f8940e3c55a:/canopen_challenge/repo# pwd
+/canopen_challenge/repo
+root@7f8940e3c55a:/canopen_challenge/repo# ls
+LICENSE.txt  build	       codecov.yml  makedeb		  setup.py
+MANIFEST.in  canopen	       doc	    pyproject.toml	  test
+README.rst   canopen.egg-info  examples     requirements-dev.txt
+root@7f8940e3c55a:/canopen_challenge/repo# pwd
+/canopen_challenge/repo
+root@7f8940e3c55a:/canopen_challenge/repo# ls /
+bin   canopen_challenge  etc   lib    mnt  proc  run   srv  tmp  var
+boot  dev		 home  media  opt  root  sbin  sys  usr
+root@7f8940e3c55a:/canopen_challenge/repo# ls /canopen_challenge/
+repo
+root@7f8940e3c55a:/canopen_challenge/repo# ls /canopen_challenge/repo
+LICENSE.txt  build	       codecov.yml  makedeb		  setup.py
+MANIFEST.in  canopen	       doc	    pyproject.toml	  test
+README.rst   canopen.egg-info  examples     requirements-dev.txt
+root@7f8940e3c55a:/canopen_challenge/repo# ls
+LICENSE.txt  build	       codecov.yml  makedeb		  setup.py
+MANIFEST.in  canopen	       doc	    pyproject.toml	  test
+README.rst   canopen.egg-info  examples     requirements-dev.txt
+root@7f8940e3c55a:/canopen_challenge/repo# find . -maxdepth 2 -type d | sort
+.
+./.git
+./.git/branches
+./.git/hooks
+./.git/info
+./.git/logs
+./.git/objects
+./.git/refs
+./.github
+./.github/workflows
+./build
+./build/bdist.linux-aarch64
+./build/lib
+./canopen
+./canopen.egg-info
+./canopen/node
+./canopen/objectdictionary
+./canopen/pdo
+./canopen/profiles
+./canopen/sdo
+./doc
+./examples
+./examples/eds
+./test
+root@7f8940e3c55a:/canopen_challenge/repo# find . -name "*pdo"
+./canopen/pdo
+./build/lib/canopen/pdo
+root@7f8940e3c55a:/canopen_challenge/repo# find . -iname "*pdo"
+./canopen/pdo
+./build/lib/canopen/pdo
+root@7f8940e3c55a:/canopen_challenge/repo# find . -iname "*pdo*"
+./canopen/pdo
+./test/test_pdo.py
+./doc/pdo.rst
+./build/lib/canopen/pdo
+root@7f8940e3c55a:/canopen_challenge/repo# find . -iname "*test*"
+./canopen/profiles/tools/test_p402_states.py
+./test
+./test/test_pdo.py
+./test/test_time.py
+./test/test_node.py
+./test/test_eds.py
+./test/test_nmt.py
+./test/test_od.py
+./test/test_utils.py
+./test/test_network.py
+./test/test_sync.py
+./test/test_sdo.py
+./test/test_local.py
+./test/test_emcy.py
+./build/lib/canopen/profiles/tools/test_p402_states.py
+root@7f8940e3c55a:/canopen_challenge/repo# grep -R "def __getitem__" -n .
+./canopen/sdo/base.py:50:    def __getitem__(
+./canopen/sdo/base.py:105:    def __getitem__(self, subindex: Union[int, str]) -> SdoVariable:
+./canopen/sdo/base.py:129:    def __getitem__(self, subindex: Union[int, str]) -> SdoVariable:
+./canopen/network.py:262:    def __getitem__(self, node_id: int) -> Union[RemoteNode, LocalNode]:
+./canopen/pdo/base.py:42:    def __getitem__(self, key: Union[int, str]):
+./canopen/pdo/base.py:169:    def __getitem__(self, key: int) -> PdoMap:
+./canopen/pdo/base.py:240:    def __getitem__(self, key: Union[int, str]) -> PdoVariable:
+./canopen/objectdictionary/__init__.py:132:    def __getitem__(
+./canopen/objectdictionary/__init__.py:216:    def __getitem__(self, subindex: Union[int, str]) -> ODVariable:
+./canopen/objectdictionary/__init__.py:275:    def __getitem__(self, subindex: Union[int, str]) -> ODVariable:
+./canopen/variable.py:183:    def __getitem__(self, key) -> int:
+./build/lib/canopen/sdo/base.py:50:    def __getitem__(
+./build/lib/canopen/sdo/base.py:105:    def __getitem__(self, subindex: Union[int, str]) -> SdoVariable:
+./build/lib/canopen/sdo/base.py:129:    def __getitem__(self, subindex: Union[int, str]) -> SdoVariable:
+./build/lib/canopen/network.py:262:    def __getitem__(self, node_id: int) -> Union[RemoteNode, LocalNode]:
+./build/lib/canopen/pdo/base.py:42:    def __getitem__(self, key: Union[int, str]):
+./build/lib/canopen/pdo/base.py:169:    def __getitem__(self, key: int) -> PdoMap:
+./build/lib/canopen/pdo/base.py:240:    def __getitem__(self, key: Union[int, str]) -> PdoVariable:
+./build/lib/canopen/objectdictionary/__init__.py:132:    def __getitem__(
+./build/lib/canopen/objectdictionary/__init__.py:216:    def __getitem__(self, subindex: Union[int, str]) -> ODVariable:
+./build/lib/canopen/objectdictionary/__init__.py:275:    def __getitem__(self, subindex: Union[int, str]) -> ODVariable:
+./build/lib/canopen/variable.py:183:    def __getitem__(self, key) -> int:
+root@7f8940e3c55a:/canopen_challenge/repo# grep -R "class PdoBase" -n .
+./canopen/pdo/base.py:27:class PdoBase(Mapping):
+./build/lib/canopen/pdo/base.py:27:class PdoBase(Mapping):
+root@7f8940e3c55a:/canopen_challenge/repo# sed -n '1,220p' ./canopen/pdo/base.py
+from __future__ import annotations
+
+import binascii
+import logging
+import math
+import threading
+from collections.abc import Iterator, Mapping
+from typing import Callable, Optional, TYPE_CHECKING, Union
+
+import canopen.network
+from canopen import objectdictionary
+from canopen import variable
+from canopen.sdo import SdoAbortedError
+
+if TYPE_CHECKING:
+    from canopen import LocalNode, RemoteNode
+    from canopen.pdo import RPDO, TPDO
+    from canopen.sdo import SdoRecord
+
+
+PDO_NOT_VALID = 1 << 31
+RTR_NOT_ALLOWED = 1 << 30
+
+logger = logging.getLogger(__name__)
+
+
+class PdoBase(Mapping):
+    """Represents the base implementation for the PDO object.
+
+    :param object node:
+        Parent object associated with this PDO instance
+    """
+
+    def __init__(self, node: Union[LocalNode, RemoteNode]):
+        self.network: canopen.network.Network = canopen.network._UNINITIALIZED_NETWORK
+        self.map: Optional[PdoMaps] = None
+        self.node: Union[LocalNode, RemoteNode] = node
+
+    def __iter__(self):
+        return iter(self.map)
+
+    def __getitem__(self, key: Union[int, str]):
+        if isinstance(key, int):
+            if key == 0:
+                raise KeyError("PDO index zero requested for 1-based sequence")
+            if (
+                0 < key <= 512  # By PDO Index
+                or 0x1600 <= key <= 0x17FF  # By RPDO ID (512)
+                or 0x1A00 <= key <= 0x1BFF  # By TPDO ID (512)
+            ):
+                return self.map[key]
+        for pdo_map in self.map.values():
+            try:
+                return pdo_map[key]
+            except KeyError:
+                # ignore if one specific PDO does not have the key and try the next one
+                continue
+        raise KeyError(f"PDO: {key} was not found in any map")
+
+    def __len__(self):
+        return len(self.map)
+
+    def read(self, from_od=False):
+        """Read PDO configuration from node using SDO."""
+        for pdo_map in self.map.values():
+            pdo_map.read(from_od=from_od)
+
+    def save(self):
+        """Save PDO configuration to node using SDO."""
+        for pdo_map in self.map.values():
+            pdo_map.save()
+
+    def subscribe(self):
+        """Register the node's PDOs for reception on the network.
+
+        This normally happens when the PDO configuration is read from
+        or saved to the node.  Use this method to avoid the SDO flood
+        associated with read() or save(), if the local PDO setup is
+        known to match what's stored on the node.
+        """
+        for pdo_map in self.map.values():
+            pdo_map.subscribe()
+
+    def export(self, filename):
+        """Export current configuration to a database file.
+
+        .. note::
+           This API requires the ``db_export`` feature to be installed::
+
+              python3 -m pip install 'canopen[db_export]'
+
+        :param str filename:
+            Filename to save to (e.g. DBC, DBF, ARXML, KCD etc)
+        :raises NotImplementedError:
+            When the ``canopen[db_export]`` feature is not installed.
+
+        :return: The CanMatrix object created
+        :rtype: canmatrix.canmatrix.CanMatrix
+        """
+        try:
+            from canmatrix import canmatrix
+            from canmatrix import formats
+        except ImportError:
+            raise NotImplementedError("This feature requires the 'canopen[db_export]' feature")
+
+        db = canmatrix.CanMatrix()
+        for pdo_map in self.map.values():
+            if pdo_map.cob_id is None:
+                continue
+            frame = canmatrix.Frame(pdo_map.name,
+                                    arbitration_id=pdo_map.cob_id)
+            for var in pdo_map.map:
+                is_signed = var.od.data_type in objectdictionary.SIGNED_TYPES
+                is_float = var.od.data_type in objectdictionary.FLOAT_TYPES
+                min_value = var.od.min
+                max_value = var.od.max
+                if min_value is not None:
+                    min_value *= var.od.factor
+                if max_value is not None:
+                    max_value *= var.od.factor
+                name = var.name
+                name = name.replace(" ", "_")
+                name = name.replace(".", "_")
+                signal = canmatrix.Signal(name,
+                                          start_bit=var.offset,
+                                          size=var.length,
+                                          is_signed=is_signed,
+                                          is_float=is_float,
+                                          factor=var.od.factor,
+                                          min=min_value,
+                                          max=max_value,
+                                          unit=var.od.unit)
+                for value, desc in var.od.value_descriptions.items():
+                    signal.addValues(value, desc)
+                frame.add_signal(signal)
+            frame.calc_dlc()
+            db.add_frame(frame)
+        formats.dumpp({"": db}, filename)
+        return db
+
+    def stop(self):
+        """Stop all running tasks."""
+        for pdo_map in self.map.values():
+            pdo_map.stop()
+
+
+class PdoMaps(Mapping):
+    """A collection of transmit or receive maps."""
+
+    def __init__(self, com_offset, map_offset, pdo_node: PdoBase, cob_base=None):
+        """
+        :param com_offset:
+        :param map_offset:
+        :param pdo_node:
+        :param cob_base:
+        """
+        self.maps: dict[int, PdoMap] = {}
+        for map_no in range(512):
+            if com_offset + map_no in pdo_node.node.object_dictionary:
+                new_map = PdoMap(
+                    pdo_node,
+                    pdo_node.node.sdo[com_offset + map_no],
+                    pdo_node.node.sdo[map_offset + map_no])
+                # Generate default COB-IDs for predefined connection set
+                if cob_base is not None and map_no < 4:
+                    new_map.predefined_cob_id = cob_base + map_no * 0x100 + pdo_node.node.id
+                self.maps[map_no + 1] = new_map
+
+    def __getitem__(self, key: int) -> PdoMap:
+        return self.maps[key]
+
+    def __iter__(self) -> Iterator[int]:
+        return iter(self.maps)
+
+    def __len__(self) -> int:
+        return len(self.maps)
+
+
+class PdoMap:
+    """One message which can have up to 8 bytes of variables mapped."""
+
+    def __init__(self, pdo_node, com_record, map_array):
+        self.pdo_node: Union[TPDO, RPDO] = pdo_node
+        self.com_record: SdoRecord = com_record
+        self.map_array: SdoRecord = map_array
+        #: If this map is valid
+        self.enabled: bool = False
+        #: COB-ID for this PDO
+        self.cob_id: Optional[int] = None
+        #: Default COB-ID if this PDO is part of the pre-defined connection set
+        self.predefined_cob_id: Optional[int] = None
+        #: Is the remote transmit request (RTR) allowed for this PDO
+        self.rtr_allowed: bool = True
+        #: Transmission type (0-255)
+        self.trans_type: Optional[int] = None
+        #: Inhibit Time (optional) (in 100us)
+        self.inhibit_time: Optional[int] = None
+        #: Event timer (optional) (in ms)
+        self.event_timer: Optional[int] = None
+        #: Ignores SYNC objects up to this SYNC counter value (optional)
+        self.sync_start_value: Optional[int] = None
+        #: List of variables mapped to this PDO
+        self.map: list[PdoVariable] = []
+        self.length: int = 0
+        #: Current message data
+        self.data = bytearray()
+        #: Timestamp of last received message
+        self.timestamp: Optional[float] = None
+        #: Period of receive message transmission in seconds.
+        #: Set explicitly or using the :meth:`start()` method.
+        self.period: Optional[float] = None
+        self.callbacks = []
+        self.receive_condition = threading.Condition()
+        self.is_received: bool = False
+        self._task = None
+
+    def __repr__(self) -> str:
+        return f"<{type(self).__qualname__} {self.name!r} at COB-ID 0x{self.cob_id:X}>"
+
+    def __getitem_by_index(self, value):
+root@7f8940e3c55a:/canopen_challenge/repo# 
