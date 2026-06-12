@@ -44,6 +44,11 @@ class SecuringWebApplicationTests {
 	}
 
 	@Test
+	void accessRootThenOk() throws Exception {
+		this.mockMvc.perform(get("/")).andExpect(status().isOk());
+	}
+
+	@Test
 	void accessSecuredResourceUnauthenticatedThenRedirectsToLogin() throws Exception {
 		this.mockMvc.perform(get("/hello1")).andExpect(status().is3xxRedirection()).andExpect(redirectedUrl("/login"));
 	}

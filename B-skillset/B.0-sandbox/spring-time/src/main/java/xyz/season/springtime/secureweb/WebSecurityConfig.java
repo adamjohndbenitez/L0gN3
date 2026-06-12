@@ -20,9 +20,9 @@ class WebSecurityConfig {
 	@Bean
 	SecurityFilterChain securityFilterChain(HttpSecurity http) {
 		// @formatter:off
-		http
-			.authorizeHttpRequests((requests) -> requests
-                .requestMatchers("/1", "/home", "/0", "/hello0").permitAll()  // ← add /0 and /hello0 to accomodate the controller/HelloController
+			http
+				.authorizeHttpRequests((requests) -> requests
+                .requestMatchers("/", "/1", "/home", "/0", "/hello0").permitAll()  // ← add /0 and /hello0 to accomodate the controller/HelloController
 				.anyRequest().authenticated()
 			)
 			.formLogin((form) -> form
