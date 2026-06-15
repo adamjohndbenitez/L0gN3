@@ -18,7 +18,7 @@ spec:
         app: gs-spring-boot-k8s
     spec:
       containers:
-      - image: spring-k8s/hello-spring-k8s
+ps aux | grep "kubectl port-forward"      - image: spring-k8s/hello-spring-k8s
         imagePullPolicy: Never
         name: hello-spring-k8s
         resources: {}

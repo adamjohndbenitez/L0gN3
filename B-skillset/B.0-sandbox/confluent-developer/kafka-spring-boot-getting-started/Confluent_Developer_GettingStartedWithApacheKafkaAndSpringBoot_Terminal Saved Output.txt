@@ -1,0 +1,1287 @@
+Last login: Sat Jun 13 00:49:33 on ttys002
+aj@AJs-MacBook-Pro confluent-developer % mkdir kafka-spring-boot-getting-started && cd kafka-spring-boot-getting-started
+aj@AJs-MacBook-Pro kafka-spring-boot-getting-started % vi README.md
+aj@AJs-MacBook-Pro kafka-spring-boot-getting-started % vi build.gradle
+aj@AJs-MacBook-Pro kafka-spring-boot-getting-started % docker info
+Client:
+ Version:    29.1.3
+ Context:    desktop-linux
+ Debug Mode: false
+ Plugins:
+  ai: Docker AI Agent - Ask Gordon (Docker Inc.)
+    Version:  v1.17.1
+    Path:     /Users/aj/.docker/cli-plugins/docker-ai
+  buildx: Docker Buildx (Docker Inc.)
+    Version:  v0.30.1-desktop.1
+    Path:     /Users/aj/.docker/cli-plugins/docker-buildx
+  compose: Docker Compose (Docker Inc.)
+    Version:  v2.40.3-desktop.1
+    Path:     /Users/aj/.docker/cli-plugins/docker-compose
+  debug: Get a shell into any image or container (Docker Inc.)
+    Version:  0.0.45
+    Path:     /Users/aj/.docker/cli-plugins/docker-debug
+  desktop: Docker Desktop commands (Docker Inc.)
+    Version:  v0.2.0
+    Path:     /Users/aj/.docker/cli-plugins/docker-desktop
+  extension: Manages Docker extensions (Docker Inc.)
+    Version:  v0.2.31
+    Path:     /Users/aj/.docker/cli-plugins/docker-extension
+  init: Creates Docker-related starter files for your project (Docker Inc.)
+    Version:  v1.4.0
+    Path:     /Users/aj/.docker/cli-plugins/docker-init
+  mcp: Docker MCP Plugin (Docker Inc.)
+    Version:  v0.34.0
+    Path:     /Users/aj/.docker/cli-plugins/docker-mcp
+  model: Docker Model Runner (Docker Inc.)
+    Version:  v1.0.2
+    Path:     /Users/aj/.docker/cli-plugins/docker-model
+  offload: Docker Offload (Docker Inc.)
+    Version:  v0.5.33
+    Path:     /Users/aj/.docker/cli-plugins/docker-offload
+  pass: Docker Pass Secrets Manager Plugin (beta) (Docker Inc.)
+    Version:  v0.0.21
+    Path:     /Users/aj/.docker/cli-plugins/docker-pass
+  sandbox: Docker Sandbox (Docker Inc.)
+    Version:  v0.6.0
+    Path:     /Users/aj/.docker/cli-plugins/docker-sandbox
+  sbom: View the packaged-based Software Bill Of Materials (SBOM) for an image (Anchore Inc.)
+    Version:  0.6.0
+    Path:     /Users/aj/.docker/cli-plugins/docker-sbom
+  scout: Docker Scout (Docker Inc.)
+    Version:  v1.18.3
+    Path:     /Users/aj/.docker/cli-plugins/docker-scout
+
+Server:
+ Containers: 33
+  Running: 26
+  Paused: 0
+  Stopped: 7
+ Images: 24
+ Server Version: 29.1.3
+ Storage Driver: overlayfs
+  driver-type: io.containerd.snapshotter.v1
+ Logging Driver: json-file
+ Cgroup Driver: cgroupfs
+ Cgroup Version: 2
+ Plugins:
+  Volume: local
+  Network: bridge host ipvlan macvlan null overlay
+  Log: awslogs fluentd gcplogs gelf journald json-file local splunk syslog
+ CDI spec directories:
+  /etc/cdi
+  /var/run/cdi
+ Discovered Devices:
+  cdi: docker.com/gpu=webgpu
+ Swarm: inactive
+ Runtimes: io.containerd.runc.v2 runc
+ Default Runtime: runc
+ Init Binary: docker-init
+ containerd version: 1c4457e00facac03ce1d75f7b6777a7a851e5c41
+ runc version: v1.3.4-0-gd6d73eb8
+ init version: de40ad0
+ Security Options:
+  seccomp
+   Profile: builtin
+  cgroupns
+ Kernel Version: 6.12.54-linuxkit
+ Operating System: Docker Desktop
+ OSType: linux
+ Architecture: aarch64
+ CPUs: 14
+ Total Memory: 7.653GiB
+ Name: docker-desktop
+ ID: d59799e5-917e-423d-9961-57df5bdc126a
+ Docker Root Dir: /var/lib/docker
+ Debug Mode: false
+ HTTP Proxy: http.docker.internal:3128
+ HTTPS Proxy: http.docker.internal:3128
+ No Proxy: hubproxy.docker.internal
+ Labels:
+  com.docker.desktop.address=unix:///Users/aj/Library/Containers/com.docker.docker/Data/docker-cli.sock
+ Experimental: false
+ Insecure Registries:
+  hubproxy.docker.internal:5555
+  ::1/128
+  127.0.0.0/8
+ Live Restore Enabled: false
+ Firewall Backend: iptables
+
+aj@AJs-MacBook-Pro kafka-spring-boot-getting-started % ls
+build.gradle	README.md
+aj@AJs-MacBook-Pro kafka-spring-boot-getting-started % pwd
+/Users/aj/Documents/Project-Workspace/L0gN3/B-skillset/B.0-sandbox/confluent-developer/kafka-spring-boot-getting-started
+aj@AJs-MacBook-Pro kafka-spring-boot-getting-started % brew install confluentinc/tap/cli
+==> Auto-updating Homebrew...
+Adjust how often this is run with `$HOMEBREW_AUTO_UPDATE_SECS` or disable with
+`$HOMEBREW_NO_AUTO_UPDATE=1`. Hide these hints with `$HOMEBREW_NO_ENV_HINTS=1` (see `man brew`).
+==> Downloading https://ghcr.io/v2/homebrew/core/portable-ruby/blobs/sha256:4ba8d535df01e4bf97e6661c3815796fd77364ea2552606e891659133a76f0e1
+######################################################################### 100.0%
+==> Pouring portable-ruby-4.0.5_1.arm64_big_sur.bottle.tar.gz
+✔︎ JSON API packages.arm64_tahoe.jws.json             Downloaded   15.2MB/ 15.2MB
+==> Auto-updated Homebrew!
+Updated 2 taps (homebrew/core and homebrew/cask).
+==> New Formulae
+alevin-fry: Efficient and flexible tool for processing single-cell sequencing data
+ansible@13: Automate deployment, configuration, and upgrading
+arf: Modern R console with syntax highlighting and fuzzy search
+asccli: App Store Connect CLI to manage apps, versions, and screenshots
+aube: Fast Node.js package manager
+avisynthplus: Improved version of the AviSynth frameserver
+backplane-cli: CLI for interacting with the OpenShift Backplane API
+baguette: Headless iOS Simulator manager and host-side input injection for iOS 26
+barman: Backup and Recovery Manager for PostgreSQL
+btdu: Sampling disk usage profiler for btrfs
+bttf: CLI tool for datetime arithmetic, parsing, formatting and more
+bumblebee: Read-only developer endpoint scanner for supply-chain exposure
+bun: Incredibly fast JavaScript runtime, bundler, test runner, and package manager
+cargo-insta: Snapshot testing CLI for Rust
+cargo-show-asm: Show assembly, LLVM-IR, MIR, and WASM generated for Rust code
+cc-connect: Bridges local AI coding agents to messaging platforms
+cc-switch-cli: All-in-one assistant tool for Claude Code, Codex, Gemini, OpenCode and OpenClaw
+chunkah: OCI building tool for content-based layers
+cloudmonkey: Apache CloudStack CloudMonkey CLI
+codeburn: See where your AI coding tokens go - by task, tool, model, and project
+committed: Nitpicking commit history since beabf39
+concord: Terminal user interface client for Discord
+container-use: Dev envs for coding agents. Run multiple agents safely with your stack
+cozypkg: CLI for managing Cozystack packages
+crit: Your feedback loop with the agent: review plans and code locally
+cutadapt: Removes adapter sequences from sequencing reads
+dbx-cli: Command-line interface for DBX database connections, schema, and safe queries
+defuddle: Extract article content and metadata from web pages
+dexter-lsp: Elixir LSP optimized for large codebases
+dz6: Fast Vim-inspired TUI hex editor
+eas-cli: Command-line tool for working with Expo Application Services
+ec: TUI 3-way git mergetool
+echtvar: Rapid variant annotation and filtering
+elio: Batteries-included terminal file manager with rich previews
+erfa: Essential Routines for Fundamental Astronomy
+erlang@28: Programming language for highly scalable real-time systems
+fallow: Codebase intelligence for TypeScript and JavaScript
+far2l-tty: Unix TTY port of FAR Manager v2 (with NetRocks support)
+floresta: Lightweight and embeddable Bitcoin client, built for sovereignty
+forgecode: AI-enhanced terminal development environment
+freesasa: Solvent Accessible Surface Area calculations
+gascity: Orchestration-builder SDK for multi-agent coding workflows
+gemmi: Macromolecular crystallography library and utilities
+ghcid: Very low feature GHCi based IDE
+ghcitty: Fast, friendly GHCi
+ginkgo: High-performance numerical linear algebra software package
+gixy: NGINX configuration static analyzer focused on security
+gmp-ecm: Elliptic Curve Method for integer factorization
+go-hass-agent: Native Home Assistant agent for desktop/laptop devices
+goenv@2: Go version management
+herdr: Agent multiplexer that lives in your terminal
+hermes-agent: Self-improving AI agent that creates skills from experience
+hexapoda: Colorful modal hex editor
+hf-mount: Mount Hugging Face Buckets and repos as local filesystems
+hookdeck: Forward webhook events from Hookdeck to a local server
+hyphy: Hypothesis testing using Phylogenies
+iqtree3: Phylogenetics by maximum likelihood
+k0sctl: Bootstrapping and management tool for k0s clusters
+kdash: Simple and fast dashboard for Kubernetes
+keyd: Key remapping daemon for Linux
+kimi-code: AI coding agent for your terminal
+kubectl-explore: Better kubectl explain with the fuzzy finder
+kubernetes-cli@1.35: Kubernetes command-line interface
+ladder: Selfhosted alternative to 12ft.io and 1ft.io HTTP web proxies
+lavinmq: Message broker implementing the AMQP 0-9-1 and MQTT protocols
+lazymake: Modern TUI for Makefiles
+leaf-md: Terminal Markdown previewer with a GUI-like experience
+libbcg729: Encoder and decoder of the ITU G.729 Annex A/B speech codec
+libcext: C utility library for Common Pipeline Library (CPL)
+libchardet: Mozilla's Universal Charset Detector C/C++ API
+libredwg: DWG utilities
+lisette: Language inspired by Rust that compiles to Go
+m4ri: Library for fast arithmetic with dense matrices over GF(2)
+m4rie: Library for fast arithmetic with dense matrices over GF(2^e), 2<=e<=16
+mado: Fast Markdown linter written in Rust
+marmot: Open-source data catalog exposing metadata to AI agents
+mcp-remote: Remote proxy for Model Context Protocol with OAuth support
+md-tui: Markdown renderer in the terminal written in rust
+mercury-cli: CLI interface for Mercury banking
+merman-cli: Mermaid.js, but headless, in Rust
+miasma: Trap AI web scrapers in an endless poison pit
+mimo-code: AI coding agent with cross-session memory
+miniz: Lossless, high-performance data compression library (zlib/Deflate)
+mips-linux-gnu-binutils: GNU Binutils for mips-linux-gnu cross development
+nettle@3: Low-level cryptographic library
+netwatch: Cross-platform realtime network diagnostics TUI
+oarfish: Long read RNA-seq quantification
+odinfmt: Formatter for The Odin Programming Language
+officecli: Read, edit, and automate Office documents (.docx, .xlsx, .pptx)
+ols: Language server for The Odin Programming Language
+opendoor: CLI for web reconnaissance, directory discovery, and exposure assessment
+openjdk@25: Development kit for the Java programming language
+openssl@4: Cryptography and SSL/TLS Toolkit
+osdctl: CLI tool for managed OpenShift clusters
+paml: Phylogenetic analyses of DNA or protein sequences using maximum likelihood
+panache: Language server, formatter, and linter for Markdown, Quarto, and R Markdown
+paneru: Sliding, tiling window manager for MacOS
+pdf.tocgen: CLI toolset to generate table of contents for PDF files automatically
+phpantom-lsp: Fast PHP language server written in Rust
+pitchfork: CLI for managing daemons with a focus on developer experience
+pkgsite: Documentation server for Go packages
+plutosvg: Tiny SVG rendering library in C
+pnpm@10: Fast, disk space efficient package manager
+pocket-id: Open-source identity provider for secure user authentication
+pomerium: Identity and context-aware access proxy
+poppler-qt6: PDF rendering library (based on the xpdf-3.0 code base)
+pup: CLI companion with 200+ commands across 33+ Datadog products
+quickjs-ng: QuickJS, the Next Generation: a mighty JavaScript engine
+quien: Better WHOIS and domain intelligence toolkit
+rabbitmqadmin: Command-line tool for RabbitMQ that uses the HTTP API
+ratty: GPU-rendered terminal emulator with inline 3D graphics
+redli: Humane alternative to redis-cli with TLS support
+rmux: Terminal multiplexer with a tmux-style CLI and daemon runtime
+rura: Interactive TUI scratchpad for building shell pipelines
+rustnet: Cross-platform network monitoring terminal UI with deep packet inspection
+safestringlib: Safe string operations and memory routines
+sanity: Command-line interface for Sanity
+satellite-tracker: Terminal-based real-time satellite tracking and orbit prediction application
+sdl2-compat: SDL2 compatibility layer that uses SDL3 behind the scenes
+sdl3_mixer: Sample multi-channel audio mixer library
+sdl3_net: Simple cross-platform wrapper over TCP/IP sockets
+skm: Simple and powerful SSH keys manager
+smlnj: Compiler and programming system for Standard ML
+sol2: C++ <-> Lua API wrapper with advanced features and top notch performance
+speech: On-device speech toolkit for Apple Silicon: ASR, TTS, VAD, diarization
+spoa: SIMD partial order alignment tool/library
+stellar-xdr: Stellar command-line tool for encoding/decoding XDR for the Stellar network
+swgp-go: Simple WireGuard proxy with minimal overhead for WireGuard traffic
+syswatch: Cross-platform system diagnostics TUI
+tdf: TUI-based PDF viewer
+telegram-send: Command-line tool to send Telegram messages
+threatdeck: TUI threat intelligence monitoring and alerting platform
+tinyice: Modern, all-in-one Icecast-compatible audio/video streaming server
+try: Quickly manage and navigate project directories for experiments
+ttl: Modern traceroute/mtr-style TUI with hop stats and ASN/geo enrichment
+unordered_dense: Hashmap and hashset based on robin-hood backward shift deletion
+vcfanno: Annotate a VCF with other VCFs/BEDs/tabixed files
+vcflib: C++ library and cmdline tools for parsing and manipulating VCF files
+vim-classic: Vim 8 long term support version with no LLM-generated code
+vite-plus: Unified toolchain and entry point for web development
+vs-preview: Previewer for VapourSynth scripts
+vtzero: Minimalist vector tile decoder and encoder in C++
+vulcain: Fast and idiomatic client-driven REST APIs
+wl-clipboard: Command-line copy/paste utilities for Wayland
+wtype: Xdotool type for wayland
+wx-cli: WeChat 4.x local data CLI with daemon architecture
+zapp: Flash ZSA keyboards from your terminal
+zerolang: Programming language for agents with explicit effects and predictable memory
+zfp: Compressed numerical arrays that support high-speed random access
+zig@0.15: Programming language designed for robustness, optimality, and clarity
+zot: Lightweight coding agent harness written in Go
+
+You have 16 outdated formulae installed.
+
+==> Tapping confluentinc/tap
+Cloning into '/opt/homebrew/Library/Taps/confluentinc/homebrew-tap'...
+remote: Enumerating objects: 703, done.
+remote: Counting objects: 100% (242/242), done.
+remote: Compressing objects: 100% (134/134), done.
+remote: Total 703 (delta 222), reused 108 (delta 108), pack-reused 461 (from 3)
+Receiving objects: 100% (703/703), 259.12 KiB | 3.60 MiB/s, done.
+Resolving deltas: 100% (445/445), done.
+Tapped 2 formulae (19 files, 307.7KB).
+==> Trusted formula confluentinc/tap/cli
+==> Would install 1 formula:
+cli
+==> Fetching downloads for: cli
+✔︎ Formula cli (4.66.0)                               Verified     27.9MB/ 27.9MB
+==> Installing cli from confluentinc/tap
+🍺  /opt/homebrew/Cellar/cli/4.66.0: 4 files, 85MB, built in 2 seconds
+==> Running `brew cleanup cli`...
+Disable this behaviour by setting `HOMEBREW_NO_INSTALL_CLEANUP=1`.
+Hide these hints with `HOMEBREW_NO_ENV_HINTS=1` (see `man brew`).
+==> `brew cleanup` has not been run in the last 30 days, running now...
+Disable this behaviour by setting `HOMEBREW_NO_INSTALL_CLEANUP=1`.
+Hide these hints with `HOMEBREW_NO_ENV_HINTS=1` (see `man brew`).
+Removing: /Users/aj/Library/Caches/Homebrew/brotli_bottle_manifest--1.2.0... (8.0KB)
+Removing: /Users/aj/Library/Caches/Homebrew/brotli--1.2.0... (793.9KB)
+Removing: /Users/aj/Library/Caches/Homebrew/c-ares_bottle_manifest--1.34.6... (7.5KB)
+Removing: /Users/aj/Library/Caches/Homebrew/c-ares--1.34.6... (304.1KB)
+Removing: /Users/aj/Library/Caches/Homebrew/icu4c@78_bottle_manifest--78.1... (9.7KB)
+Removing: /Users/aj/Library/Caches/Homebrew/icu4c@78--78.1... (32.0MB)
+Removing: /Users/aj/Library/Caches/Homebrew/libnghttp2_bottle_manifest--1.68.0... (7.3KB)
+Removing: /Users/aj/Library/Caches/Homebrew/libnghttp2--1.68.0... (220.8KB)
+Removing: /Users/aj/Library/Caches/Homebrew/libnghttp3_bottle_manifest--1.14.0... (7.3KB)
+Removing: /Users/aj/Library/Caches/Homebrew/libnghttp3--1.14.0... (192.1KB)
+Removing: /Users/aj/Library/Caches/Homebrew/libngtcp2_bottle_manifest--1.19.0... (9.3KB)
+Removing: /Users/aj/Library/Caches/Homebrew/libngtcp2--1.19.0... (401.8KB)
+Removing: /Users/aj/Library/Caches/Homebrew/libuv_bottle_manifest--1.51.0-1... (9.6KB)
+Removing: /Users/aj/Library/Caches/Homebrew/libuv--1.51.0... (369.5KB)
+Removing: /Users/aj/Library/Caches/Homebrew/lz4_bottle_manifest--1.10.0-1... (13.8KB)
+Removing: /Users/aj/Library/Caches/Homebrew/lz4--1.10.0... (276.1KB)
+Removing: /Users/aj/Library/Caches/Homebrew/node_bottle_manifest--25.2.1-1... (24KB)
+Removing: /Users/aj/Library/Caches/Homebrew/node--25.2.1... (18MB)
+Removing: /Users/aj/Library/Caches/Homebrew/readline_bottle_manifest--8.3.3... (10.0KB)
+Removing: /Users/aj/Library/Caches/Homebrew/readline--8.3.3... (758.1KB)
+Removing: /Users/aj/Library/Caches/Homebrew/simdjson_bottle_manifest--4.2.4... (7.4KB)
+Removing: /Users/aj/Library/Caches/Homebrew/simdjson--4.2.4... (1.2MB)
+Removing: /Users/aj/Library/Caches/Homebrew/uvwasi_bottle_manifest--0.0.23-1... (8.3KB)
+Removing: /Users/aj/Library/Caches/Homebrew/uvwasi--0.0.23... (70.1KB)
+Removing: /Users/aj/Library/Caches/Homebrew/xz_bottle_manifest--5.8.2... (11.8KB)
+Removing: /Users/aj/Library/Caches/Homebrew/xz--5.8.2... (764.9KB)
+Removing: /Users/aj/Library/Caches/Homebrew/zstd_bottle_manifest--1.5.7-1... (16.2KB)
+Removing: /Users/aj/Library/Caches/Homebrew/zstd--1.5.7... (788.5KB)
+Removing: /Users/aj/Library/Caches/Homebrew/bootsnap/50726f7c717931c314b0629398fd1e28fb0b942293f91a9eac20addacdfb7399... (646 files, 5.7MB)
+Removing: /Users/aj/Library/Logs/Homebrew/python@3.11... (2 files, 2.6KB)
+aj@AJs-MacBook-Pro kafka-spring-boot-getting-started % confluent local kafka start
+The local commands are intended for a single-node development environment only, NOT for production usage. See more: https://docs.confluent.io/current/cli/index.html
+
+
+Pulling from confluentinc/confluent-local
+Pulling fs layer
+Pulling fs layer
+Pulling fs layer
+Pulling fs layer
+Pulling fs layer
+Pulling fs layer
+Pulling fs layer
+Pulling fs layer
+Pulling fs layer
+Pulling fs layer
+Pulling fs layer
+Pulling fs layer
+Pulling fs layer
+Download complete
+Downloading: lete
+Download complete
+Downloading: lete
+Download complete
+Downloading: lete
+Downloading: lete
+Extracting:  lete
+Downloading: lete
+Pull complete
+Downloading: 
+Downloading: lete
+Downloading: lete
+Extracting:  lete
+Extracting: plete
+Pull complete
+Extracting: e
+Extracting: e
+Pull complete
+Pull complete
+Pull complete
+Pull complete
+Pull complete
+Extracting: e
+Pull complete
+Pull complete
+Digest: sha256:7f954fd083664f1de4687e42566f73c8b90d56166f877e79fac8640257661589
+Status: Downloaded newer image for confluentinc/confluent-local:8.0.0
++-----------------+-------+
+| Kafka REST Port | 8082  |
+| Plaintext Ports | 54755 |
++-----------------+-------+
+Started Confluent Local containers "bf90264e46".
+To continue your Confluent Local experience, run confluent local kafka topic create <topic> and confluent local kafka topic produce <topic>.
+aj@AJs-MacBook-Pro kafka-spring-boot-getting-started % mkdir -p src/main/resources
+aj@AJs-MacBook-Pro kafka-spring-boot-getting-started % vi src/main/resources/application.yaml
+aj@AJs-MacBook-Pro kafka-spring-boot-getting-started % vi src/main/resources/application.yaml
+aj@AJs-MacBook-Pro kafka-spring-boot-getting-started % confluent local kafka topic create purchases
+Created topic "purchases".
+aj@AJs-MacBook-Pro kafka-spring-boot-getting-started % mkdir -p src/main/java/examples
+aj@AJs-MacBook-Pro kafka-spring-boot-getting-started % vi src/main/java/examples/SpringBootWithKafkaApplication.java
+aj@AJs-MacBook-Pro kafka-spring-boot-getting-started % vi src/main/java/examples/Producer.java
+aj@AJs-MacBook-Pro kafka-spring-boot-getting-started % gradle build
+zsh: command not found: gradle
+aj@AJs-MacBook-Pro kafka-spring-boot-getting-started % gradle -v
+zsh: command not found: gradle
+aj@AJs-MacBook-Pro kafka-spring-boot-getting-started % sdk install gradle
+zsh: command not found: sdk
+aj@AJs-MacBook-Pro kafka-spring-boot-getting-started % brew install gradle
+✔︎ JSON API packages.arm64_tahoe.jws.json             Downloaded   15.2MB/ 15.2MB
+==> Would install 1 formula:
+gradle
+==> Downloading https://ghcr.io/v2/homebrew/core/gradle/manifests/9.5.1
+######################################################################### 100.0%
+==> Would install 28 dependencies for gradle:
+gradle-completion
+libpng
+freetype
+giflib
+libunistring
+gettext
+fontconfig
+pcre2
+glib
+xorgproto
+libxau
+libxdmcp
+libxcb
+libx11
+libxext
+libxrender
+lzo
+pixman
+cairo
+graphite2
+icu4c@78
+harfbuzz
+jpeg-turbo
+xz
+zstd
+libtiff
+little-cms2
+openjdk
+==> Do you want to proceed with the installation? [y/n]
+==> Fetching downloads for: gradle
+✔︎ Bottle Manifest gradle-completion (9.5.0)          Downloaded    2.0KB/  2.0KB
+✔︎ Bottle gradle-completion (9.5.0)                   Downloaded   16.9KB/ 16.9KB
+✔︎ Bottle Manifest libpng (1.6.58)                    Downloaded    8.6KB/  8.6KB
+✔︎ Bottle libpng (1.6.58)                             Downloaded  459.8KB/459.8KB
+✔︎ Bottle Manifest freetype (2.14.3)                  Downloaded    9.4KB/  9.4KB
+✔︎ Bottle freetype (2.14.3)                           Downloaded  996.4KB/996.4KB
+✔︎ Bottle Manifest giflib (6.1.3)                     Downloaded    7.7KB/  7.7KB
+✔︎ Bottle giflib (6.1.3)                              Downloaded  143.2KB/143.2KB
+✔︎ Bottle Manifest libunistring (1.4.2)               Downloaded    7.3KB/  7.3KB
+✔︎ Bottle libunistring (1.4.2)                        Downloaded    1.9MB/  1.9MB
+✔︎ Bottle Manifest gettext (1.0)                      Downloaded   13.7KB/ 13.7KB
+✔︎ Bottle Manifest fontconfig (2.18.1)                Downloaded   13.8KB/ 13.8KB
+✔︎ Bottle fontconfig (2.18.1)                         Downloaded  417.0KB/417.0KB
+✔︎ Bottle Manifest pcre2 (10.47_1)                    Downloaded   11.7KB/ 11.7KB
+✔︎ Bottle pcre2 (10.47_1)                             Downloaded    2.4MB/  2.4MB
+✔︎ Bottle Manifest glib (2.88.1)                      Downloaded   21.3KB/ 21.3KB
+✔︎ Bottle Manifest xorgproto (2025.1)                 Downloaded   13.1KB/ 13.1KB
+✔︎ Bottle xorgproto (2025.1)                          Downloaded  720.1KB/720.1KB
+✔︎ Bottle Manifest libxau (1.0.12)                    Downloaded   10.3KB/ 10.3KB
+✔︎ Bottle libxau (1.0.12)                             Downloaded   33.4KB/ 33.4KB
+✔︎ Bottle Manifest libxdmcp (1.1.5)                   Downloaded   12.0KB/ 12.0KB
+✔︎ Bottle libxdmcp (1.1.5)                            Downloaded   36.8KB/ 36.8KB
+✔︎ Bottle Manifest libxcb (1.17.0)                    Downloaded   19.2KB/ 19.2KB
+✔︎ Bottle Manifest libx11 (1.8.13)                    Downloaded   14.4KB/ 14.4KB
+✔︎ Bottle Manifest libxext (1.3.7)                    Downloaded   11.5KB/ 11.5KB
+✔︎ Bottle libxext (1.3.7)                             Downloaded  109.6KB/109.6KB
+✔︎ Bottle Manifest libxrender (0.9.12)                Downloaded   14.2KB/ 14.2KB
+✔︎ Bottle libxrender (0.9.12)                         Downloaded   54.6KB/ 54.6KB
+✔︎ Bottle Manifest lzo (2.10)                         Downloaded   16.7KB/ 16.7KB
+✔︎ Bottle lzo (2.10)                                  Downloaded  149.6KB/149.6KB
+✔︎ Bottle Manifest pixman (0.46.4)                    Downloaded    9.3KB/  9.3KB
+✔︎ Bottle pixman (0.46.4)                             Downloaded  416.2KB/416.2KB
+✔︎ Bottle Manifest cairo (1.18.4)                     Downloaded   29.8KB/ 29.8KB
+✔︎ Bottle Manifest graphite2 (1.3.15)                 Downloaded    8.0KB/  8.0KB
+✔︎ Bottle Manifest icu4c@78 (78.3)                    Downloaded    9.7KB/  9.7KB
+✔︎ Bottle Manifest harfbuzz (14.2.1)                  Downloaded   33.9KB/ 33.9KB
+✔︎ Bottle Manifest xz (5.8.3)                         Downloaded   11.8KB/ 11.8KB
+✔︎ Bottle glib (2.88.1)                               Downloaded    9.3MB/  9.3MB
+✔︎ Bottle cairo (1.18.4)                              Downloaded    1.6MB/  1.6MB
+✔︎ Bottle graphite2 (1.3.15)                          Downloaded   92.4KB/ 92.4KB
+✔︎ Bottle Manifest libtiff (4.7.1_1)                  Downloaded   12.6KB/ 12.6KB
+✔︎ Bottle Manifest little-cms2 (2.19)                 Downloaded   13.0KB/ 13.0KB
+✔︎ Bottle libx11 (1.8.13)                             Downloaded    2.3MB/  2.3MB
+✔︎ Bottle Manifest jpeg-turbo (3.1.4.1)               Downloaded    8.4KB/  8.4KB
+✔︎ Bottle Manifest openjdk (26.0.1)                   Downloaded   44.1KB/ 44.1KB
+✔︎ Bottle libxcb (1.17.0)                             Downloaded  999.8KB/999.8KB
+✔︎ Bottle jpeg-turbo (3.1.4.1)                        Downloaded    1.1MB/  1.1MB
+✔︎ Bottle Manifest zstd (1.5.7_1)                     Downloaded   13.2KB/ 13.2KB
+✔︎ Bottle gettext (1.0)                               Downloaded   10.2MB/ 10.2MB
+✔︎ Bottle xz (5.8.3)                                  Downloaded  770.8KB/770.8KB
+✔︎ Bottle zstd (1.5.7_1)                              Downloaded  793.6KB/793.6KB
+✔︎ Bottle icu4c@78 (78.3)                             Downloaded   31.8MB/ 31.8MB
+✔︎ Bottle harfbuzz (14.2.1)                           Downloaded    3.5MB/  3.5MB
+✔︎ Bottle libtiff (4.7.1_1)                           Downloaded    1.9MB/  1.9MB
+✔︎ Bottle little-cms2 (2.19)                          Downloaded  433.7KB/433.7KB
+✔︎ Bottle openjdk (26.0.1)                            Downloaded  223.1MB/223.1MB
+✔︎ Bottle gradle (9.5.1)                              Downloaded  146.2MB/146.2MB
+==> Installing dependencies for gradle: gradle-completion, libpng, freetype, giflib, libunistring, gettext, fontconfig, pcre2, glib, xorgproto, libxau, libxdmcp, libxcb, libx11, libxext, libxrender, lzo, pixman, cairo, graphite2, icu4c@78, harfbuzz, jpeg-turbo, xz, zstd, libtiff, little-cms2 and openjdk
+==> Installing gradle dependency: gradle-completion
+==> Pouring gradle-completion--9.5.0.all.bottle.tar.gz
+🍺  /opt/homebrew/Cellar/gradle-completion/9.5.0: 7 files, 80.2KB
+==> Installing gradle dependency: libpng
+==> Pouring libpng--1.6.58.arm64_tahoe.bottle.tar.gz
+🍺  /opt/homebrew/Cellar/libpng/1.6.58: 28 files, 1.4MB
+==> Installing gradle dependency: freetype
+==> Pouring freetype--2.14.3.arm64_tahoe.bottle.tar.gz
+🍺  /opt/homebrew/Cellar/freetype/2.14.3: 68 files, 2.7MB
+==> Installing gradle dependency: giflib
+==> Pouring giflib--6.1.3.arm64_tahoe.bottle.tar.gz
+🍺  /opt/homebrew/Cellar/giflib/6.1.3: 19 files, 532.8KB
+==> Installing gradle dependency: libunistring
+==> Pouring libunistring--1.4.2.arm64_tahoe.bottle.tar.gz
+🍺  /opt/homebrew/Cellar/libunistring/1.4.2: 59 files, 5.8MB
+==> Installing gradle dependency: gettext
+==> Pouring gettext--1.0.arm64_tahoe.bottle.tar.gz
+🍺  /opt/homebrew/Cellar/gettext/1.0: 2,499 files, 35.3MB
+==> Installing gradle dependency: fontconfig
+==> Pouring fontconfig--2.18.1.arm64_tahoe.bottle.tar.gz
+==> Regenerating font cache, this may take a while
+==> /opt/homebrew/Cellar/fontconfig/2.18.1/bin/fc-cache --force --really-force -
+🍺  /opt/homebrew/Cellar/fontconfig/2.18.1: 102 files, 1.8MB
+==> Installing gradle dependency: pcre2
+==> Pouring pcre2--10.47_1.arm64_tahoe.bottle.tar.gz
+🍺  /opt/homebrew/Cellar/pcre2/10.47_1: 244 files, 7.3MB
+==> Installing gradle dependency: glib
+==> Pouring glib--2.88.1.arm64_tahoe.bottle.1.tar.gz
+🍺  /opt/homebrew/Cellar/glib/2.88.1: 506 files, 39.9MB
+==> Installing gradle dependency: xorgproto
+==> Pouring xorgproto--2025.1.arm64_tahoe.bottle.tar.gz
+🍺  /opt/homebrew/Cellar/xorgproto/2025.1: 268 files, 4.1MB
+==> Installing gradle dependency: libxau
+==> Pouring libxau--1.0.12.arm64_tahoe.bottle.tar.gz
+🍺  /opt/homebrew/Cellar/libxau/1.0.12: 21 files, 135.0KB
+==> Installing gradle dependency: libxdmcp
+==> Pouring libxdmcp--1.1.5.arm64_tahoe.bottle.tar.gz
+🍺  /opt/homebrew/Cellar/libxdmcp/1.1.5: 12 files, 140.6KB
+==> Installing gradle dependency: libxcb
+==> Pouring libxcb--1.17.0.arm64_tahoe.bottle.1.tar.gz
+🍺  /opt/homebrew/Cellar/libxcb/1.17.0: 2,498 files, 7.9MB
+==> Installing gradle dependency: libx11
+==> Pouring libx11--1.8.13.arm64_tahoe.bottle.tar.gz
+🍺  /opt/homebrew/Cellar/libx11/1.8.13: 1,043 files, 7.4MB
+==> Installing gradle dependency: libxext
+==> Pouring libxext--1.3.7.arm64_tahoe.bottle.tar.gz
+🍺  /opt/homebrew/Cellar/libxext/1.3.7: 88 files, 466.2KB
+==> Installing gradle dependency: libxrender
+==> Pouring libxrender--0.9.12.arm64_tahoe.bottle.tar.gz
+🍺  /opt/homebrew/Cellar/libxrender/0.9.12: 13 files, 224KB
+==> Installing gradle dependency: lzo
+==> Pouring lzo--2.10.arm64_tahoe.bottle.tar.gz
+🍺  /opt/homebrew/Cellar/lzo/2.10: 32 files, 578.4KB
+==> Installing gradle dependency: pixman
+==> Pouring pixman--0.46.4.arm64_tahoe.bottle.1.tar.gz
+🍺  /opt/homebrew/Cellar/pixman/0.46.4: 11 files, 1.4MB
+==> Installing gradle dependency: cairo
+==> Pouring cairo--1.18.4.arm64_tahoe.bottle.2.tar.gz
+🍺  /opt/homebrew/Cellar/cairo/1.18.4: 58 files, 4.6MB
+==> Installing gradle dependency: graphite2
+==> Pouring graphite2--1.3.15.arm64_tahoe.bottle.tar.gz
+🍺  /opt/homebrew/Cellar/graphite2/1.3.15: 19 files, 274.4KB
+==> Installing gradle dependency: icu4c@78
+==> Pouring icu4c@78--78.3.arm64_tahoe.bottle.tar.gz
+🍺  /opt/homebrew/Cellar/icu4c@78/78.3: 279 files, 87.7MB
+==> Installing gradle dependency: harfbuzz
+==> Pouring harfbuzz--14.2.1.arm64_tahoe.bottle.tar.gz
+🍺  /opt/homebrew/Cellar/harfbuzz/14.2.1: 94 files, 13MB
+==> Installing gradle dependency: jpeg-turbo
+==> Pouring jpeg-turbo--3.1.4.1.arm64_tahoe.bottle.tar.gz
+🍺  /opt/homebrew/Cellar/jpeg-turbo/3.1.4.1: 47 files, 3.7MB
+==> Installing gradle dependency: xz
+==> Pouring xz--5.8.3.arm64_tahoe.bottle.tar.gz
+🍺  /opt/homebrew/Cellar/xz/5.8.3: 96 files, 2.7MB
+==> Installing gradle dependency: zstd
+==> Pouring zstd--1.5.7_1.arm64_tahoe.bottle.tar.gz
+🍺  /opt/homebrew/Cellar/zstd/1.5.7_1: 32 files, 2.3MB
+==> Installing gradle dependency: libtiff
+==> Pouring libtiff--4.7.1_1.arm64_tahoe.bottle.tar.gz
+🍺  /opt/homebrew/Cellar/libtiff/4.7.1_1: 488 files, 9.0MB
+==> Installing gradle dependency: little-cms2
+==> Pouring little-cms2--2.19.arm64_tahoe.bottle.tar.gz
+🍺  /opt/homebrew/Cellar/little-cms2/2.19: 23 files, 1.5MB
+==> Installing gradle dependency: openjdk
+==> Pouring openjdk--26.0.1.arm64_tahoe.bottle.tar.gz
+🍺  /opt/homebrew/Cellar/openjdk/26.0.1: 550 files, 398.7MB
+==> Installing gradle
+==> Pouring gradle--9.5.1.all.bottle.tar.gz
+🍺  /opt/homebrew/Cellar/gradle/9.5.1: 11,459 files, 193.5MB
+==> Running `brew cleanup gradle`...
+Disable this behaviour by setting `HOMEBREW_NO_INSTALL_CLEANUP=1`.
+Hide these hints with `HOMEBREW_NO_ENV_HINTS=1` (see `man brew`).
+aj@AJs-MacBook-Pro kafka-spring-boot-getting-started % gradle build       
+
+Welcome to Gradle 9.5.1!
+
+Here are the highlights of this release:
+ - Task provenance in reports and failure messages
+ - Type-safe accessors for precompiled Kotlin Settings plugins
+
+For more details see https://docs.gradle.org/9.5.1/release-notes.html
+
+Starting a Gradle Daemon (subsequent builds will be faster)
+
+FAILURE: Build failed with an exception.
+
+* Where:
+Build file '/Users/aj/Documents/Project-Workspace/L0gN3/B-skillset/B.0-sandbox/confluent-developer/kafka-spring-boot-getting-started/build.gradle' line: 3
+
+* What went wrong:
+A problem occurred evaluating root project 'kafka-spring-boot-getting-started'.
+> Could not find method jcenter() for arguments [] on repository container of type org.gradle.api.internal.artifacts.dsl.DefaultRepositoryHandler.
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights from a Build Scan (powered by Develocity).
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 1s
+aj@AJs-MacBook-Pro kafka-spring-boot-getting-started % gradle build
+> Task :compileJava FAILED
+
+[Incubating] Problems report is available at: file:///Users/aj/Documents/Project-Workspace/L0gN3/B-skillset/B.0-sandbox/confluent-developer/kafka-spring-boot-getting-started/build/reports/problems/problems-report.html
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':compileJava' (registered by plugin class 'org.gradle.api.plugins.JavaBasePlugin').
+> Failed to notify dependency resolution listener.
+   > 'java.util.Set org.gradle.api.artifacts.LenientConfiguration.getArtifacts(org.gradle.api.specs.Spec)'
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights from a Build Scan (powered by Develocity).
+> Get more help at https://help.gradle.org.
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 10.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/9.5.1/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD FAILED in 430ms
+1 actionable task: 1 executed
+aj@AJs-MacBook-Pro kafka-spring-boot-getting-started % gradlew build
+zsh: command not found: gradlew
+aj@AJs-MacBook-Pro kafka-spring-boot-getting-started % ./gradlew build
+
+BUILD SUCCESSFUL in 745ms
+5 actionable tasks: 5 executed
+aj@AJs-MacBook-Pro kafka-spring-boot-getting-started % ./gradlew bootRun --args='--producer'
+
+> Task :bootRun
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.2.3)
+
+2026-06-14T17:33:18.794-04:00  INFO 52347 --- [           main] e.SpringBootWithKafkaApplication         : Starting SpringBootWithKafkaApplication using Java 21.0.9 with PID 52347 (/Users/aj/Documents/Project-Workspace/L0gN3/B-skillset/B.0-sandbox/confluent-developer/kafka-spring-boot-getting-started/build/classes/java/main started by aj in /Users/aj/Documents/Project-Workspace/L0gN3/B-skillset/B.0-sandbox/confluent-developer/kafka-spring-boot-getting-started)
+2026-06-14T17:33:18.795-04:00  INFO 52347 --- [           main] e.SpringBootWithKafkaApplication         : No active profile set, falling back to 1 default profile: "default"
+2026-06-14T17:33:19.065-04:00  INFO 52347 --- [           main] e.SpringBootWithKafkaApplication         : Started SpringBootWithKafkaApplication in 0.388 seconds (process running for 0.503)
+2026-06-14T17:33:19.077-04:00  INFO 52347 --- [           main] o.a.k.clients.producer.ProducerConfig    : ProducerConfig values: 
+        acks = -1
+        auto.include.jmx.reporter = true
+        batch.size = 16384
+        bootstrap.servers = [localhost:54755]
+        buffer.memory = 33554432
+        client.dns.lookup = use_all_dns_ips
+        client.id = producer-1
+        compression.type = none
+        connections.max.idle.ms = 540000
+        delivery.timeout.ms = 120000
+        enable.idempotence = true
+        interceptor.classes = []
+        key.serializer = class org.apache.kafka.common.serialization.StringSerializer
+        linger.ms = 0
+        max.block.ms = 60000
+        max.in.flight.requests.per.connection = 5
+        max.request.size = 1048576
+        metadata.max.age.ms = 300000
+        metadata.max.idle.ms = 300000
+        metric.reporters = []
+        metrics.num.samples = 2
+        metrics.recording.level = INFO
+        metrics.sample.window.ms = 30000
+        partitioner.adaptive.partitioning.enable = true
+        partitioner.availability.timeout.ms = 0
+        partitioner.class = null
+        partitioner.ignore.keys = false
+        receive.buffer.bytes = 32768
+        reconnect.backoff.max.ms = 1000
+        reconnect.backoff.ms = 50
+        request.timeout.ms = 30000
+        retries = 2147483647
+        retry.backoff.ms = 100
+        sasl.client.callback.handler.class = null
+        sasl.jaas.config = null
+        sasl.kerberos.kinit.cmd = /usr/bin/kinit
+        sasl.kerberos.min.time.before.relogin = 60000
+        sasl.kerberos.service.name = null
+        sasl.kerberos.ticket.renew.jitter = 0.05
+        sasl.kerberos.ticket.renew.window.factor = 0.8
+        sasl.login.callback.handler.class = null
+        sasl.login.class = null
+        sasl.login.connect.timeout.ms = null
+        sasl.login.read.timeout.ms = null
+        sasl.login.refresh.buffer.seconds = 300
+        sasl.login.refresh.min.period.seconds = 60
+        sasl.login.refresh.window.factor = 0.8
+        sasl.login.refresh.window.jitter = 0.05
+        sasl.login.retry.backoff.max.ms = 10000
+        sasl.login.retry.backoff.ms = 100
+        sasl.mechanism = GSSAPI
+        sasl.oauthbearer.clock.skew.seconds = 30
+        sasl.oauthbearer.expected.audience = null
+        sasl.oauthbearer.expected.issuer = null
+        sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+        sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+        sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+        sasl.oauthbearer.jwks.endpoint.url = null
+        sasl.oauthbearer.scope.claim.name = scope
+        sasl.oauthbearer.sub.claim.name = sub
+        sasl.oauthbearer.token.endpoint.url = null
+        security.protocol = PLAINTEXT
+        security.providers = null
+        send.buffer.bytes = 131072
+        socket.connection.setup.timeout.max.ms = 30000
+        socket.connection.setup.timeout.ms = 10000
+        ssl.cipher.suites = null
+        ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+        ssl.endpoint.identification.algorithm = https
+        ssl.engine.factory.class = null
+        ssl.key.password = null
+        ssl.keymanager.algorithm = SunX509
+        ssl.keystore.certificate.chain = null
+        ssl.keystore.key = null
+        ssl.keystore.location = null
+        ssl.keystore.password = null
+        ssl.keystore.type = JKS
+        ssl.protocol = TLSv1.3
+        ssl.provider = null
+        ssl.secure.random.implementation = null
+        ssl.trustmanager.algorithm = PKIX
+        ssl.truststore.certificates = null
+        ssl.truststore.location = null
+        ssl.truststore.password = null
+        ssl.truststore.type = JKS
+        transaction.timeout.ms = 60000
+        transactional.id = null
+        value.serializer = class org.apache.kafka.common.serialization.StringSerializer
+
+2026-06-14T17:33:19.119-04:00  INFO 52347 --- [           main] o.a.k.clients.producer.KafkaProducer     : [Producer clientId=producer-1] Instantiated an idempotent producer.
+2026-06-14T17:33:19.135-04:00  INFO 52347 --- [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka version: 3.6.1
+2026-06-14T17:33:19.135-04:00  INFO 52347 --- [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId: 5e3c2b738d253ff5
+2026-06-14T17:33:19.135-04:00  INFO 52347 --- [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka startTimeMs: 1781472799134
+2026-06-14T17:33:19.233-04:00  INFO 52347 --- [ad | producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=producer-1] Cluster ID: 4L6g3nShT-eMCtK--X86sw
+2026-06-14T17:33:19.240-04:00  INFO 52347 --- [ionShutdownHook] o.a.k.clients.producer.KafkaProducer     : [Producer clientId=producer-1] Closing the Kafka producer with timeoutMillis = 30000 ms.
+2026-06-14T17:33:19.342-04:00  INFO 52347 --- [ad | producer-1] o.a.k.c.p.internals.TransactionManager   : [Producer clientId=producer-1] ProducerId set to 0 with epoch 0
+2026-06-14T17:33:19.363-04:00  INFO 52347 --- [ad | producer-1] examples.Producer                        : Produced event to topic purchases: key = awalther   value = t-shirts
+2026-06-14T17:33:19.364-04:00  INFO 52347 --- [ad | producer-1] examples.Producer                        : Produced event to topic purchases: key = htanaka    value = t-shirts
+2026-06-14T17:33:19.364-04:00  INFO 52347 --- [ad | producer-1] examples.Producer                        : Produced event to topic purchases: key = htanaka    value = batteries
+2026-06-14T17:33:19.364-04:00  INFO 52347 --- [ad | producer-1] examples.Producer                        : Produced event to topic purchases: key = eabara     value = t-shirts
+2026-06-14T17:33:19.364-04:00  INFO 52347 --- [ad | producer-1] examples.Producer                        : Produced event to topic purchases: key = htanaka    value = t-shirts
+2026-06-14T17:33:19.364-04:00  INFO 52347 --- [ad | producer-1] examples.Producer                        : Produced event to topic purchases: key = jsmith     value = book
+2026-06-14T17:33:19.364-04:00  INFO 52347 --- [ad | producer-1] examples.Producer                        : Produced event to topic purchases: key = awalther   value = t-shirts
+2026-06-14T17:33:19.364-04:00  INFO 52347 --- [ad | producer-1] examples.Producer                        : Produced event to topic purchases: key = jsmith     value = batteries
+2026-06-14T17:33:19.364-04:00  INFO 52347 --- [ad | producer-1] examples.Producer                        : Produced event to topic purchases: key = jsmith     value = gift card
+2026-06-14T17:33:19.364-04:00  INFO 52347 --- [ad | producer-1] examples.Producer                        : Produced event to topic purchases: key = eabara     value = t-shirts
+2026-06-14T17:33:19.367-04:00  INFO 52347 --- [ionShutdownHook] o.apache.kafka.common.metrics.Metrics    : Metrics scheduler closed
+2026-06-14T17:33:19.367-04:00  INFO 52347 --- [ionShutdownHook] o.apache.kafka.common.metrics.Metrics    : Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2026-06-14T17:33:19.367-04:00  INFO 52347 --- [ionShutdownHook] o.apache.kafka.common.metrics.Metrics    : Metrics reporters closed
+2026-06-14T17:33:19.367-04:00  INFO 52347 --- [ionShutdownHook] o.a.kafka.common.utils.AppInfoParser     : App info kafka.producer for producer-1 unregistered
+
+BUILD SUCCESSFUL in 1s
+4 actionable tasks: 1 executed, 3 up-to-date
+aj@AJs-MacBook-Pro kafka-spring-boot-getting-started % ./gradlew bootRun --args='--consumer'
+
+> Task :bootRun FAILED
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.2.3)
+
+2026-06-14T17:35:16.868-04:00  INFO 52926 --- [           main] e.SpringBootWithKafkaApplication         : Starting SpringBootWithKafkaApplication using Java 21.0.9 with PID 52926 (/Users/aj/Documents/Project-Workspace/L0gN3/B-skillset/B.0-sandbox/confluent-developer/kafka-spring-boot-getting-started/build/classes/java/main started by aj in /Users/aj/Documents/Project-Workspace/L0gN3/B-skillset/B.0-sandbox/confluent-developer/kafka-spring-boot-getting-started)
+2026-06-14T17:35:16.869-04:00  INFO 52926 --- [           main] e.SpringBootWithKafkaApplication         : No active profile set, falling back to 1 default profile: "default"
+2026-06-14T17:35:17.120-04:00  INFO 52926 --- [           main] e.SpringBootWithKafkaApplication         : Started SpringBootWithKafkaApplication in 0.366 seconds (process running for 0.473)
+2026-06-14T17:35:17.121-04:00  INFO 52926 --- [           main] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2026-06-14T17:35:17.127-04:00 ERROR 52926 --- [           main] o.s.boot.SpringApplication               : Application run failed
+
+java.lang.NullPointerException: Cannot invoke "org.springframework.kafka.listener.MessageListenerContainer.start()" because "listenerContainer" is null
+        at examples.SpringBootWithKafkaApplication.lambda$CommandLineRunnerBean$0(SpringBootWithKafkaApplication.java:44) ~[main/:na]
+        at org.springframework.boot.SpringApplication.lambda$callRunner$5(SpringApplication.java:790) ~[spring-boot-3.2.3.jar:3.2.3]
+        at org.springframework.util.function.ThrowingConsumer$1.acceptWithException(ThrowingConsumer.java:83) ~[spring-core-6.1.4.jar:6.1.4]
+        at org.springframework.util.function.ThrowingConsumer.accept(ThrowingConsumer.java:60) ~[spring-core-6.1.4.jar:6.1.4]
+        at org.springframework.util.function.ThrowingConsumer$1.accept(ThrowingConsumer.java:88) ~[spring-core-6.1.4.jar:6.1.4]
+        at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:798) ~[spring-boot-3.2.3.jar:3.2.3]
+        at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:789) ~[spring-boot-3.2.3.jar:3.2.3]
+        at org.springframework.boot.SpringApplication.lambda$callRunners$3(SpringApplication.java:774) ~[spring-boot-3.2.3.jar:3.2.3]
+        at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184) ~[na:na]
+        at java.base/java.util.stream.SortedOps$SizedRefSortingSink.end(SortedOps.java:357) ~[na:na]
+        at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:510) ~[na:na]
+        at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499) ~[na:na]
+        at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:151) ~[na:na]
+        at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:174) ~[na:na]
+        at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234) ~[na:na]
+        at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:596) ~[na:na]
+        at org.springframework.boot.SpringApplication.callRunners(SpringApplication.java:774) ~[spring-boot-3.2.3.jar:3.2.3]
+        at org.springframework.boot.SpringApplication.run(SpringApplication.java:341) ~[spring-boot-3.2.3.jar:3.2.3]
+        at examples.SpringBootWithKafkaApplication.main(SpringBootWithKafkaApplication.java:22) ~[main/:na]
+
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':bootRun'.
+> Process 'command '/Library/Java/JavaVirtualMachines/liberica-jdk-21.jdk/Contents/Home/bin/java'' finished with non-zero exit value 1
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 954ms
+4 actionable tasks: 1 executed, 3 up-to-date
+aj@AJs-MacBook-Pro kafka-spring-boot-getting-started % ls
+build		gradle		gradlew.bat	src
+build.gradle	gradlew		README.md
+aj@AJs-MacBook-Pro kafka-spring-boot-getting-started % cat src/main/java/examples/Con
+cat: src/main/java/examples/Con: No such file or directory
+aj@AJs-MacBook-Pro kafka-spring-boot-getting-started % cat src/main/java/examples/Consumer.java 
+package examples;
+
+import org.apache.kafka.clients.consumer.ConsumerRecord;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.kafka.annotation.KafkaListener;
+import org.springframework.stereotype.Service;
+
+@Service
+public class Consumer {
+
+    private static final Logger logger = LoggerFactory.getLogger(Consumer.class);
+
+    @KafkaListener(id = "myConsumer", topics = "purchases", autoStartup = "false")
+    public void consume(ConsumerRecord<String, String> record) {
+        logger.info(
+            String.format(
+                "Consumed event from topic %s: key = %-10s value = %s",
+                record.topic(),
+                record.key(),
+                record.value()
+            )
+        );
+    }
+
+}
+aj@AJs-MacBook-Pro kafka-spring-boot-getting-started % ./gradlew bootRun --args='--consumer'
+
+> Task :bootRun
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.2.3)
+
+2026-06-14T17:50:07.992-04:00  INFO 57000 --- [           main] e.SpringBootWithKafkaApplication         : Starting SpringBootWithKafkaApplication using Java 21.0.9 with PID 57000 (/Users/aj/Documents/Project-Workspace/L0gN3/B-skillset/B.0-sandbox/confluent-developer/kafka-spring-boot-getting-started/build/classes/java/main started by aj in /Users/aj/Documents/Project-Workspace/L0gN3/B-skillset/B.0-sandbox/confluent-developer/kafka-spring-boot-getting-started)
+2026-06-14T17:50:07.993-04:00  INFO 57000 --- [           main] e.SpringBootWithKafkaApplication         : No active profile set, falling back to 1 default profile: "default"
+2026-06-14T17:50:08.259-04:00  INFO 57000 --- [           main] e.SpringBootWithKafkaApplication         : Started SpringBootWithKafkaApplication in 0.384 seconds (process running for 0.487)
+2026-06-14T17:50:08.272-04:00  INFO 57000 --- [           main] o.a.k.clients.consumer.ConsumerConfig    : ConsumerConfig values: 
+        allow.auto.create.topics = true
+        auto.commit.interval.ms = 5000
+        auto.include.jmx.reporter = true
+        auto.offset.reset = earliest
+        bootstrap.servers = [localhost:54755]
+        check.crcs = true
+        client.dns.lookup = use_all_dns_ips
+        client.id = consumer-myConsumer-1
+        client.rack = 
+        connections.max.idle.ms = 540000
+        default.api.timeout.ms = 60000
+        enable.auto.commit = false
+        exclude.internal.topics = true
+        fetch.max.bytes = 52428800
+        fetch.max.wait.ms = 500
+        fetch.min.bytes = 1
+        group.id = myConsumer
+        group.instance.id = null
+        heartbeat.interval.ms = 3000
+        interceptor.classes = []
+        internal.leave.group.on.close = true
+        internal.throw.on.fetch.stable.offset.unsupported = false
+        isolation.level = read_uncommitted
+        key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+        max.partition.fetch.bytes = 1048576
+        max.poll.interval.ms = 300000
+        max.poll.records = 500
+        metadata.max.age.ms = 300000
+        metric.reporters = []
+        metrics.num.samples = 2
+        metrics.recording.level = INFO
+        metrics.sample.window.ms = 30000
+        partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor, class org.apache.kafka.clients.consumer.CooperativeStickyAssignor]
+        receive.buffer.bytes = 65536
+        reconnect.backoff.max.ms = 1000
+        reconnect.backoff.ms = 50
+        request.timeout.ms = 30000
+        retry.backoff.ms = 100
+        sasl.client.callback.handler.class = null
+        sasl.jaas.config = null
+        sasl.kerberos.kinit.cmd = /usr/bin/kinit
+        sasl.kerberos.min.time.before.relogin = 60000
+        sasl.kerberos.service.name = null
+        sasl.kerberos.ticket.renew.jitter = 0.05
+        sasl.kerberos.ticket.renew.window.factor = 0.8
+        sasl.login.callback.handler.class = null
+        sasl.login.class = null
+        sasl.login.connect.timeout.ms = null
+        sasl.login.read.timeout.ms = null
+        sasl.login.refresh.buffer.seconds = 300
+        sasl.login.refresh.min.period.seconds = 60
+        sasl.login.refresh.window.factor = 0.8
+        sasl.login.refresh.window.jitter = 0.05
+        sasl.login.retry.backoff.max.ms = 10000
+        sasl.login.retry.backoff.ms = 100
+        sasl.mechanism = GSSAPI
+        sasl.oauthbearer.clock.skew.seconds = 30
+        sasl.oauthbearer.expected.audience = null
+        sasl.oauthbearer.expected.issuer = null
+        sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+        sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+        sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+        sasl.oauthbearer.jwks.endpoint.url = null
+        sasl.oauthbearer.scope.claim.name = scope
+        sasl.oauthbearer.sub.claim.name = sub
+        sasl.oauthbearer.token.endpoint.url = null
+        security.protocol = PLAINTEXT
+        security.providers = null
+        send.buffer.bytes = 131072
+        session.timeout.ms = 45000
+        socket.connection.setup.timeout.max.ms = 30000
+        socket.connection.setup.timeout.ms = 10000
+        ssl.cipher.suites = null
+        ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+        ssl.endpoint.identification.algorithm = https
+        ssl.engine.factory.class = null
+        ssl.key.password = null
+        ssl.keymanager.algorithm = SunX509
+        ssl.keystore.certificate.chain = null
+        ssl.keystore.key = null
+        ssl.keystore.location = null
+        ssl.keystore.password = null
+        ssl.keystore.type = JKS
+        ssl.protocol = TLSv1.3
+        ssl.provider = null
+        ssl.secure.random.implementation = null
+        ssl.trustmanager.algorithm = PKIX
+        ssl.truststore.certificates = null
+        ssl.truststore.location = null
+        ssl.truststore.password = null
+        ssl.truststore.type = JKS
+        value.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+
+2026-06-14T17:50:08.321-04:00  INFO 57000 --- [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka version: 3.6.1
+2026-06-14T17:50:08.321-04:00  INFO 57000 --- [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId: 5e3c2b738d253ff5
+2026-06-14T17:50:08.321-04:00  INFO 57000 --- [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka startTimeMs: 1781473808320
+2026-06-14T17:50:08.322-04:00  INFO 57000 --- [           main] fkaConsumerFactory$ExtendedKafkaConsumer : [Consumer clientId=consumer-myConsumer-1, groupId=myConsumer] Subscribed to topic(s): purchases
+2026-06-14T17:50:08.409-04:00  INFO 57000 --- [yConsumer-0-C-1] org.apache.kafka.clients.Metadata        : [Consumer clientId=consumer-myConsumer-1, groupId=myConsumer] Cluster ID: 4L6g3nShT-eMCtK--X86sw
+2026-06-14T17:50:08.410-04:00  INFO 57000 --- [yConsumer-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-myConsumer-1, groupId=myConsumer] Discovered group coordinator localhost:54755 (id: 2147483646 rack: null)
+2026-06-14T17:50:08.410-04:00  INFO 57000 --- [yConsumer-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-myConsumer-1, groupId=myConsumer] (Re-)joining group
+2026-06-14T17:50:08.415-04:00  INFO 57000 --- [yConsumer-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-myConsumer-1, groupId=myConsumer] Request joining group due to: need to re-join with the given member-id: consumer-myConsumer-1-c4e87a14-57d3-44b4-bbfb-660985541f6f
+2026-06-14T17:50:08.415-04:00  INFO 57000 --- [yConsumer-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-myConsumer-1, groupId=myConsumer] Request joining group due to: rebalance failed due to 'The group member needs to have a valid member id before actually entering a consumer group.' (MemberIdRequiredException)
+2026-06-14T17:50:08.415-04:00  INFO 57000 --- [yConsumer-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-myConsumer-1, groupId=myConsumer] (Re-)joining group
+2026-06-14T17:50:08.416-04:00  INFO 57000 --- [yConsumer-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-myConsumer-1, groupId=myConsumer] Successfully joined group with generation Generation{generationId=3, memberId='consumer-myConsumer-1-c4e87a14-57d3-44b4-bbfb-660985541f6f', protocol='range'}
+2026-06-14T17:50:08.417-04:00  INFO 57000 --- [yConsumer-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-myConsumer-1, groupId=myConsumer] Finished assignment for group at generation 3: {consumer-myConsumer-1-c4e87a14-57d3-44b4-bbfb-660985541f6f=Assignment(partitions=[purchases-0])}
+2026-06-14T17:50:08.426-04:00  INFO 57000 --- [yConsumer-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-myConsumer-1, groupId=myConsumer] Successfully synced group in generation Generation{generationId=3, memberId='consumer-myConsumer-1-c4e87a14-57d3-44b4-bbfb-660985541f6f', protocol='range'}
+2026-06-14T17:50:08.426-04:00  INFO 57000 --- [yConsumer-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-myConsumer-1, groupId=myConsumer] Notifying assignor about the new Assignment(partitions=[purchases-0])
+2026-06-14T17:50:08.427-04:00  INFO 57000 --- [yConsumer-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-myConsumer-1, groupId=myConsumer] Adding newly assigned partitions: purchases-0
+2026-06-14T17:50:08.430-04:00  INFO 57000 --- [yConsumer-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-myConsumer-1, groupId=myConsumer] Setting offset for partition purchases-0 to the committed offset FetchPosition{offset=10, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[localhost:54755 (id: 1 rack: null)], epoch=0}}
+2026-06-14T17:50:08.430-04:00  INFO 57000 --- [yConsumer-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : myConsumer: partitions assigned: [purchases-0]
+<==========---> 80% EXECUTING [7s]
+> :bootRun
+^C%                                                                             aj@AJs-MacBook-Pro kafka-spring-boot-getting-started % vi src/main/java/examples/Consumer.java
+aj@AJs-MacBook-Pro kafka-spring-boot-getting-started % ./gradlew bootRun --args='--consumer'
+
+> Task :compileJava FAILED
+/Users/aj/Documents/Project-Workspace/L0gN3/B-skillset/B.0-sandbox/confluent-developer/kafka-spring-boot-getting-started/src/main/java/examples/Consumer.java:16: error: cannot find symbol
+        @Header(KafkaHeaders.RECEIVED_TOPIC) String topic,
+         ^
+  symbol:   class Header
+  location: class Consumer
+/Users/aj/Documents/Project-Workspace/L0gN3/B-skillset/B.0-sandbox/confluent-developer/kafka-spring-boot-getting-started/src/main/java/examples/Consumer.java:16: error: cannot find symbol
+        @Header(KafkaHeaders.RECEIVED_TOPIC) String topic,
+                ^
+  symbol:   variable KafkaHeaders
+  location: class Consumer
+/Users/aj/Documents/Project-Workspace/L0gN3/B-skillset/B.0-sandbox/confluent-developer/kafka-spring-boot-getting-started/src/main/java/examples/Consumer.java:17: error: cannot find symbol
+        @Header(KafkaHeaders.RECEIVED_KEY) String key) {
+         ^
+  symbol:   class Header
+  location: class Consumer
+/Users/aj/Documents/Project-Workspace/L0gN3/B-skillset/B.0-sandbox/confluent-developer/kafka-spring-boot-getting-started/src/main/java/examples/Consumer.java:17: error: cannot find symbol
+        @Header(KafkaHeaders.RECEIVED_KEY) String key) {
+                ^
+  symbol:   variable KafkaHeaders
+  location: class Consumer
+4 errors
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':compileJava'.
+> Compilation failed; see the compiler error output for details.
+
+* Try:
+> Run with --info option to get more log output.
+> Run with --scan to get full insights.
+
+BUILD FAILED in 494ms
+1 actionable task: 1 executed
+aj@AJs-MacBook-Pro kafka-spring-boot-getting-started % vi src/main/java/examples/Consumer.java
+aj@AJs-MacBook-Pro kafka-spring-boot-getting-started % ./gradlew bootRun --args='--consumer'
+
+> Task :bootRun
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.2.3)
+
+2026-06-14T17:54:11.549-04:00  INFO 58194 --- [           main] e.SpringBootWithKafkaApplication         : Starting SpringBootWithKafkaApplication using Java 21.0.9 with PID 58194 (/Users/aj/Documents/Project-Workspace/L0gN3/B-skillset/B.0-sandbox/confluent-developer/kafka-spring-boot-getting-started/build/classes/java/main started by aj in /Users/aj/Documents/Project-Workspace/L0gN3/B-skillset/B.0-sandbox/confluent-developer/kafka-spring-boot-getting-started)
+2026-06-14T17:54:11.550-04:00  INFO 58194 --- [           main] e.SpringBootWithKafkaApplication         : No active profile set, falling back to 1 default profile: "default"
+2026-06-14T17:54:11.826-04:00  INFO 58194 --- [           main] e.SpringBootWithKafkaApplication         : Started SpringBootWithKafkaApplication in 0.41 seconds (process running for 0.542)
+2026-06-14T17:54:11.840-04:00  INFO 58194 --- [           main] o.a.k.clients.consumer.ConsumerConfig    : ConsumerConfig values: 
+        allow.auto.create.topics = true
+        auto.commit.interval.ms = 5000
+        auto.include.jmx.reporter = true
+        auto.offset.reset = earliest
+        bootstrap.servers = [localhost:54755]
+        check.crcs = true
+        client.dns.lookup = use_all_dns_ips
+        client.id = consumer-myConsumer-1
+        client.rack = 
+        connections.max.idle.ms = 540000
+        default.api.timeout.ms = 60000
+        enable.auto.commit = false
+        exclude.internal.topics = true
+        fetch.max.bytes = 52428800
+        fetch.max.wait.ms = 500
+        fetch.min.bytes = 1
+        group.id = myConsumer
+        group.instance.id = null
+        heartbeat.interval.ms = 3000
+        interceptor.classes = []
+        internal.leave.group.on.close = true
+        internal.throw.on.fetch.stable.offset.unsupported = false
+        isolation.level = read_uncommitted
+        key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+        max.partition.fetch.bytes = 1048576
+        max.poll.interval.ms = 300000
+        max.poll.records = 500
+        metadata.max.age.ms = 300000
+        metric.reporters = []
+        metrics.num.samples = 2
+        metrics.recording.level = INFO
+        metrics.sample.window.ms = 30000
+        partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor, class org.apache.kafka.clients.consumer.CooperativeStickyAssignor]
+        receive.buffer.bytes = 65536
+        reconnect.backoff.max.ms = 1000
+        reconnect.backoff.ms = 50
+        request.timeout.ms = 30000
+        retry.backoff.ms = 100
+        sasl.client.callback.handler.class = null
+        sasl.jaas.config = null
+        sasl.kerberos.kinit.cmd = /usr/bin/kinit
+        sasl.kerberos.min.time.before.relogin = 60000
+        sasl.kerberos.service.name = null
+        sasl.kerberos.ticket.renew.jitter = 0.05
+        sasl.kerberos.ticket.renew.window.factor = 0.8
+        sasl.login.callback.handler.class = null
+        sasl.login.class = null
+        sasl.login.connect.timeout.ms = null
+        sasl.login.read.timeout.ms = null
+        sasl.login.refresh.buffer.seconds = 300
+        sasl.login.refresh.min.period.seconds = 60
+        sasl.login.refresh.window.factor = 0.8
+        sasl.login.refresh.window.jitter = 0.05
+        sasl.login.retry.backoff.max.ms = 10000
+        sasl.login.retry.backoff.ms = 100
+        sasl.mechanism = GSSAPI
+        sasl.oauthbearer.clock.skew.seconds = 30
+        sasl.oauthbearer.expected.audience = null
+        sasl.oauthbearer.expected.issuer = null
+        sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+        sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+        sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+        sasl.oauthbearer.jwks.endpoint.url = null
+        sasl.oauthbearer.scope.claim.name = scope
+        sasl.oauthbearer.sub.claim.name = sub
+        sasl.oauthbearer.token.endpoint.url = null
+        security.protocol = PLAINTEXT
+        security.providers = null
+        send.buffer.bytes = 131072
+        session.timeout.ms = 45000
+        socket.connection.setup.timeout.max.ms = 30000
+        socket.connection.setup.timeout.ms = 10000
+        ssl.cipher.suites = null
+        ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+        ssl.endpoint.identification.algorithm = https
+        ssl.engine.factory.class = null
+        ssl.key.password = null
+        ssl.keymanager.algorithm = SunX509
+        ssl.keystore.certificate.chain = null
+        ssl.keystore.key = null
+        ssl.keystore.location = null
+        ssl.keystore.password = null
+        ssl.keystore.type = JKS
+        ssl.protocol = TLSv1.3
+        ssl.provider = null
+        ssl.secure.random.implementation = null
+        ssl.trustmanager.algorithm = PKIX
+        ssl.truststore.certificates = null
+        ssl.truststore.location = null
+        ssl.truststore.password = null
+        ssl.truststore.type = JKS
+        value.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+
+2026-06-14T17:54:11.888-04:00  INFO 58194 --- [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka version: 3.6.1
+2026-06-14T17:54:11.889-04:00  INFO 58194 --- [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId: 5e3c2b738d253ff5
+2026-06-14T17:54:11.889-04:00  INFO 58194 --- [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka startTimeMs: 1781474051888
+2026-06-14T17:54:11.890-04:00  INFO 58194 --- [           main] fkaConsumerFactory$ExtendedKafkaConsumer : [Consumer clientId=consumer-myConsumer-1, groupId=myConsumer] Subscribed to topic(s): purchases
+2026-06-14T17:54:11.981-04:00  INFO 58194 --- [yConsumer-0-C-1] org.apache.kafka.clients.Metadata        : [Consumer clientId=consumer-myConsumer-1, groupId=myConsumer] Cluster ID: 4L6g3nShT-eMCtK--X86sw
+2026-06-14T17:54:11.981-04:00  INFO 58194 --- [yConsumer-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-myConsumer-1, groupId=myConsumer] Discovered group coordinator localhost:54755 (id: 2147483646 rack: null)
+2026-06-14T17:54:11.982-04:00  INFO 58194 --- [yConsumer-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-myConsumer-1, groupId=myConsumer] (Re-)joining group
+2026-06-14T17:54:11.988-04:00  INFO 58194 --- [yConsumer-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-myConsumer-1, groupId=myConsumer] Request joining group due to: need to re-join with the given member-id: consumer-myConsumer-1-a023e68b-2889-4754-9dff-e850f52c9272
+2026-06-14T17:54:11.988-04:00  INFO 58194 --- [yConsumer-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-myConsumer-1, groupId=myConsumer] Request joining group due to: rebalance failed due to 'The group member needs to have a valid member id before actually entering a consumer group.' (MemberIdRequiredException)
+2026-06-14T17:54:11.988-04:00  INFO 58194 --- [yConsumer-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-myConsumer-1, groupId=myConsumer] (Re-)joining group
+2026-06-14T17:54:11.992-04:00  INFO 58194 --- [yConsumer-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-myConsumer-1, groupId=myConsumer] Successfully joined group with generation Generation{generationId=5, memberId='consumer-myConsumer-1-a023e68b-2889-4754-9dff-e850f52c9272', protocol='range'}
+2026-06-14T17:54:11.993-04:00  INFO 58194 --- [yConsumer-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-myConsumer-1, groupId=myConsumer] Finished assignment for group at generation 5: {consumer-myConsumer-1-a023e68b-2889-4754-9dff-e850f52c9272=Assignment(partitions=[purchases-0])}
+2026-06-14T17:54:12.007-04:00  INFO 58194 --- [yConsumer-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-myConsumer-1, groupId=myConsumer] Successfully synced group in generation Generation{generationId=5, memberId='consumer-myConsumer-1-a023e68b-2889-4754-9dff-e850f52c9272', protocol='range'}
+2026-06-14T17:54:12.007-04:00  INFO 58194 --- [yConsumer-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-myConsumer-1, groupId=myConsumer] Notifying assignor about the new Assignment(partitions=[purchases-0])
+2026-06-14T17:54:12.008-04:00  INFO 58194 --- [yConsumer-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-myConsumer-1, groupId=myConsumer] Adding newly assigned partitions: purchases-0
+2026-06-14T17:54:12.010-04:00  INFO 58194 --- [yConsumer-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-myConsumer-1, groupId=myConsumer] Setting offset for partition purchases-0 to the committed offset FetchPosition{offset=10, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[localhost:54755 (id: 1 rack: null)], epoch=0}}
+2026-06-14T17:54:12.011-04:00  INFO 58194 --- [yConsumer-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : myConsumer: partitions assigned: [purchases-0]
+<==========---> 80% EXECUTING [10s]
+> :bootRun
+^C%                                                                             aj@AJs-MacBook-Pro kafka-spring-boot-getting-started % ./gradlew bootRun --args='--consumer'  
+
+> Task :bootRun
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.2.3)
+
+2026-06-14T17:54:39.422-04:00  INFO 58759 --- [           main] e.SpringBootWithKafkaApplication         : Starting SpringBootWithKafkaApplication using Java 21.0.9 with PID 58759 (/Users/aj/Documents/Project-Workspace/L0gN3/B-skillset/B.0-sandbox/confluent-developer/kafka-spring-boot-getting-started/build/classes/java/main started by aj in /Users/aj/Documents/Project-Workspace/L0gN3/B-skillset/B.0-sandbox/confluent-developer/kafka-spring-boot-getting-started)
+2026-06-14T17:54:39.423-04:00  INFO 58759 --- [           main] e.SpringBootWithKafkaApplication         : No active profile set, falling back to 1 default profile: "default"
+2026-06-14T17:54:39.692-04:00  INFO 58759 --- [           main] e.SpringBootWithKafkaApplication         : Started SpringBootWithKafkaApplication in 0.375 seconds (process running for 0.474)
+2026-06-14T17:54:39.705-04:00  INFO 58759 --- [           main] o.a.k.clients.consumer.ConsumerConfig    : ConsumerConfig values: 
+        allow.auto.create.topics = true
+        auto.commit.interval.ms = 5000
+        auto.include.jmx.reporter = true
+        auto.offset.reset = earliest
+        bootstrap.servers = [localhost:54755]
+        check.crcs = true
+        client.dns.lookup = use_all_dns_ips
+        client.id = consumer-myConsumer-1
+        client.rack = 
+        connections.max.idle.ms = 540000
+        default.api.timeout.ms = 60000
+        enable.auto.commit = false
+        exclude.internal.topics = true
+        fetch.max.bytes = 52428800
+        fetch.max.wait.ms = 500
+        fetch.min.bytes = 1
+        group.id = myConsumer
+        group.instance.id = null
+        heartbeat.interval.ms = 3000
+        interceptor.classes = []
+        internal.leave.group.on.close = true
+        internal.throw.on.fetch.stable.offset.unsupported = false
+        isolation.level = read_uncommitted
+        key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+        max.partition.fetch.bytes = 1048576
+        max.poll.interval.ms = 300000
+        max.poll.records = 500
+        metadata.max.age.ms = 300000
+        metric.reporters = []
+        metrics.num.samples = 2
+        metrics.recording.level = INFO
+        metrics.sample.window.ms = 30000
+        partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor, class org.apache.kafka.clients.consumer.CooperativeStickyAssignor]
+        receive.buffer.bytes = 65536
+        reconnect.backoff.max.ms = 1000
+        reconnect.backoff.ms = 50
+        request.timeout.ms = 30000
+        retry.backoff.ms = 100
+        sasl.client.callback.handler.class = null
+        sasl.jaas.config = null
+        sasl.kerberos.kinit.cmd = /usr/bin/kinit
+        sasl.kerberos.min.time.before.relogin = 60000
+        sasl.kerberos.service.name = null
+        sasl.kerberos.ticket.renew.jitter = 0.05
+        sasl.kerberos.ticket.renew.window.factor = 0.8
+        sasl.login.callback.handler.class = null
+        sasl.login.class = null
+        sasl.login.connect.timeout.ms = null
+        sasl.login.read.timeout.ms = null
+        sasl.login.refresh.buffer.seconds = 300
+        sasl.login.refresh.min.period.seconds = 60
+        sasl.login.refresh.window.factor = 0.8
+        sasl.login.refresh.window.jitter = 0.05
+        sasl.login.retry.backoff.max.ms = 10000
+        sasl.login.retry.backoff.ms = 100
+        sasl.mechanism = GSSAPI
+        sasl.oauthbearer.clock.skew.seconds = 30
+        sasl.oauthbearer.expected.audience = null
+        sasl.oauthbearer.expected.issuer = null
+        sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+        sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+        sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+        sasl.oauthbearer.jwks.endpoint.url = null
+        sasl.oauthbearer.scope.claim.name = scope
+        sasl.oauthbearer.sub.claim.name = sub
+        sasl.oauthbearer.token.endpoint.url = null
+        security.protocol = PLAINTEXT
+        security.providers = null
+        send.buffer.bytes = 131072
+        session.timeout.ms = 45000
+        socket.connection.setup.timeout.max.ms = 30000
+        socket.connection.setup.timeout.ms = 10000
+        ssl.cipher.suites = null
+        ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+        ssl.endpoint.identification.algorithm = https
+        ssl.engine.factory.class = null
+        ssl.key.password = null
+        ssl.keymanager.algorithm = SunX509
+        ssl.keystore.certificate.chain = null
+        ssl.keystore.key = null
+        ssl.keystore.location = null
+        ssl.keystore.password = null
+        ssl.keystore.type = JKS
+        ssl.protocol = TLSv1.3
+        ssl.provider = null
+        ssl.secure.random.implementation = null
+        ssl.trustmanager.algorithm = PKIX
+        ssl.truststore.certificates = null
+        ssl.truststore.location = null
+        ssl.truststore.password = null
+        ssl.truststore.type = JKS
+        value.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+
+2026-06-14T17:54:39.751-04:00  INFO 58759 --- [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka version: 3.6.1
+2026-06-14T17:54:39.751-04:00  INFO 58759 --- [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId: 5e3c2b738d253ff5
+2026-06-14T17:54:39.751-04:00  INFO 58759 --- [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka startTimeMs: 1781474079751
+2026-06-14T17:54:39.752-04:00  INFO 58759 --- [           main] fkaConsumerFactory$ExtendedKafkaConsumer : [Consumer clientId=consumer-myConsumer-1, groupId=myConsumer] Subscribed to topic(s): purchases
+2026-06-14T17:54:39.837-04:00  INFO 58759 --- [yConsumer-0-C-1] org.apache.kafka.clients.Metadata        : [Consumer clientId=consumer-myConsumer-1, groupId=myConsumer] Cluster ID: 4L6g3nShT-eMCtK--X86sw
+2026-06-14T17:54:39.837-04:00  INFO 58759 --- [yConsumer-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-myConsumer-1, groupId=myConsumer] Discovered group coordinator localhost:54755 (id: 2147483646 rack: null)
+2026-06-14T17:54:39.838-04:00  INFO 58759 --- [yConsumer-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-myConsumer-1, groupId=myConsumer] (Re-)joining group
+2026-06-14T17:54:39.843-04:00  INFO 58759 --- [yConsumer-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-myConsumer-1, groupId=myConsumer] Request joining group due to: need to re-join with the given member-id: consumer-myConsumer-1-8bfbb5f4-af2a-44ed-89ba-77e60fe4a421
+2026-06-14T17:54:39.843-04:00  INFO 58759 --- [yConsumer-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-myConsumer-1, groupId=myConsumer] Request joining group due to: rebalance failed due to 'The group member needs to have a valid member id before actually entering a consumer group.' (MemberIdRequiredException)
+2026-06-14T17:54:39.843-04:00  INFO 58759 --- [yConsumer-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-myConsumer-1, groupId=myConsumer] (Re-)joining group
+2026-06-14T17:54:39.845-04:00  INFO 58759 --- [yConsumer-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-myConsumer-1, groupId=myConsumer] Successfully joined group with generation Generation{generationId=7, memberId='consumer-myConsumer-1-8bfbb5f4-af2a-44ed-89ba-77e60fe4a421', protocol='range'}
+2026-06-14T17:54:39.846-04:00  INFO 58759 --- [yConsumer-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-myConsumer-1, groupId=myConsumer] Finished assignment for group at generation 7: {consumer-myConsumer-1-8bfbb5f4-af2a-44ed-89ba-77e60fe4a421=Assignment(partitions=[purchases-0])}
+2026-06-14T17:54:39.854-04:00  INFO 58759 --- [yConsumer-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-myConsumer-1, groupId=myConsumer] Successfully synced group in generation Generation{generationId=7, memberId='consumer-myConsumer-1-8bfbb5f4-af2a-44ed-89ba-77e60fe4a421', protocol='range'}
+2026-06-14T17:54:39.854-04:00  INFO 58759 --- [yConsumer-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-myConsumer-1, groupId=myConsumer] Notifying assignor about the new Assignment(partitions=[purchases-0])
+2026-06-14T17:54:39.855-04:00  INFO 58759 --- [yConsumer-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-myConsumer-1, groupId=myConsumer] Adding newly assigned partitions: purchases-0
+2026-06-14T17:54:39.857-04:00  INFO 58759 --- [yConsumer-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-myConsumer-1, groupId=myConsumer] Setting offset for partition purchases-0 to the committed offset FetchPosition{offset=10, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[localhost:54755 (id: 1 rack: null)], epoch=0}}
+2026-06-14T17:54:39.858-04:00  INFO 58759 --- [yConsumer-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : myConsumer: partitions assigned: [purchases-0]
+<==========---> 80% EXECUTING [6s]
+> :bootRun
+^C%                                                                             aj@AJs-MacBook-Pro kafka-spring-boot-getting-started % confluence local kafka stop
+zsh: command not found: confluence
+aj@AJs-MacBook-Pro kafka-spring-boot-getting-started % confluent local kafka stop
+Confluent Local has been stopped: removed container "bf90264e46".
+aj@AJs-MacBook-Pro kafka-spring-boot-getting-started % 
