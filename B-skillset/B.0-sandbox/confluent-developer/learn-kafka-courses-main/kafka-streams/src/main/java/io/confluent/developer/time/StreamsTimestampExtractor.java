@@ -24,13 +24,15 @@ import java.util.concurrent.CountDownLatch;
 
 public class StreamsTimestampExtractor {
 
+    // create an instance of a TimestampExtractor, implementing the extract method and retrieving the ElectronicOrder object from the ConsumerRecord value field; then extract and return the timestamp embedded in the `ElectronicOrder':
     static class OrderTimestampExtractor implements TimestampExtractor {
         @Override
         public long extract(ConsumerRecord<Object, Object> record, long partitionTime) {
             // Extract the timestamp from the value in the record
             // and return that instead
-            return -1L;
-
+            ElectronicOrder order = (ElectronicOrder)record.value();
+            System.out.println("Extracting time of " + order.getTime() + " from " + order);
+            return order.getTime();
         }
     }
 
@@ -47,17 +49,25 @@ public class StreamsTimestampExtractor {
         final SpecificAvroSerde<ElectronicOrder> electronicSerde =
                 StreamsUtils.getSpecificAvroSerde(configMap);
 
+        // create a KStream, and make the familiar builder.stream call:
         final KStream<String, ElectronicOrder> electronicStream =
                 builder.stream(inputTopic,
-                                Consumed.with(Serdes.String(), electronicSerde))
+                                // Add the Consumed configuration object with SerDes for deserialization,
+                                Consumed.with(Serdes.String(), electronicSerde)
+                                        // but with a twist: You're also providing a TimestampExtractor. (You could also specify the TimestampExtractor by configurations, but then it would be global for all streams in the application.)
+                                        .withTimestampExtractor(new OrderTimestampExtractor())
+                        )
                         //Wire up the timestamp extractor HINT do it on the Consumed object vs configs
                         .peek((key, value) -> System.out.println("Incoming record - key " + key + " value " + value));
 
+        // Create a tumbling window aggregation. Keep in mind that the timestamps from ElectronicOrder are what drive the window opening and closing.
         electronicStream.groupByKey().windowedBy(TimeWindows.of(Duration.ofHours(1)))
+                // Call the aggregate method, initializing the aggregate to "0.0" and adding the aggregator instance that sums all prices for the total spent over one hour, based on the timestamp of the record itself. Add SerDes for the state store via a Materialized, and convert the KTable from the aggregation into a KStream.
                 .aggregate(() -> 0.0,
                         (key, order, total) -> total + order.getPrice(),
                         Materialized.with(Serdes.String(), Serdes.Double()))
                 .toStream()
+                // Use a map processor to unwrap the windowed key and return the underlying key of the aggregation, and use a peek processor to print the aggregation results to the console. Finally, write the results out to a topic.
                 .map((wk, value) -> KeyValue.pair(wk.key(), value))
                 .peek((key, value) -> System.out.println("Outgoing record - key " + key + " value " + value))
                 .to(outputTopic, Produced.with(Serdes.String(), Serdes.Double()));
