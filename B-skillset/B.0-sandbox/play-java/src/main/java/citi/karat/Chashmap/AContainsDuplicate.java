@@ -104,7 +104,7 @@ public class AContainsDuplicate {
 }
 
 /**
- * The interview prompt:
+ * The interview prompt:  find duplicates in an array including the brute force approach and the more efficient hashing technique.
  * Clarifying questions to ask:
  * Brute-force idea:
  * Optimal approach:
@@ -123,7 +123,8 @@ class AContainsDuplicateAJKarat {
         int[] arr = {1, 3, 4, 3, 5, 4, 100, 100};
         AContainsDuplicateAJKarat solution = new AContainsDuplicateAJKarat();
         System.out.println("Input: arr = " + Arrays.toString(arr));
-        System.out.println("Duplicate Output: " + solution.findDuplicatesByBruteForce(arr));
+        // System.out.println("Duplicate Output: " + solution.findDuplicatesByBruteForce(arr));
+        System.out.println("Duplicate Output: " + solution.findDuplicatesUsingHashingOrHashMap(arr));
     }
 
     private List<Integer> findDuplicatesByBruteForce(int[] arr) {

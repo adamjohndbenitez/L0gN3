@@ -1,5 +1,7 @@
 package citi.karat.Dstack;
 
+import java.util.ArrayDeque;
+import java.util.Deque;
 import java.util.Stack;
 
 /**
@@ -77,10 +79,32 @@ public class AValidParentheses {
 
             System.out.println("\tIs the string balanced? " + (result ? "True" : "False"));
             System.out.println(new String(new char[100]).replace('\0', '-'));
+            /*
+            Pretty format that looks like this:
+                4.	Check balanced parentheses: '[[{{((}])}])'
+                    Is the string balanced? False
+                ----------------------------------------------------------------------------------------------------
+                5.	Check balanced parentheses: '))))))'
+                    Is the string balanced? False
+                ----------------------------------------------------------------------------------------------------
+             */
         }
     }
 }
 
+
+/**
+ * The interview prompt: check whether a given string containing parentheses is validly parenthesized. You need to ensure every opening parenthesis is closed by the same type and in the correct order.
+ * Clarifying questions to ask: What types of parentheses are included? Can the string be empty? Should we consider only parentheses characters or others too? What should be returned for invalid inputs? These help clarify problem constraints and expected behavior.
+ * Brute-force idea: It is below (got more complicated. See below implementation)
+ * Optimal approach:
+ * Complete Java solution
+ * Dry run with sample input:
+ * Time & space complexity: The time complexity of the Valid Parentheses solution is O(n), where n is the length of the string, because we iterate through the string once. The space complexity is also O(n) in the worst case, as the stack may hold all opening parentheses if no closing ones are encountered.
+ * Edge cases:
+ * Common mistakes:
+ * Likely follow-up questions:
+ */
 class AValidParenthesesAJKarat {
     public static void main(String[] argv) {
         System.out.println("Hello, world!");
@@ -120,5 +144,89 @@ class AValidParenthesesAJKarat {
             }
         }
         return stack.isEmpty();
+    }
+}
+
+class AValidParenthesesBruteForceFenzo {
+    public static void main(String[] args) {
+        String[] tests = {
+                "()",
+                "()[]{}",
+                "(]",
+                "([)]",
+                "{[]}",
+                "(((())))",
+                "(",
+                "",
+                "{[()()]}",
+                "())("
+        };
+
+        for (String s : tests) {
+            boolean byRemoval = isValidByRemovalLoop(s);
+            boolean byStack = isValidByStack(s);
+            // In printf, %s is a placeholder for a string. The -10 means left-align the string within a width of 10 characters, and -5 means left-align within 5 characters. So %-10s prints the string left-aligned in a 10-character wide field, padding with spaces if needed.
+            System.out.printf("Input: %-10s | removal-loop: %-5s | stack: %-5s%n",
+                    quote(s), byRemoval, byStack);
+            /*
+            pretty format that looks like this:
+            Input: "()"       | removal-loop: true  | stack: true
+            Input: "()[]{}"   | removal-loop: true  | stack: true
+            Input: "(]"       | removal-loop: false | stack: false
+             */
+        }
+    }
+
+    /*
+     Brute-force-ish: repeatedly remove immediate matching pairs until no change.
+     Pitfalls:
+     - Must stop when no change occurs (otherwise infinite loop).
+     - Each replace() rebuilds strings; repeated passes can be O(n^2) or worse.
+
+     How to say it out loud: “A brute approach is to keep deleting adjacent matched pairs until nothing changes. It’s correct-ish, but worst-case quadratic and does lots of string copying. A cleaner solution uses a stack: push opens, pop on matching closes, and fail immediately on mismatch or empty stack. One pass, O(n) linear time, with a simple invariant: stack holds unmatched opens.”
+     */
+    static boolean isValidByRemovalLoop(String s) {
+        if ((s.length() & 1) == 1) return false; // odd length can never fully pair
+
+        boolean changed = true;
+        while (changed) {
+            changed = false;
+            String t = s;
+            t = t.replace("()", "");
+            t = t.replace("[]", "");
+            t = t.replace("{}", "");
+            if (t.length() != s.length()) {
+                changed = true;
+                s = t;
+            }
+        }
+        return s.isEmpty();
+    }
+
+    // Preferred: O(n) single pass using a stack.
+    // Early return on first mismatch.
+    static boolean isValidByStack(String s) {
+        if ((s.length() & 1) == 1) return false;
+
+        Deque<Character> stack = new ArrayDeque<>();
+        for (int i = 0; i < s.length(); i++) {
+            char c = s.charAt(i);
+            if (c == '(' || c == '[' || c == '{') {
+                stack.push(c);
+                continue;
+            }
+
+            if (stack.isEmpty()) return false; // must check before pop
+            char top = stack.pop();
+
+            if (c == ')' && top != '(') return false;
+            if (c == ']' && top != '[') return false;
+            if (c == '}' && top != '{') return false;
+        }
+        return stack.isEmpty();
+    }
+
+    private static String quote(String s) {
+        return s.isEmpty() ? "\"\"" : "\"" + s + "\"";
     }
 }

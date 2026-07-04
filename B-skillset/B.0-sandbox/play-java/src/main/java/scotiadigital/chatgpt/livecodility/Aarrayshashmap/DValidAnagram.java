@@ -8,8 +8,10 @@ package scotiadigital.chatgpt.livecodility.Aarrayshashmap;
 public class DValidAnagram {
 
     public static void main(String[] args) {
-//        String s = "anagram", t = "nagaram";
-        String s = "rat", t = "car";
+        String s = "aacc", t = "ccac"; // returns true
+//        String s = "listen", t = "silent"; // returns true
+//        String s = "anagram", t = "nagaram"; // returns true
+//        String s = "rat", t = "car"; // returns false
         System.out.println("Input: s = " + s + ", t = " + t);
         DValidAnagram anagram = new DValidAnagram();
         System.out.println("Output: " + anagram.isAnagram(s, t));
