@@ -100,7 +100,7 @@ public class AValidParentheses {
  * Optimal approach:
  * Complete Java solution
  * Dry run with sample input:
- * Time & space complexity: The time complexity of the Valid Parentheses solution is O(n), where n is the length of the string, because we iterate through the string once. The space complexity is also O(n) in the worst case, as the stack may hold all opening parentheses if no closing ones are encountered.
+ * Time & space complexity: The time complexity of the Valid Parentheses solution is O(n) linear, where n is the length of the string, because we iterate through the string once. The space complexity is also O(n) in the worst case, as the stack may hold all opening parentheses if no closing ones are encountered.
  * Edge cases:
  * Common mistakes:
  * Likely follow-up questions:

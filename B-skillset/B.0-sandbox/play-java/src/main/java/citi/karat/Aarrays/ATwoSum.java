@@ -33,7 +33,7 @@ public class ATwoSum {
         for (int i = 0; i < nums.length - 1; i++) {
             for (int j = i + 1; j < nums.length; j++) {
                 if (nums[i] + nums[j] == target) {
-                    return new int[]{i, j};
+                    return new int[]{i, j}; // only return the (2) indexes
                 }
             }
         }
@@ -195,7 +195,8 @@ class DryRunSampleInputTest {
         int target = 26; // 9;
         try {
 //            int[] result = solution.twoSumBruteForce(nums, target);
-            int[] result = solution.twoSumUsingBinarySearchOptimized(nums, target);
+//            int[] result = solution.twoSumUsingBinarySearchOptimized(nums, target);
+            int[] result = solution.twoSumUsingBinarySearch(nums, target);
             System.out.println("Input: nums = [2, 7, 11, 15], target = 9");
             System.out.println("Output: [" + result[0] + ", " + result[1] + "]");
         } catch (IllegalArgumentException e) {
@@ -218,7 +219,8 @@ class DryRunSampleInputTest {
             System.out.println("\tk: " + k[i]);
 
 //            int[] result = solution.twoSumBruteForceNaive(inputs[i], k[i]);
-            int[] result = solution.twoSumUsingTwoPointers(inputs[i], k[i]);
+//            int[] result = solution.twoSumUsingTwoPointers(inputs[i], k[i]);
+            int[] result = solution.twoSumUsingBinarySearchOptimized(inputs[i], k[i]);
             System.out.println("\n\tResult: " + Arrays.toString(result));
             System.out.println('-' + String.join("", Collections.nCopies(100, "-")) + '\n');
 
